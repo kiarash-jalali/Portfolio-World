@@ -11,9 +11,13 @@
   <main class="fish-lab">
     <section class="stage-shell" aria-labelledby="labTitle">
       <div class="lab-copy">
-        <span class="eyebrow">WORLD LAB · FISH 01</span>
-        <h1 id="labTitle">Does the painting swim?</h1>
-        <p>This is intentionally only one fish, one shadow and procedural water response. If this feels convincing, the next version gets an articulated tail and fins.</p>
+        <span class="eyebrow">WORLD LAB · FISH 02</span>
+        <h1 id="labTitle">Can the painting bend?</h1>
+        <p>
+          Same approved koi, now tested as a deformable PixiJS mesh. Switch between
+          rigid and mesh modes so we can decide whether procedural animation is worth
+          keeping before trying hand-painted frame animation.
+        </p>
       </div>
 
       <div class="stage" id="fishStage">
@@ -21,35 +25,67 @@
         <div class="water-light" aria-hidden="true"></div>
         <div class="pixi-host" id="pixiHost" aria-label="Animated painterly koi prototype"></div>
         <canvas class="fx-canvas" id="fxCanvas" aria-hidden="true"></canvas>
+        <div class="stage-status" id="stageStatus">mesh · 18 fps</div>
         <div class="stage-note">move your pointer near the fish · click near it for a stronger response</div>
       </div>
 
       <aside class="controls" aria-label="Fish lab controls">
+        <fieldset class="choice-group mode-group">
+          <legend>Fish animation</legend>
+          <label><input type="radio" name="fishMode" value="rigid" /> rigid sprite</label>
+          <label><input type="radio" name="fishMode" value="mesh" checked /> mesh swimming</label>
+        </fieldset>
+
         <div class="control-group">
           <label for="speed">Swim speed <output id="speedOut">1.00×</output></label>
           <input id="speed" type="range" min="0.55" max="1.65" step="0.05" value="1" />
         </div>
+
         <div class="control-group">
           <label for="turn">Turn softness <output id="turnOut">1.00×</output></label>
           <input id="turn" type="range" min="0.55" max="1.65" step="0.05" value="1" />
         </div>
+
         <div class="control-group">
-          <label for="sway">Body sway <output id="swayOut">1.5px</output></label>
-          <input id="sway" type="range" min="0" max="4" step="0.25" value="1.5" />
+          <label for="tailStrength">Tail strength <output id="tailStrengthOut">11px</output></label>
+          <input id="tailStrength" type="range" min="0" max="22" step="1" value="11" />
         </div>
-        <fieldset class="fps-group">
+
+        <div class="control-group">
+          <label for="bodyBend">Body bend <output id="bodyBendOut">5px</output></label>
+          <input id="bodyBend" type="range" min="0" max="12" step="0.5" value="5" />
+        </div>
+
+        <div class="control-group">
+          <label for="tailSpeed">Tail speed <output id="tailSpeedOut">1.00×</output></label>
+          <input id="tailSpeed" type="range" min="0.45" max="2.1" step="0.05" value="1" />
+        </div>
+
+        <div class="control-group">
+          <label for="turnBend">Turn bend <output id="turnBendOut">9px</output></label>
+          <input id="turnBend" type="range" min="0" max="20" step="1" value="9" />
+        </div>
+
+        <div class="control-group">
+          <label for="sway">Whole-fish sway <output id="swayOut">0.75px</output></label>
+          <input id="sway" type="range" min="0" max="3" step="0.25" value="0.75" />
+        </div>
+
+        <fieldset class="choice-group fps-group">
           <legend>Art cadence</legend>
           <label><input type="radio" name="artFps" value="12" />12 fps</label>
           <label><input type="radio" name="artFps" value="18" checked />18 fps</label>
           <label><input type="radio" name="artFps" value="24" />24 fps</label>
           <label><input type="radio" name="artFps" value="60" />60 fps</label>
         </fieldset>
+
         <div class="toggle-row">
           <label><input id="shadowToggle" type="checkbox" checked />shadow</label>
           <label><input id="wakeToggle" type="checkbox" checked />wake</label>
           <label><input id="pointerToggle" type="checkbox" checked />pointer</label>
           <label><input id="debugToggle" type="checkbox" />debug</label>
         </div>
+
         <button type="button" id="resetFish">Reset fish</button>
       </aside>
     </section>
