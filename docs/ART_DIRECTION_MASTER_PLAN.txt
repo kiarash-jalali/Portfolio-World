@@ -1,0 +1,2241 @@
+KJ.NET / PORTFOLIO
+MASTER ART-DIRECTION + WORLD-SYSTEM + IMPLEMENTATION PLAN
+Version: 1.0
+Date: 2026-10-10
+
+PURPOSE OF THIS DOCUMENT
+========================
+
+This document is the complete working brief for the next major version of Kiarash Jalali's personal portfolio. It is intentionally detailed enough to hand to another model, designer, illustrator, motion artist, or developer without losing the original intent.
+
+This is NOT a request to "make the current site prettier."
+It is a plan to turn the portfolio into a small illustrated world.
+
+The existing portfolio is technically solid and visually competent, but the new goal is to make it unmistakably personal: artistic, playful, fantastical, culturally specific, and memorable without losing the clarity of a professional front-end portfolio.
+
+Kiarash is a front-end developer, not a professional illustrator. That is not a weakness the design needs to hide. It defines the production strategy:
+- Kiarash can build systems, interactions, state, animation logic, responsive layouts, and integrations.
+- Art assets can be generated collaboratively, sourced legally, commissioned later, or created with learnable tools.
+- The site should use the best technical approach for the desired result, not the easiest approach.
+- JavaScript should remain the main implementation language, but specialist libraries are welcome where they materially improve quality.
+- The project should remain understandable and maintainable by Kiarash rather than becoming an opaque demo built entirely by a framework or shader expert.
+
+The guiding idea is:
+
+    BUILD THE SITE AROUND THE WORLD.
+    DO NOT BUILD THE WORLD AROUND THE OLD SITE.
+
+The pond, Middle-earth homage, illustrative textures, water motion, characters, map-like details, decorative objects, and fantasy interactions become the visual system. Existing futuristic gradients, glassy neon accents, sterile minimalism, and unrelated "tech portfolio" styling should gradually leave.
+
+===============================================================================
+1. CORE CREATIVE IDENTITY
+===============================================================================
+
+The strongest coherent direction from all supplied references is:
+
+    A HAND-PAINTED LIVING POND WORLD
+    WITH PERSIAN TURQUOISE ORNAMENT,
+    STORYBOOK / FANTASY WORLD-BUILDING,
+    AND A SMALL MIDDLE-EARTH FAN-HOMAGE CHAPTER.
+
+Primary mood:
+- painterly
+- gentle
+- magical
+- curious
+- handcrafted
+- alive
+- slightly strange
+- warm rather than corporate
+- artistic without becoming unreadable
+- detailed without becoming cluttered
+- fantastical without turning into a fandom landing page
+
+The site's visual hierarchy should be approximately:
+
+    65–70%  Painted pond / water / flora / natural environment
+    15–20%  Persian turquoise / tile / mosaic / garden ornament
+    10–15%  Fantasy / storybook / Middle-earth narrative elements
+
+This balance prevents the site from becoming:
+- a generic anime fan page,
+- a literal LOTR theme site,
+- a Persian tile catalogue,
+- a game UI mock-up,
+- or a tech portfolio with random decorative art stuck behind it.
+
+Instead, it becomes one invented place with several chapters.
+
+===============================================================================
+2. VISUAL REFERENCES: WHAT WE ARE ACTUALLY TAKING FROM THEM
+===============================================================================
+
+A. HAND-PAINTED POND / LOTUS REFERENCES
+----------------------------------------
+
+Use:
+- visible brush texture
+- watercolor / gouache softness
+- painterly highlights
+- simplified but beautiful forms
+- lily pads with non-perfect edges
+- lotus flowers with deliberate brush planes
+- fish readable by silhouette rather than photoreal anatomy
+- water whose reflections are stylized into shapes
+- controlled use of cyan, teal, turquoise, deep green, cream, coral/red, pink
+
+Avoid:
+- photoreal stock pond photography
+- glossy 3D koi
+- fully procedural vector-looking water
+- perfectly smooth gradients everywhere
+- synthetic "AI wallpaper" finish with no texture hierarchy
+
+Desired feeling:
+"An illustration that happens to be alive."
+
+B. JAPANESE WATER / OLD ANIMATION / WOODBLOCK INFLUENCE
+---------------------------------------------------------
+
+Use conceptually:
+- decisive curved lines
+- stylized wake marks
+- graphic ripple rings
+- white or pale foam / reflection marks
+- simplified animated motion
+- strong fish silhouettes
+- composed negative space
+- rhythmic line patterns around water
+
+Do not directly reproduce protected film stills or production art as final assets.
+Use them as composition, color, and motion references.
+
+C. PERSIAN / IRANIAN TILE + POOL LANGUAGE
+------------------------------------------
+
+Use:
+- firoozeh / turquoise as a material, not merely an accent color
+- blue-green glazed tile fragments beneath water
+- occasional cobalt, cream, gold, earthy brown
+- geometric motifs
+- floral motifs
+- imperfect handmade glaze texture
+- mosaic fragments
+- pool / courtyard associations
+- patterned borders used sparingly
+- underwater tile details partially obscured by algae, sand, caustics, and depth
+
+Critical rule:
+The pond should not look like a tiled swimming pool.
+The viewer should discover fragments of Persian ornament under a natural, old pond.
+
+This is a "memory of a Persian courtyard pond" rather than a literal tiled bathroom surface.
+
+D. STAINED-GLASS REFERENCES
+----------------------------
+
+What we like:
+- segmented shapes
+- strong contour lines
+- jewel colors
+- crafted appearance
+- emblem-like composition
+- sun / moon / celestial imagery
+- botanical motifs
+
+Where to use:
+- small UI emblems
+- section seals
+- decorative modal headers
+- one or two special panel illustrations
+- optional project badges
+- perhaps the "world map" / navigation artifact
+
+Where NOT to use:
+- not the entire pond
+- not every card
+- not every icon
+- not as the dominant page texture
+
+E. FANTASY LANDSCAPE / STORYBOOK / MAP REFERENCES
+---------------------------------------------------
+
+Use:
+- chapter-like world transitions
+- small lore-like labels
+- maps / paths / landmarks
+- parchment textures only where useful
+- hand-drawn route lines
+- heraldic logic for original emblems
+- architectural framing
+- hidden creatures
+- environmental storytelling
+
+Avoid:
+- an all-parchment UI
+- medieval serif text everywhere
+- game-inventory interfaces for normal navigation
+- heavy fake leather / gold beveled borders
+
+F. VIDEO / MOTION REFERENCES
+------------------------------
+
+The supplied videos clarify that the desired animation is NOT:
+- a 60-fps motion-design reel
+- constant particles
+- hyper-smooth synthetic easing
+- high-speed micro-interactions everywhere
+
+The desired motion is:
+- ambient
+- looped
+- painterly
+- calm
+- slightly stepped
+- restrained
+- sometimes intentionally 12–24 fps in visual feel
+- continuously alive but not continuously demanding attention
+
+Important implementation principle:
+The renderer may run at 60 Hz when useful for input and compositing, while the visible "art animation" can update at 12, 18, 20, or 24 fps. This preserves responsive interactions without making the scene feel like a sterile high-framerate game.
+
+===============================================================================
+3. THE PAGE BECOMES A VERTICAL JOURNEY THROUGH THREE WORLDS
+===============================================================================
+
+The page should no longer feel like independent sections stacked over one global background.
+
+Instead, divide it into three large world zones.
+
+WORLD I — THE POND / GARDEN
+----------------------------
+
+Covers approximately:
+- initial opening viewport
+- hero introduction
+- About
+- Education
+- transition up to Skills
+
+Visual character:
+- painterly daylight / late-afternoon pond
+- turquoise / teal water
+- lotus leaves
+- occasional flower
+- hand-painted koi/goldfish
+- visible underwater textures
+- subtle Persian tile fragments
+- sand / dirt / algae
+- reflections of unseen foliage / sky
+- ripples caused by fish
+- occasional small floating leaf or petal
+- possibly the black-cat pond Easter egg later
+
+This world defines the site's MAIN identity.
+
+WORLD II — MIDDLE-EARTH HOMAGE CHAPTER
+---------------------------------------
+
+Covers:
+- Skills
+- transition
+- Work / Projects
+- exits just before AI
+
+This chapter is intentionally more explicit in its LOTR influence than the rest of the site.
+
+Desired feeling:
+The visitor briefly leaves the pond and follows a path into a hand-painted, Shire / Middle-earth-like world.
+
+Potential environment:
+- grassy hillside
+- roots / stone edges
+- worn wooden signs
+- hand-painted sky or valley fragments
+- illustrated greenery
+- parchment / map details
+- warm wood
+- a hobbit-hole door embedded in the scenery
+- Gollum as a rare living page creature
+- project cards integrated into this chapter without becoming unreadable
+
+This is not a full reproduction of Hobbiton.
+It is a fan-homage chapter that can be recognizable and playful.
+
+WORLD III — THE POND RETURNS, TRANSFORMED
+------------------------------------------
+
+Covers:
+- AI
+- Lab
+- Contact
+- Footer
+
+The pond returns, but it should not be identical to World I.
+
+Possible direction:
+- evening / moonlit pond
+- deeper blue / indigo / teal
+- more reflection
+- a few firefly-like glints
+- lotus flowers more visible
+- moon / star stained-glass-like accent motifs
+- more visible turquoise tile on the floor
+- slightly more mysterious / magical mood
+- Lab feels like a hidden corner of the garden
+- Contact feels like the final quiet bank / lantern / note left by the water
+
+Reason:
+Returning to the pond gives the site narrative closure and confirms that the pond is the portfolio's real identity, while the Middle-earth chapter is a deliberate journey inside it.
+
+===============================================================================
+4. TRANSITIONS BETWEEN WORLDS
+===============================================================================
+
+Avoid hard "background color changes."
+
+The transitions should look like moving between places.
+
+WORLD I -> WORLD II
+Possible sequence:
+1. Pond gets shallower.
+2. More stone appears beneath the water.
+3. Lotus density decreases.
+4. A bank / stepping-stone motif appears.
+5. Painted water becomes a narrow stream.
+6. Green grass / moss gradually takes over.
+7. The Skills title appears as the visitor reaches the land.
+8. A small path or map line can continue down the page.
+
+This can happen across approximately 60–120vh of scroll rather than one abrupt border.
+
+WORLD II -> WORLD III
+Possible sequence:
+1. Project chapter reaches a shaded forest / small bridge / stream.
+2. The page gets darker.
+3. Water appears again beneath the lower edge.
+4. The stream widens.
+5. Reflections take over.
+6. The AI section begins over a night-pond backplate.
+7. The fantasy visual system shifts from "Middle-earth landscape" to "mystical garden pond."
+
+The transition itself should be art, not merely CSS.
+
+===============================================================================
+5. POND SYSTEM — MASTER VISUAL SPECIFICATION
+===============================================================================
+
+The pond should be built as multiple layers, not one background image.
+
+Layer order from bottom to top:
+
+LAYER 0 — BASE COLOR FIELD
+- deep teal / turquoise / green-blue painted base
+- broad hand-painted value changes
+- never flat black
+- subtle darker zones for text readability
+
+LAYER 1 — POND FLOOR
+- natural dirt
+- patches of sand
+- fine stones
+- algae
+- underwater plant fragments
+- old tile / mosaic pieces
+- firoozeh ceramic shards
+- occasional gold / cream lines from ornament
+- darker sediment zones
+
+LAYER 2 — PERSIAN ORNAMENT
+- partially buried or worn
+- some complete motifs, some broken
+- varying opacity
+- softened by water depth
+- not repeated as an obvious seamless wallpaper
+- only visible in selected clear-water areas
+
+LAYER 3 — WATER COLOR / DEPTH
+- painterly translucent color wash
+- depth masks
+- shallow vs deep zones
+- tinted areas that conceal the floor
+
+LAYER 4 — CAUSTICS / REFLECTION LINES
+Inspired by the first pond reference:
+- pale hand-painted polygonal / branching highlights
+- slow distortion
+- not photoreal caustics
+- irregular stroke width
+- different density by depth
+- respond subtly to larger ripple events
+
+LAYER 5 — UNDERWATER FISH
+- several visual variants
+- depth tint
+- some partially obscured under lotus leaves
+- gentle body bending
+- painterly tail / fin motion
+
+LAYER 6 — SURFACE RIPPLES / WAKE
+- local to fish
+- not constant circles behind every fish
+- broader wake for faster movement
+- ring ripples for turns / curiosity / clicks
+- occasional very small surface disturbance unrelated to fish
+
+LAYER 7 — LOTUS / LILY / FLOATING OBJECTS
+- large leaves
+- small leaves
+- buds
+- open flowers
+- occasional petal
+- occasional damaged / partially submerged leaf
+- shadow / contact darkening underneath
+
+LAYER 8 — REFLECTION
+- foliage silhouettes
+- sky patches
+- light brush strokes
+- optional architecture fragment reflection
+- low opacity
+- distorted by water field
+- can partially cross fish depending on depth illusion
+
+LAYER 9 — CONTENT
+- semantic HTML
+- selectable text
+- links/buttons
+- content cards
+- transparent / textured surfaces only where readability requires
+
+===============================================================================
+6. WATER MOTION SPECIFICATION
+===============================================================================
+
+The water should never look like a generic WebGL ocean shader.
+
+We want 2D illustrated water whose motion comes from distortion.
+
+Recommended visual recipe:
+- pre-painted water texture
+- pre-painted caustic texture
+- low-frequency displacement noise
+- a dynamic ripple/displacement field
+- multiple parallax speeds
+- slightly quantized art update rate
+
+Three kinds of motion:
+
+A. AMBIENT WATER BREATHING
+- very slow
+- 8–20 second cycles
+- 1–4 px visual movement at normal scale
+- mainly in caustic/reflection layers
+- almost imperceptible if staring at text
+
+B. LOCAL FISH WAKE
+- generated behind a moving fish
+- soft directional distortion
+- can affect reflection and caustic layer
+- fades over 1.5–4 seconds
+- stronger when a fish speeds up or turns
+
+C. RING RIPPLES
+Triggered by:
+- fish occasionally touching surface
+- fish clicking / interactions
+- falling petal
+- optional pointer click on open water
+- lotus movement
+- rare environmental events
+
+Ripples should distort the image rather than simply draw perfect circles on top.
+
+Performance rule:
+Do not run a full physical fluid simulation for the entire viewport unless a prototype proves it adds visible value.
+A lower-resolution ripple map (for example 256–512 px) rendered to texture and used as a displacement source can look better and cost much less.
+
+===============================================================================
+7. FISH ART DIRECTION
+===============================================================================
+
+The current procedural fish should eventually be replaced by actual illustrated assets.
+
+Target:
+- painterly koi / ornamental goldfish
+- hand-made silhouette
+- not photoreal
+- not vector icon
+- not glossy 3D
+- not "cute mobile game fish"
+- not generic AI koi wallpaper
+
+Recommended fish family:
+- 4–6 base designs
+- each with 2–4 color variants if needed
+- red/coral should remain prominent because it reads beautifully against teal
+- include at least one white/red koi
+- one darker rust koi
+- one pale cream fish
+- optional deep indigo / black fish used rarely
+
+Each fish should be prepared as separated pieces if possible:
+- body
+- tail
+- left pectoral fin
+- right pectoral fin
+- dorsal fin
+- optional head highlight
+- optional shadow/depth mask
+
+This allows procedural animation without needing dozens of frames.
+
+Alternative:
+Use short sprite-sheet loops at 12–18 fps for each fish.
+
+Recommended final hybrid:
+- 2D illustrated body parts in PixiJS
+- simple skeletal / hinge motion controlled in JavaScript
+- tail motion = 2 or 3 linked segments or a mesh
+- fins use low-amplitude oscillation
+- body bends slightly during turn
+- texture stays painterly
+
+Behavior remains similar to the current system:
+- independent wander
+- loose world-height distribution
+- rare social clustering
+- shy / curious / neutral personalities if desired
+- no long-term edge clamping
+- pointer reactions subtle, not gimmicky
+
+Color:
+Do not rely on runtime tint to turn one white fish red/blue.
+Make the actual fish art attractive in its final colors.
+Personality should be shown more through behavior and micro-effects than through neon recoloring.
+
+===============================================================================
+8. LOTUS / LILY ASSET SYSTEM
+===============================================================================
+
+Create a modular botanical kit rather than one flat illustration.
+
+Lily pad variants:
+- large clean leaf
+- medium leaf
+- small leaf
+- torn leaf
+- folded / curled edge
+- leaf with water droplets
+- older dark-green leaf
+- young light-green leaf
+
+Flowers:
+- white lotus
+- pale pink lotus
+- saturated pink lotus
+- bud
+- partially open bloom
+
+Possible animation:
+- very small rotation
+- slow drift
+- local ripple
+- 2–4 frame painterly shimmer
+- blossom can gently open only as a rare page event, not a constant loop
+
+Depth:
+Some elements are anchored to the page world.
+Some can drift only within small bounds.
+Do not let all leaves slide freely; it will feel like objects on ice.
+
+===============================================================================
+9. PERSIAN TILE / MOSAIC SYSTEM
+===============================================================================
+
+We should build an ORIGINAL modular set inspired by:
+- Persian firoozeh tile
+- Safavid garden / floral design
+- geometric girih-like patterns
+- irregular ceramic glaze
+- turquoise stone / mosaic references
+
+Asset set:
+- 6–10 tile motifs
+- 3 broken variants
+- 2 border strips
+- 1 circular rosette
+- 1 star-like medallion
+- 2 irregular mosaic patches
+- 1 scattered turquoise stone texture
+
+Usage:
+- pond floor
+- shoreline fragments
+- subtle card ornaments
+- section seals
+- footer
+- hidden details
+
+Palette:
+- turquoise
+- pale turquoise
+- cobalt
+- cream
+- aged white
+- muted gold
+- charcoal grout
+- occasional rust / earthen brown
+
+Texture:
+Keep glaze imperfect.
+Avoid perfectly clean SVG fills for every tile.
+Raster texture or texture masks should break up edges.
+
+===============================================================================
+10. WORLD II — MIDDLE-EARTH HOMAGE: CREATIVE RULES
+===============================================================================
+
+The user deliberately wants recognizable LOTR / Middle-earth references.
+
+This is a personal, noncommercial portfolio, but that does NOT automatically remove copyright or trademark risk.
+
+Practical approach:
+- Do not rip movie frames, official art, official logos, soundtracks, or game assets.
+- Do not imply endorsement.
+- Create original fan-art assets.
+- Keep the references clearly playful and secondary to the portfolio.
+- Consider a small footer / credits note:
+  "Unofficial personal fan homage. Middle-earth / The Lord of the Rings and related names and marks belong to their respective rights holders."
+- If the portfolio later becomes monetized, highly trafficked, or used directly as a commercial product, re-evaluate this section.
+
+Recognizability is allowed as an intentional aesthetic goal in the plan.
+Asset originality is the risk-control mechanism.
+
+===============================================================================
+11. SKILLS + WORK MIDDLE-EARTH CHAPTER
+===============================================================================
+
+This zone should still work as a professional portfolio.
+
+Do NOT bury skill information under scenery.
+
+Suggested composition:
+
+SKILLS:
+- green hillside / path / edge of Shire-like environment
+- skill groups appear as illustrated field notes / signboards / travel ledger
+- background remains painterly
+- labels still modern enough to read quickly
+- no neon percentage bars
+- consider replacing skill bars with:
+  - carved / painted track
+  - small leaves / stones on a path
+  - stamped proficiency tags
+  - simple "use often / project experience / learning" states
+
+WORK:
+- environment becomes more adventurous / detailed
+- project cards feel like locations / entries in a travel journal
+- Rootine remains visually prioritized
+- map line or path can connect projects
+- optional miniature project "landmarks"
+- repository / live-demo buttons remain obvious and conventional enough to use
+
+===============================================================================
+12. HOBBIT-HOLE DOOR INTERACTION
+===============================================================================
+
+Concept:
+A hobbit-home door exists in the background / side of the Skills or Work zone.
+
+Idle state:
+- round painted door
+- grass roof
+- flowers / stones / warm window
+- subtle environment loop
+- occasional leaf movement
+- optional little smoke from chimney
+
+Interaction:
+On click/tap:
+1. latch moves
+2. door opens inward
+3. interior warm light appears
+4. a small hobbit steps / leans into view
+5. hobbit waves
+6. optional second small gesture selected randomly
+7. hobbit retreats
+8. door closes
+9. short cooldown prevents spam
+
+Duration:
+approximately 4–8 seconds.
+
+Visual frame rate:
+12–18 fps if sprite-animated.
+This supports the old-animation / storybook feel.
+
+Best production options:
+
+OPTION A — SPRITE SHEET (recommended for painterly art)
+- Generate / draw key poses.
+- Clean them manually.
+- Interpolate or draw in-betweens.
+- Export atlas.
+- PixiJS plays animation.
+Advantages:
+  * painterly texture preserved
+  * reliable in browser
+  * simple runtime
+  * can be very stylized
+  * no complicated rig
+Disadvantages:
+  * more asset work
+
+OPTION B — RIVE
+Good if the door / hobbit design becomes more vector / illustrated than painterly.
+Rive supports interactive state machines and web runtimes.
+Use if:
+- we want hover/click states
+- we can recreate art as layered vector/raster-friendly components
+- we want visual animation authoring rather than coding every pose
+
+OPTION C — SPINE 2D
+Best if we want a sophisticated skeletal character rig and are willing to adopt its editor/licensing workflow.
+Spine has official runtimes for PixiJS, Three.js, Canvas, WebGL, etc.
+This would be useful for a reusable Gollum character more than a one-shot door.
+
+Recommendation:
+Use sprite animation for the door sequence first.
+Do not introduce a character-animation tool only for one interaction.
+
+===============================================================================
+13. GOLLUM SYSTEM — "A CREATURE THAT LIVES IN THE PAGE"
+===============================================================================
+
+Gollum is not a clickable mascot.
+He is a rare autonomous page event.
+
+Core states:
+- hidden
+- sneak
+- watch
+- crawl
+- climb
+- sit
+- sleep
+- steal-word
+- inspect-object
+- find-ring
+- ring-slip
+- angry
+- escape
+
+He should NOT always be visible.
+
+Spawn logic:
+- only inside the Middle-earth zone
+- minimum delay after page load
+- event interval randomized
+- for example one meaningful event every 45–100 seconds
+- do not guarantee events on short visits
+- never run several major events simultaneously
+- use a seedable/event scheduler for debugging
+
+Example weighted event table:
+- 30% sneak across edge
+- 20% sit/watch
+- 15% sleep briefly
+- 15% climb a card / heading
+- 10% steal a word
+- 7% find-ring sequence
+- 3% rare special sequence
+
+Exact weights should be adjusted after watching it in practice.
+
+Gollum should have a "director" that understands:
+- current scroll location
+- visible section
+- available safe space
+- whether a modal is open
+- whether user is interacting with a form
+- device size
+- reduced-motion preference
+- last event time
+
+If conditions are bad, he stays hidden.
+
+===============================================================================
+14. GOLLUM WORD-STEAL SYSTEM — OPTIMIZED DESIGN
+===============================================================================
+
+User's original idea:
+Randomly select a word in a live page element near him, preferably the line he is standing on; Gollum steals it; word disappears; he runs away. Rare, around once per minute at most.
+
+Do NOT scan and tokenize the whole DOM every animation frame.
+
+Recommended architecture:
+
+A. BUILD ELIGIBLE TEXT INDEX ONLY WHEN NECESSARY
+On:
+- Middle-earth zone activation
+- language change
+- major responsive resize
+- content rerender
+
+Collect candidate text containers:
+- paragraphs
+- headings
+- skill labels
+- project descriptions
+Exclude:
+- links
+- buttons
+- form controls
+- code
+- live-demo iframe
+- nav
+- hidden elements
+- aria-live regions
+
+B. EVENT-TIME CANDIDATE SEARCH
+Only when a steal event is selected:
+1. Get Gollum's planned baseline Y.
+2. Check cached eligible containers currently visible.
+3. Use DOM Range APIs to locate words / client rects.
+4. Score words by:
+   - vertical distance from Gollum
+   - word length (prefer 4–12 characters)
+   - available horizontal room
+   - not punctuation-only
+   - not brand / important action label
+5. Pick from top few candidates with randomness.
+
+C. VISUAL STEAL WITHOUT LAYOUT COLLAPSE
+When a word is selected:
+- isolate the word with a temporary span
+- preserve its exact layout width
+- visually hide original characters without collapsing the line
+- create an absolutely-positioned clone above the world canvas / DOM
+- mark clone aria-hidden
+- Gollum reaches for the clone
+- clone attaches to hand / bag / body
+- Gollum leaves
+
+Do NOT cause paragraph reflow.
+Reflow would make the page jump and make the trick feel broken.
+
+D. ACCESSIBILITY
+The semantic text should remain available to screen readers.
+The "stolen" version should be purely visual.
+Do not actually delete important DOM text.
+
+E. RESTORE
+After:
+- Gollum exits
+- 8–20 seconds
+- section leaves viewport
+- language changes
+restore visual word normally.
+
+F. SAFETY / UX RULES
+Never steal:
+- email address
+- form text
+- project button labels
+- headings currently targeted by navigation
+- anything inside the active modal
+- a word the user is selecting
+- a word inside the iframe
+
+===============================================================================
+15. GOLLUM RING EVENT
+===============================================================================
+
+Rare sequence:
+1. Gollum appears from edge.
+2. Sees a small ring.
+3. Stops.
+4. Looks around.
+5. Picks it up.
+6. Moves quickly.
+7. Slips / stumbles.
+8. Ring pops out.
+9. Ring bounces / rolls away.
+10. Gollum freezes.
+11. Anger animation.
+12. Scrambles after it.
+13. Both disappear.
+
+Technical implementation:
+- no physics engine required initially
+- GSAP timeline or custom easing can animate ring trajectory
+- 2D bezier / ballistic arc
+- ring rotation
+- two or three bounces
+- Gollum animation synchronized via sprite state
+
+Sound:
+Avoid official LOTR audio.
+If any sound is added later, use original / licensed small foley only and default muted or user-initiated.
+
+===============================================================================
+16. OPTIONAL GOLLUM TEXT-CLIMB SYSTEM
+===============================================================================
+
+Concept:
+Gollum occasionally climbs around the edge of a text block.
+
+Implementation:
+- identify a target card / text container
+- create a motion path from lower edge to side / top
+- play climbing sprite animation
+- use DOM element bounding rectangle only at event start
+- re-evaluate if user scrolls quickly
+- abort if target moves out of view
+
+Important:
+He should appear to inhabit the layout, not simply move over the viewport.
+
+===============================================================================
+17. WORLD III — AI + LAB + CONTACT POND
+===============================================================================
+
+The pond comes back in a different mood.
+
+Suggested art direction:
+"Moon Garden / Deep Pond"
+
+Differences from World I:
+- darker cobalt / teal
+- moonlight patches
+- stronger reflection
+- slower fish
+- more open dark space for text
+- pink / white lotus as focal points
+- gold / cream details become more visible
+- Persian tile glints visible below surface
+- occasional star-like reflection
+- subtle stained-glass celestial accents
+
+AI section:
+Keep content plain and honest.
+Do not make the AI section itself futuristic.
+The contrast is deliberate:
+- painterly water
+- human / handmade atmosphere
+- simple explanation of AI workflow
+
+Lab:
+"My little garden of code" becomes literal in tone:
+- small hidden patch / pond edge
+- experiments can look like curiosities in the garden
+- interactive demos remain modern underneath
+- visual labels can use botanical / illustrated framing
+
+Contact:
+A quiet final scene.
+Possibilities:
+- lantern reflection
+- small wooden landing
+- floating note
+- single lotus
+- moon reflection
+- subtle invitation to talk
+
+===============================================================================
+18. UI DESIGN SYSTEM: WHAT MUST CHANGE
+===============================================================================
+
+REMOVE / REDUCE:
+- purple-to-cyan futuristic gradients
+- glassmorphism as a default
+- generic neon outlines
+- tech-demo glow everywhere
+- overly minimal floating rectangles
+- hard "SaaS" card language
+- decorative motion unrelated to the world
+
+REPLACE WITH:
+- painted / paper / wood / ceramic material cues
+- ink lines
+- warm cream
+- turquoise glaze
+- dark pond blue
+- moss green
+- faded gold
+- coral / rust fish color
+- soft shadow
+- slightly imperfect borders
+- hand-crafted detail
+
+Important:
+The new UI must not become "medieval cosplay."
+Buttons still need to look clickable.
+Navigation still needs to be obvious.
+Forms still need to behave normally.
+
+===============================================================================
+19. NAVIGATION
+===============================================================================
+
+Keep usability high.
+
+Potential evolution:
+- nav sits like a quiet floating strip over the pond
+- no bright gradient Contact pill
+- use muted cream / dark ink / turquoise accent
+- small illustrated divider marks
+- optional sun/moon theme icon later
+- subtle paper / ceramic / dark wood material depending on world
+- nav can adapt slightly by world without moving structurally
+
+A strong future idea:
+Replace "light/dark" with "day/night" visual world state.
+
+DAY:
+- brighter turquoise pond
+- warmer greens
+- cream interface
+- sunlit highlights
+
+NIGHT:
+- indigo / dark teal
+- moon reflection
+- gold / pale cyan highlights
+- more stars / firefly glints
+
+This is more coherent than a generic CSS light/dark switch.
+
+Do this only after the new world system is stable.
+
+===============================================================================
+20. CARDS / PROJECT UI
+===============================================================================
+
+Project information still needs to be readable in seconds.
+
+Recommended project card structure:
+- illustrated frame / surface
+- content remains actual DOM text
+- subtle texture background
+- project image / preview
+- tags
+- actions
+
+Rootine:
+Keep the live demo.
+It can become a "window" / "book page" / "artifact display" inside the world, but DO NOT visually hide that it is interactive.
+
+Possible Middle-earth chapter styling:
+- project cards as travel-journal entries
+- small map coordinates / location marks as decorative meta
+- Rootine can be the "featured destination"
+- other projects can be smaller route stops
+
+Avoid:
+- making every project into a literal fantasy object
+- forcing users to decode what is a link
+
+===============================================================================
+21. TYPOGRAPHY
+===============================================================================
+
+Typography should become warmer and more editorial.
+
+Body:
+- modern readable sans serif
+- current body can remain clean
+- Persian remains with Vazirmatn for now
+
+Display:
+Consider a serif or humanist display face with fantasy/editorial character,
+BUT avoid recognizable LOTR-style typefaces for normal headings.
+
+Potential direction:
+- readable editorial serif for chapter titles
+- sans serif body
+- mono only for technical metadata / tiny labels
+
+Use special fantasy calligraphy only as:
+- tiny Easter egg
+- map label
+- decorative prop
+- not the main content font
+
+===============================================================================
+22. MOTION LANGUAGE
+===============================================================================
+
+Three animation tiers:
+
+TIER 1 — AMBIENT
+Always or frequently active:
+- water drift
+- subtle reflections
+- leaf sway
+- fish movement
+- very faint caustics
+Visual cadence:
+- 12–24 fps aesthetic
+- low amplitude
+
+TIER 2 — RESPONSIVE
+Triggered by user:
+- fish avoid / approach
+- water click ripple
+- door opening
+- card lift / physical response
+- lotus small displacement
+Cadence can be smoother internally for responsiveness.
+
+TIER 3 — RARE STORY EVENTS
+- Gollum steals word
+- Gollum sleeps
+- ring event
+- unusual fish behavior
+- petal falls
+- cat eyes appear
+These should remain memorable because they are rare.
+
+Rule:
+If everything moves, nothing feels alive.
+
+===============================================================================
+23. TECHNOLOGY CHOICE — RECOMMENDED STACK
+===============================================================================
+
+Keep the site primarily vanilla JavaScript / semantic HTML / CSS.
+
+Add specialist libraries only where they solve a real visual problem.
+
+RECOMMENDED CORE GRAPHICS ENGINE: PIXIJS 8
+-------------------------------------------
+
+Why:
+- purpose-built high-performance 2D renderer
+- supports sprites, masks, dynamic textures, custom meshes, shaders, blend modes
+- mouse / touch interaction
+- asset loading
+- good fit for painterly 2D worlds
+- WebGL production path is mature
+- can use GPU-accelerated displacement / filters
+- supports custom shaders for water
+- far more appropriate than Three.js for a primarily 2D painted pond
+
+Official docs currently recommend WebGL renderer for production, while WebGPU remains less predictable across browsers.
+
+Use PixiJS for:
+- pond scene graph
+- fish
+- lotus / petals
+- ripple render texture
+- underwater mosaic layers
+- texture displacement
+- Gollum sprite runtime if sprite-based
+- Hobbit-door sprite animation
+- environmental particles
+- scene culling
+
+Do NOT use PixiJS for:
+- body text
+- navigation text
+- forms
+- project content
+- accessibility-critical UI
+
+Those stay HTML.
+
+SCROLL / CHOREOGRAPHY: GSAP + SCROLLTRIGGER
+--------------------------------------------
+
+Use ScrollTrigger for:
+- world transition progress
+- parallax between layers
+- moving from pond to land
+- Middle-earth to pond return
+- project chapter reveals
+- door / prop trigger ranges
+- synchronized CSS / DOM transitions
+
+Why:
+- robust scroll position system
+- responsive recalculation
+- callback / timeline control
+- less manual scroll math
+- suitable for long narrative page sections
+
+Do not use it to scroll-jack the page.
+Normal scrolling remains normal.
+
+CHARACTER ANIMATION OPTIONS
+---------------------------
+
+RIVE:
+Use if we want:
+- interactive vector / hybrid illustrated components
+- state-machine driven animation
+- designer-visible state logic
+- responsive character / UI assets
+
+Rive is especially attractive for:
+- animated emblems
+- magical dialog seals
+- door mechanisms
+- UI ornaments
+- simpler characters
+
+SPINE:
+Consider if Gollum becomes sophisticated enough to justify:
+- skeletal character animation
+- animation blending
+- reusable pose system
+- procedural manipulation
+
+Spine officially provides runtimes for PixiJS and web environments.
+However, it introduces an editor / licensing workflow and more production complexity.
+
+Recommendation for v1:
+- PixiJS + sprite sheets / layered parts
+- GSAP ScrollTrigger
+- no Spine until Gollum art proves we need it
+- Rive only for specific UI/character assets where it clearly helps
+
+THREE.JS:
+Do NOT make Three.js the default pond engine.
+Three.js has excellent water / reflection examples and GPU water simulations, but the target is a 2D illustrated pond, not a 3D ocean.
+
+Potential later use:
+- a special 3D map artifact
+- actual perspective / camera scene
+- sophisticated reflective 3D object
+
+Not needed for the main design.
+
+===============================================================================
+24. BUILD TOOL / PROJECT ARCHITECTURE
+===============================================================================
+
+Current portfolio is modular plain HTML/CSS/JS.
+
+For the new system, consider introducing Vite while remaining vanilla JS.
+
+Why:
+- npm dependencies become sane
+- PixiJS / GSAP can be versioned normally
+- asset imports / hashes
+- code splitting
+- easier dev server
+- better production bundling
+- still no React required
+
+Suggested structure:
+
+src/
+  js/
+    main.js
+    content.js
+    i18n.js
+    ui/
+    world/
+      WorldManager.js
+      SceneManager.js
+      PerformanceManager.js
+      AssetLoader.js
+      input.js
+      pond/
+        PondScene.js
+        WaterRenderer.js
+        RippleField.js
+        FishSystem.js
+        LotusSystem.js
+        ReflectionLayer.js
+        PondFloor.js
+      middle-earth/
+        MiddleEarthScene.js
+        HobbitDoor.js
+        GollumDirector.js
+        WordSteal.js
+        RingEvent.js
+      night-pond/
+        NightPondScene.js
+  styles/
+    ...
+  assets/
+    pond/
+    fish/
+    lotus/
+    tiles/
+    middle-earth/
+    gollum/
+    ui/
+    textures/
+
+Important:
+World visuals are a subsystem.
+Content/i18n should not know rendering details.
+
+===============================================================================
+25. WORLD MANAGER
+===============================================================================
+
+WorldManager responsibilities:
+- know page scroll position
+- know which world is active
+- start / pause visual systems
+- expose normalized world progress
+- handle resize
+- handle reduced motion
+- lower quality on weak devices
+- pause when tab hidden
+- coordinate theme / nav style
+- prevent multiple expensive scenes from rendering at full speed simultaneously
+
+Only active/nearby worlds render continuously.
+
+Example:
+- World I active: full
+- World II near: preloaded, low update
+- World III far: static / paused
+
+As scroll advances:
+- fade / transition runtime ownership
+
+===============================================================================
+26. PERFORMANCE STRATEGY
+===============================================================================
+
+Quality matters, but a portfolio that burns a laptop GPU is a bad portfolio.
+
+DESKTOP TARGET:
+- maintain responsive interaction
+- GPU canvas can render at display refresh if needed
+- art motion may intentionally step at 18–24 fps
+- cap internal resolution around 1.5–2x DPR
+- high-resolution textures only where visible
+
+MOBILE TARGET:
+- fewer fish
+- fewer lotus layers
+- smaller ripple map
+- lower DPR
+- lower shader resolution
+- Gollum events simpler or disabled on very small screens
+- world transitions simplified
+- no huge 4K texture decoded unnecessarily
+
+IDLE / BACKGROUND:
+- pause scene when document hidden
+- IntersectionObserver or world visibility
+- stop expensive updates when zone far offscreen
+- texture atlases
+- object pooling for ripples / particles
+- no DOM rect measurement every frame
+- no giant full-page canvas with high DPR if not needed
+
+The "low-framerate art" goal helps performance.
+
+===============================================================================
+27. ASSET PRODUCTION PIPELINE
+===============================================================================
+
+Every important asset goes through:
+
+STEP 1 — REFERENCE BOARD
+- select 3–8 references
+- identify exact traits
+- never "make it like everything"
+
+STEP 2 — GENERATE / DRAW MASTER
+Possible tools:
+- ChatGPT image generation
+- other image models
+- Krita
+- Photoshop / Photopea
+- Procreate if available
+- GIMP
+- Blender only if useful
+
+STEP 3 — HUMAN CLEANUP
+Mandatory for hero assets:
+- fix anatomy
+- remove AI artifacts
+- clean edges
+- correct perspective
+- unify palette
+- remove unwanted pseudo-text
+- check lighting
+
+STEP 4 — LAYER SEPARATION
+Separate:
+- foreground
+- background
+- movable parts
+- masks
+- shadows
+- highlights
+
+STEP 5 — EXPORT
+Use:
+- AVIF/WebP for large opaque backgrounds
+- WebP/PNG for transparency depending quality
+- compressed texture atlases where useful
+- SVG for simple decorative motifs
+- sprite sheets for painterly animated sequences
+
+STEP 6 — BROWSER TEST
+- desktop
+- mobile
+- high-DPI
+- low-power device
+- light/night state if applicable
+
+===============================================================================
+28. EXACT ASSET INVENTORY — FIRST MAJOR VERSION
+===============================================================================
+
+POND WORLD
+----------
+1. Master daylight pond-floor painting
+2. Deep-water overlay
+3. Hand-painted caustic overlay A
+4. Hand-painted caustic overlay B
+5. Reflection texture A
+6. Reflection texture B
+7. Persian mosaic patch A
+8. Persian mosaic patch B
+9. broken tile cluster
+10. algae texture
+11. sand/dirt texture
+12. small stones texture
+13. ripple/displacement texture
+14. optional noise / paper texture
+
+FISH
+----
+15. koi A
+16. koi B
+17. koi C
+18. ornamental fish D
+19. dark fish E
+20. optional tiny schooling fish group
+For each: body / tail / fins or sprite animation data
+
+LOTUS / FLORA
+-------------
+21–27. lily pad variants
+28. white flower
+29. pink flower
+30. deep pink flower
+31. bud
+32. floating petal
+33. reed cluster
+34. submerged plant fragment
+
+MIDDLE-EARTH WORLD
+------------------
+35. hillside / grass master background
+36. soil / root / moss texture
+37. path texture
+38. warm sky / distant valley
+39. Hobbit-hole facade
+40. closed door
+41. open door / interior
+42. Hobbit animation
+43. chimney / leaf / smoke ambient assets
+44. wooden sign / frame
+45. map-line / path graphic
+46. parchment texture subtle
+47. stone cluster
+48. flowers / fence details
+
+GOLLUM
+------
+49. base character design sheet
+50. sneak animation
+51. crawl
+52. idle/watch
+53. climb
+54. sit
+55. sleep
+56. steal
+57. carry-word
+58. ring discovery
+59. slip
+60. angry
+61. escape
+62. ring sprite
+63. optional shadow
+
+NIGHT POND
+----------
+64. night color-grade / alternate base
+65. moon reflection
+66. star glints
+67. dark reflection texture
+68. night caustic texture
+69. optional lantern glow
+70. night lotus color variant
+
+UI / ORNAMENT
+-------------
+71. section seal set
+72. ripple emblem
+73. lotus emblem
+74. fish emblem
+75. moon emblem
+76. map pin / route marker
+77. decorative divider
+78. small Persian tile rosette
+79. dialog corner ornament
+80. subtle stained-glass celestial mark
+
+This list can shrink after prototyping.
+
+===============================================================================
+29. ASSET RESOLUTION GUIDELINES
+===============================================================================
+
+Large scene backplates:
+- working master: 3000–5000 px long side
+- web export: responsive variants around 1600 / 2400 / 3200 where needed
+- do not serve 5K to mobile
+
+Standalone lotus:
+- master: 1024 px
+- web: 256–768 depending screen size
+
+Fish:
+- master art: 768–1200 px long side
+- runtime display generally 60–220 CSS px
+- high source resolution allows clean scaling
+
+Gollum:
+- master: character ~1200–1800 px tall
+- runtime: usually 80–250 px
+- sprite sheets should be packed efficiently
+- consider 2x asset scale
+
+Hobbit door:
+- master around 1600–2400 px
+- runtime depends composition
+
+Tile motifs:
+- 512–1024 each
+- build atlases / repeated fragments
+
+===============================================================================
+30. GENERATIVE ART PROMPT BIBLE — STYLE RULE
+===============================================================================
+
+When generating assets, do NOT use a vague prompt such as:
+"Studio Ghibli pond."
+
+Instead describe the actual visual properties.
+
+MASTER STYLE LANGUAGE:
+"hand-painted gouache and watercolor environment illustration, visible paper and brush texture, simplified natural forms, layered teal and turquoise water, painterly highlights, old animation background feeling, subtle irregular ink edges, warm handmade color variation, no photorealism, no glossy 3D rendering, no vector-flat gradients"
+
+POND BACKPLATE PROMPT SKELETON:
+"Top-down / slightly oblique ornamental garden pond, hand-painted gouache and watercolor, deep turquoise and teal water, soft natural depth, patches of sand, dark soil and algae visible beneath the surface, fragments of old Persian turquoise ceramic tiles and mosaic partly buried in sediment, irregular pale painted water caustics, large green lily pads placed compositionally, a few pink and white lotus flowers, quiet magical atmosphere, handcrafted animation-background quality, subtle paper texture, clear negative space for website text, no text, no frame, no photorealism, no 3D CGI"
+
+FISH PROMPT SKELETON:
+"Single ornamental koi seen from directly above, hand-painted gouache and watercolor sprite, elegant rounded body, flowing fins and forked tail, coral red and warm cream markings, old animation background / storybook illustration feel, visible brush texture, strong readable silhouette, neutral lighting from above, isolated on transparent or plain contrasting background, no water, no shadow crossing the body, no text, no photorealism, no 3D render"
+
+PERSIAN TILE PROMPT SKELETON:
+"Handmade glazed Persian-inspired turquoise ceramic tile fragment, original geometric floral ornament, firoozeh and cobalt blue with aged cream and muted gold accents, slight cracks and worn glaze, Safavid courtyard-pool feeling, painterly material texture, isolated, no text, no modern bathroom styling"
+
+HOBBIT DOOR PROMPT SKELETON:
+"Original fan-art fantasy hillside home inspired by cozy pastoral high-fantasy dwellings, circular painted wooden door, moss and grass roof, wildflowers, stone path, warm interior light, hand-painted gouache storybook background, old animation cel-background feeling, detailed but readable, no logos, no text, not a movie still, original composition"
+
+For a specifically recognizable Hobbit / LOTR fan-art asset, we can intentionally name the reference during generation if the selected tool supports it, but the final art should still be original rather than a copied movie frame.
+
+GOLLUM FAN-ART CHARACTER SHEET:
+"Original fan-art character sheet of Gollum from The Lord of the Rings, small pale wiry cave-dweller, thin limbs, large expressive eyes, crouched poses, painterly 2D animation sprite design, hand-painted outlines and muted skin tones, multiple poses for sneaking, climbing, sitting, sleeping, grabbing an object, getting angry, consistent proportions and costume across every pose, no text, not based on a specific film frame"
+
+Manual cleanup will be mandatory.
+
+===============================================================================
+31. ART CONSISTENCY CHECKLIST
+===============================================================================
+
+Every generated/downloaded/drawn asset must pass:
+
+STYLE
+- Does it look from the same world?
+- Is the brush texture similar?
+- Are outlines similarly strong/soft?
+- Is it too photoreal compared with the rest?
+
+COLOR
+- Does it use our palette?
+- Is saturation under control?
+- Does it introduce a random unrelated neon color?
+
+LIGHT
+- Is light direction compatible?
+- Are underwater assets too crisp?
+- Does it need color grading?
+
+PERSPECTIVE
+- Pond assets use compatible top-down / oblique view.
+- Fish orientation works with top-down water.
+- Lotus ellipse/perspective matches.
+- Door / hill matches chapter camera angle.
+
+EDGES
+- no white halos
+- no AI mush
+- no malformed plant geometry
+- clean alpha
+
+REPEATABILITY
+- can we reuse / rotate / scale it?
+- does it look obviously cloned?
+- does it need variants?
+
+PERFORMANCE
+- dimensions reasonable
+- compressed
+- correct format
+- not loading unnecessarily
+
+===============================================================================
+32. COPYRIGHT / FAN-HOMAGE RULES
+===============================================================================
+
+The user's preference is to include some direct LOTR / GOT references.
+
+Plan position:
+- we do not need to eliminate all recognizable references
+- we should be deliberate and original in execution
+
+Noncommercial / personal use may reduce practical commercial concern, but it does not automatically grant permission to reproduce protected characters, film art, logos, soundtracks, or trademarks.
+
+Recommended boundaries:
+YES:
+- original Gollum fan-art animation
+- original Hobbit / Middle-earth-inspired environment
+- ring gag
+- written nods / Easter eggs
+- original heraldic / fantasy visual language
+- small noncommercial fan-homage credit
+
+NO / AVOID:
+- copied movie frames
+- ripped game sprites
+- official soundtrack
+- official production artwork used as backgrounds
+- scanned book illustrations
+- official logos as site branding
+- actors' photo likeness as UI decoration
+- pretending the site is official
+
+Game of Thrones:
+Keep in reserve.
+The current three-world plan does not need a separate GOT chapter.
+If used later:
+- one Easter egg / sigil-like nod
+- do not add another full visual universe unless the site structure changes
+
+Harry Potter:
+Same rule.
+Keep as a tiny Easter egg, not another competing theme.
+
+===============================================================================
+33. PROTOTYPE STRATEGY — DO NOT REWRITE MAIN IMMEDIATELY
+===============================================================================
+
+Create a new branch:
+    portfolio-world-v3
+
+Create an isolated Art Lab route/page:
+    /world-lab.html
+or an equivalent dev-only route.
+
+The Art Lab contains:
+1. pond background prototype
+2. fish animation prototype
+3. ripple prototype
+4. lotus layering
+5. tile-underwater test
+6. scene transition test
+7. Hobbit door prototype
+8. Gollum sprite prototype
+9. low-fps art-motion controls
+10. performance stats toggle
+
+Only after visual approval should the production site be migrated.
+
+This prevents the current good site from being destroyed while experimenting.
+
+===============================================================================
+34. DEVELOPMENT MILESTONES
+===============================================================================
+
+MILESTONE 0 — ART BIBLE LOCK
+- approve palette
+- approve main pond composition
+- approve fish style
+- approve tile style
+- approve Middle-earth chapter intensity
+- approve night pond
+
+NO production coding before this is good enough.
+
+MILESTONE 1 — TECHNICAL WORLD LAB
+- install / prototype PixiJS
+- test WebGL renderer
+- test asset loader
+- test layered backplate
+- test scroll syncing
+- test intentional 18/24fps art tick
+- test mobile
+
+MILESTONE 2 — POND MVP
+- static floor
+- water overlay
+- 3 fish
+- 3 lily leaves
+- 1 lotus
+- displacement
+- ripple
+- pointer response
+
+Goal:
+One viewport that already looks better than the current full background.
+
+MILESTONE 3 — POND FULL
+- asset variety
+- underwater tile
+- reflection
+- document-height world
+- scroll behavior
+- performance
+
+MILESTONE 4 — WORLD I INTEGRATION
+- hero
+- About
+- Education
+- readability treatment
+- world transition toward Skills
+
+MILESTONE 5 — MIDDLE-EARTH ENVIRONMENT
+- art backplate
+- UI reskin for Skills/Work
+- map/path system
+- Hobbit door static placement
+
+MILESTONE 6 — HOBBIT DOOR INTERACTION
+- animation
+- click state
+- cooldown
+- mobile behavior
+
+MILESTONE 7 — GOLLUM MVP
+- sneak
+- idle
+- sleep
+- event director
+- no word steal yet
+
+MILESTONE 8 — GOLLUM ADVANCED
+- climb
+- word steal
+- ring event
+- edge-case handling
+- i18n rebuild behavior
+
+MILESTONE 9 — NIGHT POND
+- lower world art
+- AI
+- Lab
+- Contact
+
+MILESTONE 10 — UI SYSTEM RESKIN
+- nav
+- buttons
+- cards
+- dialogs
+- tags
+- section labels
+- project modal
+- theme toggle decision
+
+MILESTONE 11 — RESPONSIVE / PERFORMANCE
+- mobile
+- tablet
+- reduced motion
+- slow GPU fallback
+- asset loading
+- Lighthouse / Core Web Vitals
+- keyboard / focus
+- page readability
+
+MILESTONE 12 — FINAL POLISH
+- rare events
+- Easter eggs
+- transitions
+- credits
+- art consistency
+- no placeholder assets
+- final copy check
+
+===============================================================================
+35. PERFORMANCE QUALITY LEVELS
+===============================================================================
+
+Create explicit quality profiles.
+
+HIGH:
+- desktop good GPU
+- full caustics
+- full ripple texture
+- 5–8 fish in active viewport
+- full reflections
+- max decorative layers
+- high texture resolution
+
+MEDIUM:
+- default laptops
+- lower ripple resolution
+- 4–6 fish
+- fewer reflection layers
+- same art quality
+
+LOW:
+- mobile / weak GPU
+- static or simplified caustic drift
+- 2–4 fish
+- simple ring ripples
+- fewer lotus shadows
+- no expensive distortion outside active zone
+
+REDUCED MOTION:
+- static water backplate
+- very slow fish or no autonomous fish depending preference
+- no Gollum stealing
+- door can use simple fade/open state
+- no long scroll-scrub scene transition
+
+===============================================================================
+36. LOADING STRATEGY
+===============================================================================
+
+Initial:
+- HTML content
+- nav
+- hero pond base
+- 1–2 fish
+- first lotus set
+
+Lazy load:
+- Middle-earth assets before Skills approaches
+- Gollum only after world II is near
+- night pond before AI approaches
+- Rootine iframe only when project section nears if needed
+
+Use:
+- prefetch on idle
+- Asset Loader
+- decode images before displaying
+- progressive art reveal rather than blank wait
+
+Never delay page text because a decorative asset is loading.
+
+===============================================================================
+37. ACCESSIBILITY / USABILITY RULES
+===============================================================================
+
+The art is allowed to be wild.
+The website cannot be confusing.
+
+- All content stays semantic HTML.
+- Text contrast must remain readable.
+- Decorative canvas is aria-hidden.
+- Keyboard navigation remains normal.
+- Clickable scenery gets real button semantics.
+- Hobbit door must be a button / accessible trigger.
+- Gollum does not block buttons.
+- Gollum visual word stealing does not remove semantic meaning.
+- prefers-reduced-motion supported.
+- no required hover-only information.
+- iframe demo remains keyboard accessible.
+- animations must not create rapid flashes.
+- backgrounds must never make paragraphs unreadable.
+
+===============================================================================
+38. WHAT WE SHOULD LEARN / MAKE OURSELVES
+===============================================================================
+
+Kiarash does not need to become a professional painter to make this.
+
+High-value skills to learn:
+1. basic Krita / Photoshop layer cleanup
+2. masking
+3. alpha cleanup
+4. simple color grading
+5. separating character limbs
+6. painting over generated artifacts
+7. sprite atlas basics
+8. PixiJS sprite / mesh / shader basics
+9. GSAP timelines
+10. simple 2D animation timing
+11. texture optimization
+
+Do NOT spend months learning:
+- traditional oil painting
+- complex 3D character modeling
+- full game engine development
+- professional hand-drawn frame animation
+
+Use tools to bridge art skill gaps.
+
+===============================================================================
+39. WHICH PARTS WE SHOULD GENERATE TOGETHER
+===============================================================================
+
+Strong candidates for image generation:
+- master pond concept art
+- fish design sheets
+- lotus variants
+- underwater tile fragments
+- night pond concept
+- Hobbit-hole concept
+- Gollum pose sheet
+- decorative seals
+- map ornament
+- storybook UI frame concepts
+
+After generation:
+I can help:
+- compare versions
+- identify artifacts
+- request edits
+- isolate elements
+- define animation layers
+- create transparent variants
+- produce final website-ready sizes
+
+Where consistency matters across many frames:
+Generate a CHARACTER DESIGN SHEET first.
+Do not independently generate 20 unrelated animation frames.
+
+===============================================================================
+40. DOWNLOAD / SOURCE STRATEGY
+===============================================================================
+
+Use external art only when:
+- public domain
+- explicitly licensed
+- purchased with suitable web rights
+- used as reference rather than shipped asset
+
+Excellent source categories:
+- museum public-domain Persian tile references
+- public-domain Japanese woodblock prints
+- open texture libraries
+- CC0 paper / stone / soil textures
+
+Prefer:
+- extract concepts
+- recolor / repaint
+- combine into original material system
+
+Do not build the site out of Pinterest downloads.
+Pinterest is a reference / discovery board, not an asset-license source.
+
+===============================================================================
+41. CURRENT SITE CONTENT MAPPING
+===============================================================================
+
+OPENING:
+Pond World I
+
+HERO:
+Minimal, atmospheric.
+Keep scroll cue.
+Text appears after entering / scrolling as already intended.
+
+ABOUT + EDUCATION:
+Still Pond World I.
+More visible tile / garden structure can gradually appear.
+
+SKILLS:
+Transition to land / Middle-earth.
+
+WORK:
+Full Middle-earth chapter.
+Rootine remains featured.
+Hobbit door and Gollum live here.
+
+AI:
+Return to pond, now evening/night.
+
+LAB:
+Night garden / "little garden of code."
+
+CONTACT:
+quiet final pond / bank scene.
+
+FOOTER:
+small credits / fan-homage note / build info.
+
+===============================================================================
+42. VISUAL PALETTE — FIRST DRAFT
+===============================================================================
+
+POND DAY:
+Deep water        #0E4F57
+Turquoise water   #168C94
+Bright turquoise  #25B8B2
+Shallow cyan      #7CC9C4
+Dark algae        #173E35
+Leaf deep         #1C573A
+Leaf mid          #3E7A48
+Leaf light        #82A85A
+Lotus pink        #E78D9F
+Lotus pale        #F2C7CD
+Fish coral        #C9523D
+Fish cream        #E8D9BC
+Tile firoozeh     #22A8A5
+Tile cobalt       #174D78
+Old cream         #E4D8B8
+Muted gold        #B99449
+Soil              #5A493B
+
+MIDDLE-EARTH:
+Grass dark        #294A2E
+Grass light       #6F9344
+Warm earth        #715842
+Wood              #59412D
+Parchment         #CDBB8B
+Ink               #2D2B25
+Warm interior     #D59A45
+Sky muted         #7EA3AA
+
+NIGHT POND:
+Night teal        #082F35
+Deep indigo       #0D243B
+Moon blue         #6E99A5
+Tile blue         #146C7A
+Soft gold         #C7A55B
+Lotus pale        #EBC8D3
+Coral accent      #C75051
+
+These are starting values, not final tokens.
+
+===============================================================================
+43. VISUAL DO / DON'T
+===============================================================================
+
+DO:
+- let art have empty space
+- use texture
+- let water cover details
+- make some objects partly hidden
+- use imperfect edges
+- use quiet motion
+- make rare events genuinely rare
+- make the world feel larger than the visible page
+- make interactions discoverable but not explained to death
+- keep content readable
+
+DON'T:
+- neon gradient every button
+- glass cards over painterly art
+- every section with a new unrelated fandom
+- 60fps particles everywhere
+- photoreal fish on painted background
+- perfect vector lotus on watercolor water
+- full tile pattern everywhere
+- Gollum permanently dancing around
+- hard scroll-jacking
+- huge video background loops
+- five JavaScript engines simultaneously
+- turn professional content into riddles
+
+===============================================================================
+44. RECOMMENDED LIBRARY DECISION
+===============================================================================
+
+Baseline stack for implementation:
+
+- Vanilla JavaScript
+- Vite (recommended build modernization)
+- PixiJS 8 for 2D world rendering
+- GSAP + ScrollTrigger for scroll choreography
+- existing semantic DOM content and i18n
+- optional Rive for selected interactive art
+- optional Spine later only if character rigging justifies it
+
+Do NOT begin with:
+- React rewrite
+- Three.js rewrite
+- Phaser game engine
+- giant animation framework stack
+- full physics engine
+
+The portfolio is a website with a living art layer, not a game.
+
+===============================================================================
+45. RESEARCH / OFFICIAL TECHNICAL REFERENCES
+===============================================================================
+
+PixiJS:
+https://pixijs.com/8.x/guides/getting-started/intro
+https://pixijs.com/8.x/guides/components/renderers
+https://pixijs.com/8.x/guides/components/scene-objects/mesh
+https://pixijs.com/8.x/guides/concepts/render-loop
+
+GSAP ScrollTrigger:
+https://gsap.com/docs/v3/Plugins/ScrollTrigger/
+
+Rive:
+https://rive.app/features
+https://rive.app/use-cases/websites
+https://rive.app/docs/
+
+Spine:
+https://esotericsoftware.com/spine-runtimes
+
+Three.js water references (research / optional, not recommended as default engine):
+https://threejs.org/docs/pages/Water.html
+https://threejs.org/examples/?q=water
+
+Public-domain art research:
+https://www.metmuseum.org/art/collection/search/444949
+https://www.metmuseum.org/art/collection/search/56353
+
+Studio Ghibli references should be treated as study material and not automatically as deployable site assets.
+The Ghibli site states that use of provided stills is limited by its published conditions, including noncommercial-use language.
+
+===============================================================================
+46. FIRST PRACTICAL ART SESSION
+===============================================================================
+
+Before touching production code, the next working session should produce exactly five things:
+
+1. ONE HERO POND CONCEPT
+   - full color
+   - desktop composition
+   - includes tile, dirt, algae, lotus
+   - includes negative space for UI
+
+2. THREE FISH CONCEPTS
+   - same art family
+   - top-down
+   - clean silhouettes
+
+3. ONE LOTUS / LILY KIT
+   - 3 leaves
+   - 1 flower
+   - 1 bud
+
+4. ONE TILE / MOSAIC KIT
+   - 4 motifs
+   - 1 broken cluster
+
+5. ONE MIDDLE-EARTH CHAPTER CONCEPT
+   - one image showing how Skills/Work can coexist with the fan-homage scenery
+   - include the Hobbit-hole placement
+   - leave space for project content
+
+If these five assets do not look like one portfolio universe, STOP and revise the art direction before coding.
+
+===============================================================================
+47. SECOND PRACTICAL SESSION
+===============================================================================
+
+Build Art Lab:
+- load hero backplate
+- add 3 fish
+- make fish swim
+- add one displacement ripple
+- add one lotus layer
+- integrate one real content card on top
+- run on desktop and mobile
+
+Questions to answer:
+- Does the art remain beautiful behind actual text?
+- Does PixiJS improve quality enough?
+- Do we like 18fps / 24fps art motion?
+- How dark must the water be for readability?
+- Can fish pass under / over different layers convincingly?
+- Does the tile stay subtle?
+- Does the site still feel professional?
+
+Only then continue.
+
+===============================================================================
+48. LONG-TERM OPTIONAL IDEAS
+===============================================================================
+
+These are NOT v1 requirements:
+
+- black cat occasionally appears between lily pads
+- a small original fantasy map of the portfolio worlds
+- day/night visual toggle
+- custom pointer only if it becomes a thematic object (currently user prefers no custom cursor)
+- original crest for KJ rather than copied heraldry
+- scroll-linked water depth
+- weather-like rare events (petals, rain rings)
+- secret keyboard / URL Easter eggs
+- project map
+- collectible stamps for viewed sections
+- small soundtrack toggle with original / licensed ambient audio
+- tiny fireflies in night pond
+- hidden ring only appears after long visit
+- cat watches Gollum from another world transition
+- Persian miniature-inspired final footer vignette
+- project modal presented as illustrated field journal
+
+===============================================================================
+49. SUCCESS CRITERIA
+===============================================================================
+
+The redesign is successful when:
+
+1. A visitor can identify the site from a screenshot without seeing the logo.
+2. The pond feels like an authored illustration, not a JS effect demo.
+3. Persian visual identity is present without becoming ornamental overload.
+4. The Middle-earth chapter is playful and recognizable but still serves Skills/Work.
+5. Gollum feels like a rare living creature, not a mascot animation.
+6. The website remains easy to navigate.
+7. Rootine and project work remain central.
+8. The site performs well on a normal laptop and phone.
+9. Animation feels deliberate and painterly.
+10. The result feels like Kiarash's personal world rather than a design trend.
+11. The art system could be expanded later without redesigning the whole site.
+12. Kiarash can still understand and modify the JavaScript architecture.
+
+===============================================================================
+50. FINAL DECISION / NORTH STAR
+===============================================================================
+
+The final site should NOT be described as:
+
+    "a dark developer portfolio with fish"
+
+It should be describable as:
+
+    "a hand-painted interactive portfolio world:
+     a Persian-turquoise garden pond,
+     a brief Middle-earth fan-homage journey,
+     and a moonlit return to the water—
+     with real project work living inside it."
+
+That is the north star.
+
+When a future design decision is unclear, ask:
+
+    DOES THIS MAKE THE WORLD FEEL MORE COHERENT,
+    MORE PERSONAL,
+    AND MORE ALIVE—
+
+    OR DOES IT JUST ADD AN EFFECT?
+
+If it only adds an effect, do not add it.
+
+END OF MASTER PLAN
