@@ -1,0 +1,314 @@
+@media(max-width:1040px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hire {
+    display: none;
+  }
+
+  .burger {
+    display: grid;
+  }
+
+  .featured {
+    grid-template-columns: 1fr;
+  }
+
+  .rootine-preview {
+    margin: 0 24px 24px!important;
+    transform: none!important;
+    min-height: 400px;
+  }
+
+}
+
+@media(max-width:900px) {
+  .hero-grid {
+    text-align: center;
+  }
+
+  .hero-copy {
+    margin-inline: auto;
+  }
+
+  .quick, .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-lead {
+    margin-inline: auto;
+  }
+
+  .hero h1 {
+    margin-inline: auto;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+
+  .about-grid, .skills-grid, .ai-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    position: static;
+  }
+
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer .wrap {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer .wrap>a {
+    justify-self: center;
+  }
+
+  .modal-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+@media(max-width:680px) {
+  :root {
+    --nav-h: 70px;
+  }
+
+  .wrap {
+    width: min(92vw,620px);
+  }
+
+  section {
+    padding: 70px 0;
+  }
+
+  .nav .wrap {
+    width: 92vw;
+  }
+
+  .brand span:not(.brand-mark) {
+    display: none;
+  }
+
+  .nav-tools {
+    gap: 6px;
+  }
+
+  .hero {
+    min-height: 180svh;
+    padding-top: var(--nav-h);
+    padding-bottom: 0;
+  }
+
+  .hero-shell {
+    min-height: calc(180svh - var(--nav-h));
+    align-items: flex-start;
+    padding-top: calc(100svh - var(--nav-h) + 64px);
+    padding-bottom: 76px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.35rem,16vw,5.2rem);
+    line-height: .92;
+  }
+
+  .hero-lead {
+    font-size: .95rem;
+  }
+
+  .hero-stats {
+    margin-top: 38px;
+  }
+
+  .stat {
+    padding: 16px 10px;
+  }
+
+  .shead h2 {
+    max-width: none;
+  }
+
+  .about-card, .skill-block, .tools, .ai-story, .prompt-lab, .lab-card, .contact-form {
+    padding: 20px;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  .int-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rootine-preview {
+    margin: 0 14px 14px!important;
+  }
+
+  .rootine-live-preview {
+    min-height: 470px;
+  }
+
+  .rootine-live-preview iframe {
+    min-height: 424px;
+  }
+
+  .featured-copy {
+    padding: 24px 20px;
+  }
+
+  .featured h3 {
+    font-size: 2.25rem;
+  }
+
+  .project-modal {
+    width: 96vw;
+    max-height: 92vh;
+  }
+
+  .modal-content {
+    padding: 22px 18px;
+  }
+
+  .modal-art {
+    height: 190px;
+  }
+
+  .contact-big {
+    font-size: 2.5rem;
+  }
+
+  .lab-card {
+    min-height: 300px;
+  }
+
+  .goo-stage {
+    height: 270px;
+  }
+
+  .drawer {
+    padding-top: 82px;
+  }
+
+  .drawer a {
+    font-size: 1.6rem;
+  }
+
+  .totop {
+    bottom: 16px;
+    inset-inline-end: 16px;
+  }
+
+  .footer-note {
+    display: none;
+  }
+
+}
+
+@media(max-width:430px) {
+  .langbtn {
+    min-width: 42px;
+  }
+
+  .prompt-actions {
+    flex-direction: column;
+  }
+
+  .prompt-actions .btn {
+    width: 100%;
+  }
+
+  .featured-actions {
+    flex-direction: column;
+  }
+
+  .featured-actions .btn {
+    width: 100%;
+  }
+
+  .spring-grid {
+    gap: 4px;
+    padding: 9px;
+    border-radius: 18px;
+  }
+
+  .spring-cell {
+    border-radius: 5px;
+  }
+
+  .goo-stage {
+    height: 240px;
+    border-radius: 17px;
+  }
+
+}
+
+@media(hover:none) {
+  .magnet {
+    transform: none!important;
+  }
+
+  .shot-veil {
+    display: none;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .mq-track {
+    animation: none;
+  }
+
+  .dot, .typed-line::after {
+    animation: none;
+  }
+
+  .intro-gate {
+    animation-delay: .4s;
+    animation-duration: .2s;
+  }
+
+  .intro-gate__text {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .bar-fill {
+    transition: none;
+  }
+
+  .ai-title-note {
+    animation: none;
+    opacity: .72;
+    transform: none;
+    filter: none;
+  }
+
+}

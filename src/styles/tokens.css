@@ -1,0 +1,75 @@
+:root {
+  --font-display: "Space Grotesk", "Vazirmatn", system-ui, sans-serif;
+  --font-body: "Inter", "Vazirmatn", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-fa-body: "Vazirmatn", Tahoma, sans-serif;
+  --font-fa-display: "Vazirmatn", Tahoma, sans-serif;
+  --font-fa-accent: "Vazirmatn", Tahoma, sans-serif;
+  --r-xs: 8px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --nav-h: 82px;
+  --ease: cubic-bezier(.22,.9,.28,1);
+  --ease-spring: cubic-bezier(.2,1.2,.25,1);
+  --acc: #7c5cff;
+  --acc2: #22d3ee;
+  --acc3: #f5a623;
+  --good: #2ee6a6;
+  --grad: linear-gradient(120deg,#7c5cff 0%,#22d3ee 100%);
+  --grad-warm: linear-gradient(120deg,#f5a623,#ff6b6b);
+  --shadow-lg: 0 30px 70px -30px rgba(0,0,0,.75);
+  --shadow-soft: 0 18px 50px -28px rgba(0,0,0,.65);
+  --wrap: min(1180px,92vw);
+}
+
+html[data-theme="dark"] {
+  --bg: #0a0b0e;
+  --bg2: #0d0e12;
+  --surface: #101019;
+  --surface2: #15151f;
+  --surface3: #1c1c29;
+  --border: rgba(255,255,255,.085);
+  --border2: rgba(255,255,255,.16);
+  --text: #ecedf4;
+  --muted: #9698ad;
+  --dim: #6b6d82;
+  --glow: rgba(124,92,255,.35);
+  --glow2: rgba(34,211,238,.2);
+  --grid: rgba(255,255,255,.045);
+  --card-shine: rgba(255,255,255,.06);
+  --overlay: rgba(5,5,10,.78);
+  --pool-bg: #0a0b0e;
+  --glass-bg: rgba(17,18,22,.62);
+  --section-alt-bg: rgba(10,11,14,.28);
+  --marquee-bg: rgba(10,11,14,.72);
+  --footer-bg: rgba(10,11,14,.78);
+  --intro-bg: rgba(8,9,11,.38);
+}
+
+html[data-theme="light"] {
+  --bg: #f2f3f6;
+  --bg2: #e8eaef;
+  --surface: #ffffff;
+  --surface2: #f8f9fb;
+  --surface3: #eceff4;
+  --border: rgba(24,27,34,.11);
+  --border2: rgba(24,27,34,.20);
+  --text: #17191f;
+  --muted: #5e6470;
+  --dim: #8b909b;
+  --glow: rgba(124,92,255,.18);
+  --glow2: rgba(0,154,183,.14);
+  --grid: rgba(24,27,34,.045);
+  --card-shine: rgba(255,255,255,.72);
+  --overlay: rgba(246,247,250,.86);
+  --pool-bg: #eceef2;
+  --glass-bg: rgba(255,255,255,.72);
+  --section-alt-bg: rgba(255,255,255,.46);
+  --marquee-bg: rgba(247,248,251,.82);
+  --footer-bg: rgba(247,248,251,.88);
+  --intro-bg: rgba(236,238,242,.48);
+  --shadow-lg: 0 24px 60px -34px rgba(23,25,31,.28);
+  --shadow-soft: 0 16px 44px -30px rgba(23,25,31,.22);
+}
