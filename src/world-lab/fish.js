@@ -63,6 +63,10 @@ const state = {
   artFps: 18,
   artSway: 0,
   artRotation: 0,
+  renderX: 0,
+  renderY: 0,
+  renderHeading: -0.4,
+  renderDepth: 0.24,
   depth: 0.24,
   targetDepth: 0.24,
   depthTimer: 7,
@@ -136,6 +140,10 @@ function resetFish() {
   state.swimPhase = 0;
   state.depth = 0.24;
   state.targetDepth = 0.24;
+  state.renderX = state.x;
+  state.renderY = state.y;
+  state.renderHeading = state.heading;
+  state.renderDepth = state.depth;
   state.depthTimer = 7;
   state.reactionTimer = 0;
   state.artAccumulator = 0;
@@ -239,28 +247,40 @@ function updateFish(dt) {
   state.depth = lerp(state.depth, state.targetDepth, smooth(0.12, dt));
 
   // Position stays smooth, while illustrated micro-motion can be intentionally stepped.
+  // Physics continues at the display refresh rate, but the illustrated fish pose is
+  // deliberately held between art frames. This makes 12/18/24 fps a real visual
+  // cadence instead of only changing a tiny sway value.
   state.artAccumulator += dt;
   const artStep = 1 / state.artFps;
   if (state.artAccumulator >= artStep) {
-    state.artAccumulator %= artStep;
-    state.swimPhase += artStep * (2.15 + state.speed / 34);
+    const steps = Math.max(1, Math.floor(state.artAccumulator / artStep));
+    state.artAccumulator -= steps * artStep;
+    state.swimPhase += artStep * steps * (2.15 + state.speed / 34);
     state.artSway = Math.sin(state.swimPhase) * Number(controls.sway.value);
     state.artRotation = Math.sin(state.swimPhase * 0.88) * 0.012;
+
+    state.renderX = state.x;
+    state.renderY = state.y;
+    state.renderHeading = state.heading;
+    state.renderDepth = state.depth;
   }
 
-  const px = -Math.sin(state.heading);
-  const py = Math.cos(state.heading);
-  const depthScale = lerp(1, 0.84, state.depth);
+  const px = -Math.sin(state.renderHeading);
+  const py = Math.cos(state.renderHeading);
+  const depthScale = lerp(1, 0.84, state.renderDepth);
   const baseSize = clamp(Math.min(stageWidth, stageHeight) * 0.255, 126, 194);
   const spriteScale = (baseSize / fishTexture.width) * depthScale;
 
-  fishContainer.position.set(state.x + px * state.artSway, state.y + py * state.artSway);
-  fishContainer.rotation = state.heading + SOURCE_HEADING_OFFSET + state.artRotation;
+  fishContainer.position.set(
+    state.renderX + px * state.artSway,
+    state.renderY + py * state.artSway,
+  );
+  fishContainer.rotation = state.renderHeading + SOURCE_HEADING_OFFSET + state.artRotation;
   fishSprite.scale.set(spriteScale);
-  fishSprite.alpha = lerp(1, 0.82, state.depth);
+  fishSprite.alpha = lerp(1, 0.82, state.renderDepth);
 
-  shadow.alpha = controls.shadow.checked ? lerp(0.16, 0.075, state.depth) : 0;
-  shadow.position.set(10 + state.depth * 12, 11 + state.depth * 11);
+  shadow.alpha = controls.shadow.checked ? lerp(0.16, 0.075, state.renderDepth) : 0;
+  shadow.position.set(10 + state.renderDepth * 12, 11 + state.renderDepth * 11);
   shadow.scale.set(
     spriteScale * fishTexture.width / 178 * 0.92,
     spriteScale * fishTexture.height / 178 * 0.62,
@@ -388,7 +408,10 @@ controls.sway.addEventListener("input", () => {
 
 for (const radio of document.querySelectorAll('input[name="artFps"]')) {
   radio.addEventListener("change", () => {
-    if (radio.checked) state.artFps = Number(radio.value);
+    if (radio.checked) {
+      state.artFps = Number(radio.value);
+      state.artAccumulator = 1 / state.artFps;
+    }
   });
 }
 
