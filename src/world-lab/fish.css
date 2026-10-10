@@ -58,7 +58,7 @@ button, input { font: inherit; }
 
 .lab-copy p {
   margin: 0;
-  max-width: 58ch;
+  max-width: 62ch;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -117,7 +117,9 @@ button, input { font: inherit; }
 }
 
 .pixi-host { z-index: 2; }
-.pixi-host canvas, .fx-canvas {
+
+.pixi-host canvas,
+.fx-canvas {
   width: 100%;
   height: 100%;
   display: block;
@@ -128,20 +130,34 @@ button, input { font: inherit; }
   pointer-events: none;
 }
 
+.stage-status,
 .stage-note {
   position: absolute;
   z-index: 4;
-  right: 18px;
-  bottom: 16px;
-  color: rgba(241, 235, 216, .62);
+  color: rgba(241, 235, 216, .68);
   font: 500 11px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
   letter-spacing: .06em;
   pointer-events: none;
 }
 
+.stage-status {
+  top: 16px;
+  left: 18px;
+  padding: 7px 10px;
+  border: 1px solid rgba(241, 235, 216, .13);
+  border-radius: 999px;
+  background: rgba(4, 27, 29, .34);
+  backdrop-filter: blur(8px);
+}
+
+.stage-note {
+  right: 18px;
+  bottom: 16px;
+}
+
 .controls {
   display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 1fr)) minmax(250px, 1.4fr) minmax(220px, 1.2fr) auto;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 12px;
   align-items: end;
   margin-top: 14px;
@@ -152,30 +168,55 @@ button, input { font: inherit; }
   backdrop-filter: blur(15px);
 }
 
-.control-group { display: grid; gap: 8px; }
-.control-group label, .fps-group legend { color: #ddd5c0; font-size: 12px; }
-.control-group output { float: right; color: #8fd2c3; font-family: ui-monospace, monospace; }
-input[type="range"] { width: 100%; accent-color: #d47753; }
+.control-group {
+  display: grid;
+  gap: 8px;
+}
 
-.fps-group {
+.control-group label,
+.choice-group legend {
+  color: #ddd5c0;
+  font-size: 12px;
+}
+
+.control-group output {
+  float: right;
+  color: #8fd2c3;
+  font-family: ui-monospace, monospace;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #d47753;
+}
+
+.choice-group {
   display: flex;
   flex-wrap: wrap;
   gap: 7px 12px;
   min-width: 0;
+  min-height: 54px;
   margin: 0;
   padding: 8px 10px;
   border: 1px solid var(--line);
   border-radius: 12px;
 }
 
-.fps-group legend { padding: 0 6px; }
-.fps-group label, .toggle-row label {
+.choice-group legend {
+  padding: 0 6px;
+}
+
+.choice-group label,
+.toggle-row label {
   color: #cfc7b3;
   font-size: 12px;
   white-space: nowrap;
 }
 
-.fps-group input, .toggle-row input { accent-color: var(--coral); }
+.choice-group input,
+.toggle-row input {
+  accent-color: var(--coral);
+}
 
 .toggle-row {
   display: flex;
@@ -183,6 +224,7 @@ input[type="range"] { width: 100%; accent-color: #d47753; }
   gap: 7px 12px;
   align-items: center;
   min-height: 42px;
+  padding: 0 4px;
 }
 
 #resetFish {
@@ -195,26 +237,59 @@ input[type="range"] { width: 100%; accent-color: #d47753; }
   cursor: pointer;
 }
 
-#resetFish:hover { background: rgba(255,255,255,.1); }
+#resetFish:hover {
+  background: rgba(255,255,255,.1);
+}
 
 @media (max-width: 1100px) {
-  .controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
-  .lab-copy { grid-template-columns: 1fr; gap: 12px; }
-  .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .stage { min-height: 480px; height: 65vh; }
+  .lab-copy {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stage {
+    min-height: 480px;
+    height: 65vh;
+  }
 }
 
 @media (max-width: 520px) {
-  .fish-lab { padding: 14px; }
-  .stage { min-height: 500px; height: 68vh; border-radius: 22px; }
-  .controls { grid-template-columns: 1fr; }
-  .lab-copy h1 { font-size: clamp(2.4rem, 14vw, 4rem); }
-  .stage-note { max-width: 70%; text-align: right; }
+  .fish-lab {
+    padding: 14px;
+  }
+
+  .stage {
+    min-height: 500px;
+    height: 68vh;
+    border-radius: 22px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-copy h1 {
+    font-size: clamp(2.4rem, 14vw, 4rem);
+  }
+
+  .stage-note {
+    max-width: 70%;
+    text-align: right;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .water-light { animation: none; }
+  .water-light {
+    animation: none;
+  }
 }
