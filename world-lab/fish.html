@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fish Lab · Portfolio World</title>
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="../src/world-lab/fish.css" />
+</head>
+<body>
+  <main class="fish-lab">
+    <section class="stage-shell" aria-labelledby="labTitle">
+      <div class="lab-copy">
+        <span class="eyebrow">WORLD LAB · FISH 01</span>
+        <h1 id="labTitle">Does the painting swim?</h1>
+        <p>This is intentionally only one fish, one shadow and procedural water response. If this feels convincing, the next version gets an articulated tail and fins.</p>
+      </div>
+
+      <div class="stage" id="fishStage">
+        <div class="water-paint" aria-hidden="true"></div>
+        <div class="water-light" aria-hidden="true"></div>
+        <div class="pixi-host" id="pixiHost" aria-label="Animated painterly koi prototype"></div>
+        <canvas class="fx-canvas" id="fxCanvas" aria-hidden="true"></canvas>
+        <div class="stage-note">move your pointer near the fish · click near it for a stronger response</div>
+      </div>
+
+      <aside class="controls" aria-label="Fish lab controls">
+        <div class="control-group">
+          <label for="speed">Swim speed <output id="speedOut">1.00×</output></label>
+          <input id="speed" type="range" min="0.55" max="1.65" step="0.05" value="1" />
+        </div>
+        <div class="control-group">
+          <label for="turn">Turn softness <output id="turnOut">1.00×</output></label>
+          <input id="turn" type="range" min="0.55" max="1.65" step="0.05" value="1" />
+        </div>
+        <div class="control-group">
+          <label for="sway">Body sway <output id="swayOut">1.5px</output></label>
+          <input id="sway" type="range" min="0" max="4" step="0.25" value="1.5" />
+        </div>
+        <fieldset class="fps-group">
+          <legend>Art cadence</legend>
+          <label><input type="radio" name="artFps" value="12" />12 fps</label>
+          <label><input type="radio" name="artFps" value="18" checked />18 fps</label>
+          <label><input type="radio" name="artFps" value="24" />24 fps</label>
+          <label><input type="radio" name="artFps" value="60" />60 fps</label>
+        </fieldset>
+        <div class="toggle-row">
+          <label><input id="shadowToggle" type="checkbox" checked />shadow</label>
+          <label><input id="wakeToggle" type="checkbox" checked />wake</label>
+          <label><input id="pointerToggle" type="checkbox" checked />pointer</label>
+          <label><input id="debugToggle" type="checkbox" />debug</label>
+        </div>
+        <button type="button" id="resetFish">Reset fish</button>
+      </aside>
+    </section>
+  </main>
+
+  <script type="module" src="../src/world-lab/fish.js"></script>
+</body>
+</html>
