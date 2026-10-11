@@ -1,0 +1,1386 @@
+ASTRA 6.1 MASTER IMPLEMENTATION PROMPT — KIARASH JALALI PERSONAL PORTFOLIO
+DRAFT v1 — COMPLETE PROJECT BRIEF
+
+0. ROLE AND MISSION
+Act as a senior creative frontend developer, interaction designer, motion designer, technical art director, and implementation lead.
+
+Your task is to redesign and implement Kiarash Jalali’s personal website as a single-page, mixed-media, illustrated fantasy journey.
+
+This is NOT:
+- a CV site
+- a résumé template
+- a SaaS landing page
+- a generic “creative developer” portfolio
+- a neon/glassmorphism tech demo
+- a game
+- a collection of unrelated fan-art screenshots
+
+This IS:
+- a personal website
+- an art-directed experience
+- a living illustrated portfolio
+- a mixed-media digital storybook
+- a one-page journey through multiple visual worlds
+- a place where Kiarash introduces himself through his work, personality, taste, imagination, technical skill, interests, and visual vision
+
+The final result should feel authored, deliberate, artistic, memorable, and highly crafted.
+
+The experience should make a visitor feel:
+“I entered Kiarash’s world,”
+not:
+“I opened another developer portfolio.”
+
+1. REPOSITORY / SAFETY BOUNDARY
+Production repository:
+- kiarash-jalali/Portfolio
+- live site: https://kiarashjalali.net/
+- DO NOT modify production unless explicitly instructed later.
+
+Experimental redesign repository:
+- kiarash-jalali/Portfolio-World
+- use this repository for the redesign and experimentation
+- main branch is experimental
+- preserve the production repo as-is
+
+Before editing:
+1. inspect the current repository structure
+2. inspect the existing site content
+3. inspect any existing world-lab prototypes
+4. inspect all supplied visual references
+5. inspect the supplied ZIP resource hierarchy
+6. inspect the current responsive behavior
+7. inspect the current copy and content structure
+8. preserve useful semantic HTML/content unless redesign needs a better structure
+
+Do not destroy working content simply because the visual design changes.
+
+2. SOURCE MATERIAL AND REFERENCE PRIORITY
+You have access to a large reference package containing:
+- layout sketches
+- pond references
+- LOTR-inspired references
+- Elden Ring-inspired references
+- Game of Thrones-inspired references
+- video references for water / pond / ambient motion
+- folders named "goals"
+- supporting images for angles, materials, lighting, composition, and motifs
+
+REFERENCE PRIORITY:
+Highest priority:
+- images inside folders named "goals"
+
+These represent the closest visual targets and the strongest art-direction intent.
+
+Secondary priority:
+- other images in the same theme folders
+
+Use them for:
+- composition ideas
+- lighting
+- texture
+- materials
+- alternate angles
+- architectural cues
+- environmental details
+- secondary motifs
+- atmosphere
+
+The layout sketches are rough but intentional.
+Treat them as wireframes and composition notes, not polished UI.
+
+The videos are especially important for motion language.
+They show that the desired pond is not a technical fluid simulation.
+It is an animated illustration with restrained, authored motion.
+
+Do not literally copy copyrighted images or official game/movie art.
+Use the references as inspiration and create original artwork / generated assets that capture the intended atmosphere and composition.
+
+3. CORE DESIGN PHILOSOPHY
+The site is a single continuous vertical journey.
+
+Different sections may intentionally use different art styles and different media.
+
+DO NOT normalize all worlds into one universal visual style.
+
+This variety is intentional and central to the concept.
+
+The site is best understood as an:
+- illustrated anthology
+- mixed-media digital storybook
+- living illustrated portfolio
+- environmental narrative website
+
+Cohesion must come from:
+- page rhythm
+- navigation behavior
+- spacing discipline
+- typography hierarchy
+- transition quality
+- motion restraint
+- consistent UX quality
+- reusable content structure
+- Kiarash’s identity and voice
+
+NOT from forcing all scenes to share the same brushwork.
+
+Each section can have its own artistic medium.
+
+Examples:
+- Pond: painterly / anime-background / Persian garden water scene
+- About: pastoral fantasy / storybook landscape
+- Hobbit and Gollum: high-resolution pixel art integrated into scenery
+- Skills: cinematic fantasy matte painting
+- Work 1: dark monumental fantasy / sublime landscape
+- Work 2: stained-glass / leaded-glass triptych
+- GoT-inspired area: fantasy cartography / paper diorama / engraved book / pop-up world
+
+4. INTERACTION PHILOSOPHY
+The website is animated, but it is NOT intended to behave like a game.
+
+Most motion should come from:
+- time
+- scroll progress
+- ambient loops
+- autonomous environmental animation
+- short cinematic sequences
+
+The visitor should mostly:
+- observe
+- read
+- scroll
+
+The only deliberate environmental interaction currently required is:
+- clicking/tapping the Hobbit-home door
+
+Normal website controls remain interactive:
+- nav links
+- CTA buttons
+- project links
+- external links
+- accessibility controls if added
+
+Do NOT add:
+- cursor-chasing creatures
+- draggable objects
+- clickable fish
+- excessive hover toys
+- random game mechanics
+- unnecessary interactive particles
+- interactive physics just because they are technically possible
+
+The experience should feel alive, not busy.
+
+5. TECHNOLOGY / IMPLEMENTATION FREEDOM
+The project should stay understandable and maintainable.
+
+Preferred philosophy:
+- semantic HTML
+- modular CSS
+- modular JavaScript
+- progressive enhancement
+- use libraries where they materially improve quality
+
+Allowed / encouraged when justified:
+- GSAP
+- ScrollTrigger
+- PixiJS
+- CSS 3D transforms
+- clip-path / masks
+- canvas
+- WebGL
+- sprite sheets
+- image sequences
+- layered transparent assets
+- responsive art-directed images
+- lazy loading
+- IntersectionObserver
+- requestAnimationFrame
+- CSS variables
+- structured scene managers
+- asset preloading strategies
+
+Webflow-quality ideas and interaction patterns are welcome.
+Do NOT move the site into Webflow unless explicitly instructed.
+Borrow the quality and choreography, not necessarily the platform.
+
+Do NOT overengineer.
+
+Use the simplest technique that produces the best visual result.
+
+Important principle:
+JavaScript should orchestrate the world.
+It should not have to procedurally invent all the artwork.
+
+Prefer:
+beautiful authored assets
++ animation frames
++ short loops
++ layered scenery
++ controlled scroll choreography
+
+over:
+real-time simulations for everything.
+
+6. PERFORMANCE PHILOSOPHY
+This site will use heavy visual assets.
+Performance must be designed from the beginning.
+
+Requirements:
+- lazy-load heavy section assets shortly before they enter viewport
+- preload only what is necessary for first meaningful paint and hero sequence
+- render only active / near-active scenes where possible
+- pause offscreen animation
+- pause animation when document is hidden
+- reduce animation density on mobile
+- reduce DPR / resolution where appropriate
+- prefer compressed WebP/AVIF where suitable
+- use transparent PNG/WebP only when transparency is necessary
+- avoid huge uncompressed video backgrounds
+- use sprite sheets or short optimized loops where better
+- use content-visibility where useful
+- preserve fast interaction and readable content if artwork is still loading
+
+Do not let artistic ambition create a sluggish page.
+
+7. ACCESSIBILITY / UX REQUIREMENTS
+The site can be visually experimental but should remain usable.
+
+Requirements:
+- semantic heading structure
+- readable contrast
+- keyboard navigation
+- visible focus states
+- accessible buttons and links
+- proper alt text for meaningful images
+- decorative imagery should not pollute screen-reader output
+- avoid destructive DOM tricks for visual animations
+- support prefers-reduced-motion
+- do not trap the user in scroll locks beyond the short opening sequence
+- mobile controls must remain tappable
+- maintain a functional static experience if animations are reduced
+
+Any “word stealing” effect must preserve semantic text and layout.
+
+8. RESPONSIVE PHILOSOPHY
+Desktop and wide screens are the primary art-direction target.
+
+Mobile is an adaptation, NOT a shrunken desktop.
+
+Each major scene should have art-directed responsive behavior.
+
+Do NOT rely on background-size: cover as the only responsive strategy for complex illustrated scenes.
+
+Instead use:
+- alternate crops
+- portrait variants
+- different object positioning
+- simplified animation
+- reduced environmental elements
+- rearranged content
+- reduced 3D depth
+- fewer fish
+- simpler NPC movement
+- different scene framing
+
+Mobile should feel intentional and beautiful, but it does not need to reproduce the exact desktop composition.
+
+Examples:
+
+Pond desktop:
+- wide composition
+- text safe zone
+- large illustrated water field
+
+Pond mobile:
+- portrait crop
+- stacked content
+- still enough visible pond to preserve the chapter identity
+
+Work 2 desktop:
+- three-panel stained-glass triptych
+
+Work 2 mobile:
+- one panel at a time
+- horizontal swipe / scroll snap or stacked panels
+
+Pop-up scenes desktop:
+- stronger perspective and multi-plane depth
+
+Pop-up scenes mobile:
+- fewer layers
+- shallower depth
+- reduced movement
+- preserved visual metaphor
+
+9. GLOBAL NAVIGATION
+The navbar should remain structurally consistent across the whole site.
+
+Its:
+- location
+- interaction model
+- main navigation logic
+
+should remain stable.
+
+However, its visual treatment may gradually transform between chapters.
+
+Examples:
+Pond:
+- turquoise
+- cream
+- subtle ornamental detail
+
+Shire:
+- warm parchment
+- moss
+- aged wood
+- warm natural tones
+
+Elden Ring:
+- charcoal
+- dark stone
+- faded gold
+
+GoT-inspired:
+- cold parchment
+- frost
+- iron
+- cartographic motifs
+
+Transitions must be smooth and readable.
+Do not suddenly snap the navbar from one unrelated visual theme to another.
+
+Use scroll progress / transition zones for:
+- color changes
+- lighting changes
+- material shifts
+- typography changes where appropriate
+
+10. TYPOGRAPHY SYSTEM
+Kiarash wants different display fonts for different worlds.
+
+Astra has permission to make the first selection.
+
+Use only free/open-license fonts from reputable sources such as:
+- Google Fonts
+- Fontshare
+- Use & Modify
+- Velvetyne
+- The League of Moveable Type
+- other reputable open-source/free foundries if appropriate
+
+Rules:
+- different chapter display fonts are welcome
+- body text must remain highly readable
+- do not use decorative fantasy fonts for long paragraphs
+- keep all typography choices centralized in CSS variables/tokens
+- document every selected font and source
+- make replacement easy later
+
+Suggested token structure:
+--font-body
+--font-pond-display
+--font-lotr-display
+--font-elden-display
+--font-got-display
+--font-pixel
+
+11. OVERALL PAGE JOURNEY
+The current intended narrative structure is:
+
+1. HERO / POND
+2. ABOUT / SHIRE-LIKE WORLD
+3. SKILLS / MINAS-TIRITH-LIKE WORLD
+4. WORK 1 / ELDEN-RING-INSPIRED SUBLIME LANDSCAPE
+5. WORK 2 / STAINED-GLASS TRIPTYCH
+6. LATER SECTIONS / GOT-INSPIRED WALL + MAP + PAPER DIORAMA LANGUAGE
+7. AI / LAB / OTHER EXISTING CONTENT
+8. CONTACT
+
+The exact mapping of the final lower-page sections can be refined after inspecting the original site’s existing section list and content.
+
+Do not delete meaningful content simply because the artistic chapter plan is new.
+
+12. HERO — POND WORLD
+The first chapter is a hand-painted pond world.
+
+ART DIRECTION:
+- top-down or near-top-down illustrated pond
+- painterly environment
+- anime-background-art influence
+- Persian garden howz/houz influence
+- turquoise / firoozeh water
+- Persian glazed tile / mosaic elements
+- lotus flowers
+- lily pads
+- pond floor visible beneath water
+- subtle algae
+- sand / stone
+- water depth
+- painterly reflections
+- soft caustic light
+- botanical details
+- elegant
+- calm
+- rich but not overcrowded
+- handcrafted feeling
+- not photorealistic
+- not vector-flat
+- not tech-futuristic
+
+Use 2–3 koi only.
+
+The pond should feel like an animated painting.
+
+Do NOT make it feel like:
+- a physics demo
+- a particle demo
+- a glossy 3D game pond
+- an interactive toy
+
+13. HERO LAYOUT
+Preserve the important content currently present in the original hero.
+
+The original hero content should remain conceptually intact:
+- identity
+- role/subtitle
+- introduction
+- CTA buttons
+- supporting links/actions
+
+Remove the old scroll indicator if it no longer makes sense.
+
+Composition:
+- content primarily on the left or within a quiet visual zone
+- pond dominates the visual field
+- scenery is the hero
+- do not place the pond inside a generic rectangular card
+
+The text/UI should visually belong to the pond chapter.
+
+Avoid generic glass cards unless used very sparingly and artistically.
+
+14. HERO OPENING CINEMATIC
+The page begins with a short cinematic intro.
+
+SCROLL IS LOCKED during this sequence.
+
+Target duration:
+approximately 2.5–4.5 seconds.
+
+The sequence should be short enough to feel intentional, not like a long splash screen.
+
+INITIAL STATE:
+- pond already visible
+- slightly muted / matte / subdued
+- navigation and supporting content may be softly present
+- large name appears clearly:
+  KIARASH JALALI
+
+Then the title transitions from flat typography into physical objects.
+
+15. HERO NAME — DIEGETIC PARCHMENT LETTERS
+Critical concept:
+
+Do NOT render the name as one parchment card.
+
+Every individual letter in:
+KIARASH JALALI
+
+must exist on its OWN aged parchment fragment.
+
+Each fragment should have:
+- slightly irregular shape
+- old-paper texture
+- subtle edge variation
+- subtle material variation
+- independent position/rotation
+- its own physical behavior
+
+The title begins readable.
+
+Then the letters:
+- separate
+- gain physicality
+- fall independently toward the pond
+- hit the water with staggered timing
+
+Each letter behaves differently.
+
+Possible outcomes:
+- floats flat
+- rotates
+- drifts
+- partially sinks
+- darkens as if wet
+- curls slightly
+- flips
+- becomes obscured by reflection
+- moves behind lily pads
+- sinks over time
+- becomes unreadable
+- appears damaged or lost
+
+The name does NOT need to remain readable.
+
+The large cinematic title itself can disappear into the world.
+
+16. PARCHMENT-WATER MOTION
+The parchment pieces should not behave like:
+- stones
+- rubber
+- plastic cards
+- arcade objects
+- identical rigid-body clones
+
+They should feel like light paper/parchment interacting with water.
+
+Desired motion qualities:
+- soft buoyancy
+- slight rotational wobble
+- water drag
+- slow drifting
+- surface tension
+- edge dipping
+- inconsistent wetness
+- tiny ripple response
+- varied settling behavior
+
+No exaggerated splashes.
+
+Opening choreography suggestion:
+
+A. initial stillness
+~0.6–1.0s
+
+B. letters gain physicality
+~0.4–0.8s
+
+C. staggered drop
+~1.2–2.0s
+
+D. settle / pond fully wakes
+~0.8–1.5s
+
+After the sequence:
+- scroll unlocks
+- koi continue swimming
+- pond settles into ambient life
+- normal page journey begins
+
+17. HERO FISH
+Use 2–3 fish only.
+
+Desired fish quality:
+- true top-down view
+- painterly koi
+- elegant silhouette
+- readable from above
+- symmetrical body alignment
+- asymmetrical color/pattern markings
+- cream/white body with coral/red markings
+- translucent fins
+- not photorealistic
+- not side-view
+- not “bent sticker” feeling
+
+Preferred animation direction:
+asset-driven / authored motion.
+
+Options:
+- short hand-painted frame loop
+- sprite sheet
+- image sequence
+- restrained mesh deformation only if it looks natural
+
+For the final site:
+art quality and top-view correctness matter more than animation complexity.
+
+Fish should:
+- move slowly
+- feel elegant
+- remain secondary to the opening title event
+- continue ambient movement after intro
+
+They may respond subtly to letter impacts, but do not create chaotic reactions.
+
+18. HERO INTERACTION RULE
+The hero is NOT interactive with pointer/click.
+
+No:
+- clickable fish
+- cursor response
+- dragging letters
+- hovering to disturb water
+
+The visitor watches the sequence.
+
+19. ABOUT — SHIRE-LIKE WORLD
+The About section transitions into a pastoral fantasy environment.
+
+Core art direction:
+- storybook fantasy landscape
+- broad countryside
+- lush green hills
+- illustrated clouds
+- winding path
+- flowers
+- warm light
+- cozy fantasy
+- hand-painted / hand-illustrated look
+
+Composition should reflect the supplied layout sketch:
+- About content on one side
+- Hobbit-home scene as central environmental focus
+- education / supporting content on the other side or adjacent region
+- exact desktop composition may be refined for readability
+
+Ambient motion:
+- birds
+- cloud drift
+- subtle wind through grass
+- subtle leaf movement
+- perhaps chimney smoke if composition supports it
+
+Do NOT animate every pixel.
+
+20. HOBBIT HOME INTERACTION
+The Hobbit-home door is the main deliberate environmental interaction.
+
+Desktop:
+- click
+
+Mobile:
+- tap
+
+Behavior:
+1. door closed
+2. user activates door
+3. door opens
+4. a Hobbit appears
+5. Hobbit waves
+6. Hobbit retreats
+7. door closes
+
+Target duration:
+about 3–4 seconds.
+
+Preferred character style:
+high-resolution pixel art blended into the illustrated environment.
+
+The animation should feel charming, not comedic or childish.
+
+Do not turn it into a mini-game.
+
+21. GOLLUM — AMBIENT NPC
+Gollum lives only in:
+- About
+- Skills
+
+He is not global across the whole website.
+
+Preferred style:
+high-resolution pixel art that blends with the surrounding world.
+
+Possible states:
+- idle
+- walk
+- sneak
+- climb
+- sit
+- sleep
+- look around
+- steal
+- carry word
+- find ring
+- celebrate
+- get angry
+- retreat / disappear
+
+He should spend MOST of his time doing very little.
+
+Rare events should feel rewarding.
+
+Suggested rare-event cadence:
+approximately once every 45–120 seconds while these sections are actually active.
+
+Do not run expensive logic while the section is far offscreen.
+
+22. GOLLUM WORD STEALING
+This effect must be visual only.
+
+Never destructively rewrite the semantic text.
+
+If Gollum steals a word:
+- preserve the original DOM text
+- identify a visually safe candidate word
+- temporarily make that word visually transparent or masked
+- create a positioned visual clone
+- animate the clone with Gollum
+- restore visibility later
+
+Requirements:
+- no layout reflow
+- no SEO loss
+- no screen-reader corruption
+- no permanent text mutation
+- no expensive full-page word scanning every animation frame
+
+Candidate search should occur only when the event is triggered.
+
+23. GOLLUM RING EVENT
+Occasionally:
+- Gollum notices/finds the ring
+- becomes visibly delighted / excited
+- may celebrate
+- may guard it
+- may react angrily if the sequence changes
+- eventually returns to idle behavior
+
+This should remain a rare easter-egg event.
+
+Do not make it a required user interaction.
+
+24. SKILLS — MINAS-TIRITH-LIKE WORLD
+The Skills section uses a monumental fantasy city / architectural vista.
+
+Art direction:
+- cinematic fantasy matte painting
+- grand city
+- elevated architecture
+- epic scale
+- strong depth
+- sky and landscape around the city
+- monumental but not visually noisy
+
+The city image itself may remain mostly static.
+
+Subtle motion can include:
+- cloud drift
+- haze
+- banners
+- tiny birds
+- very gentle atmospheric movement
+
+The scene should support the Skills content, not compete with it.
+
+Gollum may continue moving through this section.
+
+25. WORK 1 — ELDEN-RING-INSPIRED SUBLIME LANDSCAPE
+This section uses the visual language of:
+- monumental dark fantasy landscape
+- glowing world tree / Erdtree-like focal point
+- small lone figure seen from behind
+- vast environment
+- strong scale contrast
+- atmospheric depth
+- sublime composition
+
+Useful composition concept:
+Rückenfigur
+
+The composition should communicate:
+small human figure
+versus
+enormous impossible world.
+
+The provided sketch suggests:
+- Tarnished-like figure on one side
+- project content occupying a readable region
+- giant glowing tree dominating the opposite side / background
+
+Use original fantasy art inspired by this feeling.
+Do not use ripped game assets.
+
+Motion can be very restrained:
+- slow tree-light pulse
+- drifting gold particles
+- cloud/haze motion
+- small grass/cape movement
+
+26. WORK 2 — STAINED-GLASS TRIPTYCH
+This section should become a stained-glass triptych.
+
+Core visual language:
+- medieval ecclesiastical glass
+- leaded glass
+- jewel-like color
+- fantasy warrior / boss imagery
+- strong vertical panels
+- ornamental frame structures
+- illuminated glass
+- cathedral-window atmosphere
+
+Desktop:
+three tall illustrated panels.
+
+Each panel represents a project / work item.
+
+Do not simply put game screenshots behind cards.
+
+Instead create original stained-glass fantasy imagery inspired by the references.
+
+Potential effect:
+the glass itself remains mostly static, while light behind it shifts subtly.
+
+Mobile:
+- one panel at a time
+- scroll snap / swipe
+or
+- stacked panels with preserved framing
+
+27. GOT-INSPIRED LATER WORLD
+Use Game-of-Thrones-inspired references primarily as a supporting art language, not necessarily as an equally dominant standalone fandom chapter.
+
+Useful motifs:
+- The Wall
+- icy monumental landscape
+- fantasy cartography
+- parchment maps
+- heraldic shields
+- engraved detail
+- old-book illustration
+- paper construction
+- medieval map language
+
+The strongest unique idea for this area:
+SCROLL-DRIVEN POP-UP BOOK / PAPER DIORAMA.
+
+28. POP-UP BOOK / PAPER DIORAMA SCROLLING
+Use concepts:
+- scroll-driven pop-up book
+- paper diorama
+- cut-paper layering
+- paper theatre
+- progressive scene assembly
+- scroll-linked folding
+- perspective layers
+
+Especially suitable for:
+- The Wall
+- fantasy maps
+- mountains
+- snow foreground
+- cartographic landscape
+- parchment transitions
+
+Possible sequence:
+1. page becomes flatter / parchment-like
+2. map lines appear
+3. map becomes a ground plane
+4. mountains rise from folds
+5. Wall rises vertically
+6. snow foreground lifts toward viewer
+7. content settles into the assembled scene
+
+Scrolling upward should reverse the construction gracefully.
+
+Implementation may use:
+- sticky scene
+- CSS perspective
+- transform-origin
+- rotateX / rotateY
+- masks
+- clip-path
+- layered transparent assets
+- GSAP ScrollTrigger
+- scroll-linked progress
+- reduced mobile version
+
+Do NOT use this effect everywhere.
+Reserve the most theatrical folding effects for a small number of major moments.
+
+29. TRANSITION PHILOSOPHY
+The worlds must not feel like unrelated full-screen images stacked vertically.
+
+Transitions are part of the art direction.
+
+Use a mixture of:
+- natural visual morphing
+- lighting change
+- palette shift
+- landscape continuation
+- material transition
+- paper edge / page transition
+- haze
+- masking
+- environmental overlap
+- scene assembly
+- map transformation
+
+Different chapters may have different transition languages.
+
+Example philosophy:
+
+Pond:
+- fluid / soft / reflective transitions
+
+LOTR:
+- landscape / parallax / natural horizon transitions
+
+Elden Ring:
+- darkening / illumination / atmospheric scale transitions
+
+GoT:
+- paper / map / fold / pop-up physical transitions
+
+Avoid:
+- abrupt theme dumping
+- sudden unexplained palette swap
+- simple hard cuts unless intentionally dramatic
+
+30. CONTENT MATERIALITY
+Do NOT place all text in generic floating cards.
+
+Kiarash wants the UI to fully participate in each world.
+
+Rule:
+UI should belong to the material world of the chapter whenever practical.
+
+Examples:
+- pond: ceramic, quiet painted surfaces, water-adjacent composition
+- Shire: book-like / wood / warm natural materials
+- Elden: dark manuscript / stone / faded gold / restrained aged surfaces
+- stained-glass work: titles integrated into glass architecture
+- GoT: parchment / map / paper structures / engraved details
+
+However:
+readability comes first.
+
+Do not hide important text inside unreadable textures.
+
+31. CONTENT PRESERVATION
+Preserve the actual substance of the original site.
+
+Do not rewrite Kiarash into generic developer-marketing language.
+
+Before implementation:
+- inspect current text
+- preserve About content
+- preserve Education
+- preserve Skills
+- preserve Work/Projects
+- preserve AI section
+- preserve Lab
+- preserve Contact
+- preserve useful external links
+- preserve project links
+
+Reorganize visually if necessary.
+
+Do not delete sections simply because they are not fully described in this prompt.
+
+32. AI / LAB / CONTACT — CURRENT DIRECTION
+These lower sections are not yet as tightly art-directed as Hero/About/Skills/Work.
+
+Do not invent a completely unrelated visual world.
+
+Prefer to derive them from:
+- fantasy cartography
+- parchment
+- old-book illustration
+- wall / stone / frost
+- heraldic motifs
+- map annotations
+- engraved fantasy diagrams
+- subtle celestial or archival elements if appropriate
+
+Lab may feel:
+- experimental
+- like a side-room / archive / illustrated workshop
+- playful but still within the site’s world
+
+AI should remain a meaningful content section, not generic AI hype.
+
+Contact should feel like the natural closing chapter, not a corporate contact form pasted onto the bottom.
+
+33. ART ASSET STRATEGY
+Do not flatten each scene into one giant impossible-to-edit background if the scene requires animation or depth.
+
+Prefer layered assets.
+
+Example Pond layers:
+1. pond floor
+2. dirt/sand/algae/stones
+3. submerged Persian tiles
+4. water tint/depth layer
+5. caustic light
+6. fish
+7. fish wakes / ripples
+8. reflections
+9. lily pads / lotus
+10. foreground leaves / flowers
+11. pond edge / step / stone / Persian architectural detail
+12. UI/content
+
+Example Shire:
+1. distant sky
+2. clouds
+3. distant hills
+4. middle landscape
+5. house
+6. door sprite layer
+7. Hobbit sprite
+8. grass / foliage motion layers
+9. birds
+10. Gollum NPC layer
+11. content
+
+Example GoT pop-up:
+1. parchment base
+2. map
+3. distant mountains
+4. Wall
+5. snow foreground
+6. content plane
+7. decorative map / heraldic detail
+
+Assets should remain replaceable.
+
+34. MOTION LANGUAGE
+Overall motion should feel:
+- authored
+- restrained
+- atmospheric
+- elegant
+- deliberate
+- slightly cinematic
+- sometimes lower-frame-rate / illustrated
+
+Do NOT default every animation to ultra-smooth 60fps if that destroys the painted feeling.
+
+Art animation may intentionally use:
+- 8 fps
+- 12 fps
+- 18 fps
+- 24 fps
+
+depending on the asset and desired look.
+
+Simulation/input logic can still run smoothly.
+
+35. PAGE LOADING / ASSET LOADING
+Distinguish:
+A. scroll choreography
+B. actual asset loading
+
+Do both.
+
+Heavy scene assets should:
+- load shortly before needed
+- not all download on first page load
+- have graceful placeholders / low-res preview if useful
+
+Hero assets:
+- preload enough to make opening sequence reliable
+
+Later scenes:
+- lazy-load through intersection / prefetch strategy
+
+Avoid visible layout jump.
+
+36. MOBILE-SPECIFIC ADAPTATION
+Mobile is allowed to simplify.
+
+Examples:
+
+Gollum:
+- fewer movement paths
+- no crossing over essential content
+- reduced event frequency
+- smaller navigation area
+
+Hobbit:
+- tap door
+- same basic animation
+- simplified scenery motion
+
+Pond:
+- fewer moving elements
+- 2–3 fish max
+- portrait art composition
+- simpler ripples
+
+Pop-up:
+- fewer planes
+- less perspective
+- shorter sticky section
+- reduced transform intensity
+
+Stained glass:
+- one panel at a time
+
+Navbar:
+- remain usable
+- preserve theme adaptation
+- do not overdecorate small screens
+
+The goal is not exact parity.
+The goal is equivalent artistic intent.
+
+37. COPYRIGHT / FAN-HOMAGE BOUNDARY
+Kiarash intentionally wants direct fantasy/game-inspired homages in a personal, noncommercial site.
+
+Still:
+- do not rip official movie frames
+- do not reuse official game sprites
+- do not use official soundtrack
+- do not copy logos
+- do not use official production art as final site assets
+
+Create original:
+- fantasy landscapes
+- stained-glass characters
+- pixel-art NPCs
+- fantasy cities
+- Shire-like homes
+- monumental glowing trees
+- map / wall environments
+
+Optional:
+include a small fan-homage / inspiration credit in the footer if appropriate.
+
+38. CODE QUALITY
+Keep implementation modular.
+
+Suggested architecture:
+- scene manager
+- per-section modules
+- motion utilities
+- asset loader
+- responsive helpers
+- accessibility / reduced motion logic
+- optional NPC state machine
+- animation timeline modules
+- typography/theme variables
+- reusable content components or templates
+
+Do not create:
+- one enormous HTML file
+- one enormous JS file
+- one impossible CSS file
+- magic numbers scattered everywhere
+- tightly coupled animation code that cannot be tuned
+
+Use data/config objects for tunable values.
+
+39. ASTRA WORKFLOW
+Do NOT immediately code the entire site in one blind pass.
+
+First:
+1. inspect repo
+2. inspect current site
+3. inspect resource ZIP
+4. inspect every "goals" folder
+5. inspect layout sketches
+6. inspect reference videos
+7. identify existing reusable content
+8. identify current assets worth preserving
+9. identify which new assets must be generated
+10. produce a concise implementation plan
+
+Then implement in phases.
+
+Recommended phase order:
+
+PHASE 1
+- base layout
+- global theme architecture
+- navbar
+- typography system
+- responsive structure
+- scene loading system
+
+PHASE 2
+- Hero pond
+- opening parchment-letter cinematic
+- koi
+- basic layered water
+- hero content
+- scroll unlock
+
+PHASE 3
+- About / Shire
+- Hobbit door animation
+- ambient landscape motion
+
+PHASE 4
+- Gollum state machine
+- word stealing
+- Skills / Minas Tirith
+
+PHASE 5
+- Work 1 sublime landscape
+- Work 2 stained-glass triptych
+
+PHASE 6
+- GoT map / Wall / paper-diorama transition
+- lower sections
+- AI
+- Lab
+- Contact
+
+PHASE 7
+- responsive art direction
+- performance tuning
+- reduced motion
+- accessibility
+- final polish
+
+40. DESIGN REVIEW / ITERATION RULE
+Do not treat the first visual implementation as final.
+
+Keep:
+- fonts swappable
+- art assets swappable
+- animation timing tunable
+- scene colors tokenized
+- motion amplitudes configurable
+- section boundaries editable
+
+Kiarash wants to evaluate the artistic result, not be trapped by rigid implementation.
+
+41. WHAT MUST NOT HAPPEN
+Avoid:
+- generic black developer portfolio
+- huge neon gradients
+- futuristic glass UI everywhere
+- random cyan accent language
+- overly corporate tone
+- resume-like section design
+- repeated generic cards
+- every section using same layout
+- every section using same font
+- every section using same art style
+- abrupt theme swaps
+- excessive parallax
+- overused particle effects
+- overused mouse interaction
+- cursor gimmicks
+- clickable fish
+- game-like navigation
+- physics for physics’ sake
+- procedural art that looks sterile
+- photorealistic fish
+- fish with wrong side-view perspective
+- mobile as simple desktop scaling
+- pop-up-book effect on every section
+- animation that blocks reading
+- long forced intro
+- destructive DOM changes
+- inaccessible text
+- loading all heavy assets immediately
+- copyright-heavy direct asset reuse
+- placeholder Lorem Ipsum
+- rewriting Kiarash’s identity into generic marketing copy
+
+42. QUALITY BAR
+The result should feel closer to:
+- an interactive illustrated book
+- a digital exhibition
+- an art-directed title sequence
+- a carefully animated environmental portfolio
+
+than to:
+- a dashboard
+- a template
+- a landing page
+- a game UI
+- an agency clone
+
+When deciding between:
+A. technically clever
+and
+B. visually beautiful
+
+choose B,
+unless B makes the site unusable or unmaintainable.
+
+When deciding between:
+A. more interaction
+and
+B. better atmosphere
+
+choose B.
+
+43. SUCCESS CRITERIA
+The redesign is successful if:
+
+1. The site feels unmistakably personal.
+2. The visual worlds feel intentional rather than random.
+3. The pond is beautiful even when nothing dramatic happens.
+4. The opening name-drop sequence is memorable but short.
+5. The Hobbit-home interaction feels delightful.
+6. Gollum feels like a creature living in the environment, not a widget.
+7. The Skills scene feels monumental.
+8. Work 1 conveys scale and sublime fantasy.
+9. Work 2 feels like stained glass, not cards with filters.
+10. The Wall/map section genuinely feels like paper architecture unfolding.
+11. Typography changes support each world.
+12. The navigation remains understandable.
+13. The site remains readable.
+14. Mobile feels intentionally adapted.
+15. Performance remains acceptable despite the artwork.
+16. The site does not resemble a generic CV.
+17. The site can still be maintained and extended later.
+18. All existing important content remains represented.
+19. The result demonstrates both visual taste and frontend ability.
+20. The visitor remembers the experience after leaving.
+
+44. INITIAL ACTION REQUIRED FROM ASTRA
+Before implementing:
+
+- inspect the full repository
+- inspect the current page
+- inspect all assets
+- inspect the supplied resource ZIP
+- prioritize the "goals" references
+- inspect the videos
+- inspect the hand-painted layout sketches
+- inspect the current content
+- inspect existing prototypes only as technical experiments, not as locked final design
+
+Then respond with:
+1. your understanding of the design direction
+2. the proposed technical architecture
+3. the section-by-section implementation strategy
+4. the asset-generation / asset-preparation strategy
+5. the mobile adaptation strategy
+6. the performance strategy
+7. any genuine blocking questions
+
+Do not ask unnecessary questions.
+Make strong art-direction decisions where the brief intentionally gives creative freedom.
+
+After that, begin implementation in the experimental repository.
+
+45. FINAL NORTH STAR
+The site should feel like:
+
+“A personal fantasy journey made by a developer who understands both code and art.”
+
+The visitor begins at a Persian-turquoise living pond,
+moves into a pastoral fantasy world,
+encounters high-resolution pixel-art characters,
+passes a monumental fantasy city,
+enters a dark sublime landscape,
+moves through stained glass,
+then reaches cartographic / paper-diorama fantasy spaces,
+all while the real portfolio content remains readable and meaningful.
+
+The site should be surprising,
+but never confusing.
+
+Beautiful,
+but not decorative for decoration’s sake.
+
+Technically ambitious,
+but not technically self-indulgent.
+
+The world should feel alive,
+but not demand constant interaction.
+
+The portfolio should introduce Kiarash by showing his taste and imagination,
+not by behaving like a résumé.
+
+END OF MASTER PROMPT DRAFT v1

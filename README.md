@@ -1,75 +1,38 @@
 # Portfolio-World
 
-Experimental rebuild of Kiarash Jalali's personal portfolio.
+Kiarash Jalali’s English-only illustrated portfolio: a Persian garden pond, pastoral cottage, white city, golden tree, stained-glass project gallery, and unfolding paper atlas.
 
-## Important
+This is the experimental **kiarash-jalali/Portfolio-World** repository. The production `kiarash-jalali/Portfolio` repository and `kiarashjalali.net` remain separate. This repository has no CNAME and its pages request no indexing.
 
-This repository is **not production**.
+## Run and build
 
-The current live portfolio remains in:
+Use Node 24 (minimum 22.12):
 
-`kiarash-jalali/Portfolio`
+```sh
+npm ci
+npm run dev
+npm run verify
+```
 
-and continues to serve `kiarashjalali.net`.
+`npm run build` renders semantic HTML and builds the production site into `dist/`. Relative asset URLs support a nested GitHub Pages path. The deployment workflow builds and verifies before publishing **only this repository’s** Pages artifact.
 
-Do not deploy this repository to the production custom domain unless Kiarash explicitly decides the world redesign is ready.
+## Source map
 
-## North star
+- `src/world/content.js`: English portfolio content and project records.
+- `scripts/render-page.mjs`: accessible, pre-rendered page structure; generates `index.html`.
+- `src/world/styles.css`: chapter layouts, typography, responsive composition, atmospheric CSS motion.
+- `src/world/scenes.js`: visibility, lazy art loading, motion preference, GSAP ScrollTrigger choreography.
+- `src/world/opening.js`: thirteen independent parchment letters, session replay guard, skip control, and scroll-lock fail-safe.
+- `src/world/characters.js`: cottage-door sequence and infrequent ambient character appearances.
+- `src/world/ui.js`: navigation, accessible project dialogs, AI illustrations, email draft flow.
+- `src/world/workshop.js`: keyboard/pointer spring experiments.
+- `public/art/`: original generated WebP environments and transparent sprites. Asset provenance is included alongside them.
+- `tests/site.test.mjs`: built-output and Happy DOM interaction checks.
 
-This project is not a visual polish pass on the old portfolio.
+There is no language or theme switch. Each chapter owns its palette. The motion control pauses atmosphere and scroll choreography; system reduced-motion preferences are respected automatically.
 
-It is a rebuild around a small illustrated world:
+## Design authority
 
-- a hand-painted Persian-turquoise garden pond for the opening / About chapter
-- a Middle-earth fan-homage chapter for Skills + Work
-- a moonlit pond return for AI + Lab + Contact
-- painterly ambient animation instead of generic tech effects
-- real portfolio content remains semantic, readable, accessible HTML
+`docs/IMPLEMENTATION_BRIEF.txt` is the supplied master implementation brief. Latest user decisions override its older options: **English only; no theme-change control; implementation authorized**. `docs/ART_DIRECTION_MASTER_PLAN.txt` is an earlier historical plan.
 
-The full design and implementation brief lives at:
-
-`docs/ART_DIRECTION_MASTER_PLAN.txt`
-
-Read that document before making major visual or architectural decisions.
-
-## Safety baseline
-
-The branch:
-
-`baseline-production-clone`
-
-is a frozen copy of the source state cloned from the live portfolio before the world redesign begins.
-
-The experimental `main` branch is where the new world is developed.
-
-The new repository intentionally does not contain:
-
-- the production `CNAME`
-- `public/CNAME`
-- the production GitHub Pages deployment workflow
-- generated `dist/` output
-
-## Working order
-
-1. Lock the art direction.
-2. Produce the hero pond concept.
-3. Produce fish, lotus and Persian tile concept kits.
-4. Produce one Middle-earth chapter concept.
-5. Build an isolated World / Art Lab.
-6. Prove water, fish, ripple, layering and low-FPS painterly motion.
-7. Only then migrate the real portfolio sections into the new visual world.
-
-## Technical direction
-
-The intended implementation remains JavaScript-first.
-
-Likely stack after the art prototype is approved:
-
-- semantic HTML
-- vanilla JavaScript
-- Vite
-- PixiJS 8 for the illustrated 2D world layer
-- GSAP + ScrollTrigger for chapter / scroll choreography
-- optional Rive or Spine only if a particular character or asset genuinely benefits from it
-
-The portfolio is a website with a living art layer, not a game.
+See `docs/IMPLEMENTATION.md` for reference mapping, asset decisions, behavior, and verification limits. The `baseline-production-clone` branch preserves the initial source.
