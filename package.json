@@ -5,8 +5,8 @@
   "type": "module",
   "description": "Kiarash Jalali’s illustrated personal world",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 4173",
-    "build": "node scripts/render-page.mjs && vite build",
+    "dev": "node scripts/render-page.mjs && vite --host 0.0.0.0 --port 4173",
+    "build": "node scripts/render-page.mjs && vite build && node scripts/prepare-static-root.mjs",
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "verify": "node scripts/verify-world.mjs",
     "test": "node --test tests/*.test.mjs"

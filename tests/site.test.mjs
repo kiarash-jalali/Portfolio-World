@@ -28,10 +28,11 @@ test('All content is available as English semantic HTML before JavaScript',()=>{
  w.happyDOM.abort();
 });
 test('Every local image and script resolves in built output, including nested Pages base',()=>{
+ assert.equal(readFileSync('index.html','utf8'),html,'Both Pages routes must publish the same HTML');
  const w=new Window();w.document.write(html);
  for(const el of w.document.querySelectorAll('[src],source[srcset],link[href]')){
   const u=el.getAttribute('src')||el.getAttribute('srcset')||el.getAttribute('href');if(!u||u.startsWith('http')||u.startsWith('data:'))continue;
-  assert.ok(!u.startsWith('/'),`Unexpected root-absolute URL: ${u}`);assert.ok(existsSync('dist/'+u.replace(/^\.\//,'')),u);
+  assert.ok(!u.startsWith('/'),`Unexpected root-absolute URL: ${u}`);assert.ok(existsSync('dist/'+u.replace(/^\.\//,'')),u);assert.ok(existsSync(u.replace(/^\.\//,'')),`Branch publisher asset: ${u}`);
  }
  w.happyDOM.abort();
 });

@@ -41,3 +41,7 @@ There are no theme or language controls. Chapter material changes are part of th
 `npm run verify` checks JavaScript syntax, required assets, the absence of production CNAMEs, builds the site, and runs eight functional checks against built HTML and JavaScript: English and semantic structure, nested-path asset resolution, project dialogs and scroll locks, AI keyboard behavior, spring selection, navigation and motion state, reduced-motion intro bypass, and intro skip/unlock.
 
 Browser screenshot/device QA was unavailable in this execution environment. DOM tests do not validate painted layout, real-device frame rate, or the visual result of GSAP/CSS transforms. The koi and characters use single painted sprites with transform-based motion, rather than hand-drawn frame sequences. No browser performance score is claimed.
+
+## Existing Pages publishing compatibility
+
+The repository also has an existing branch-based Pages publisher. A verified deployment exposed a race in which that publisher replaced the Actions artifact with unbuilt source HTML. The build now prepares the same static output in the repository root, including self-hosted assets and a `.nojekyll` marker. Both publishers therefore serve the same working site without changing account settings. `public/` remains the source for art and project images; `scripts/prepare-static-root.mjs` owns their generated root copies.

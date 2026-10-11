@@ -1,0 +1,26 @@
+{
+  "generator": "built-in image_gen",
+  "created": "2026-10-11",
+  "assets": {
+    "pond": {
+      "file": "pond.webp",
+      "prompt": "Use case: stylized-concept. Create one finished original background artwork for an immersive fantasy portfolio website, NOT a screenshot or UI. Extra wide landscape composition 1792x1024. Straight overhead view of a Persian garden pond, exquisitely hand-painted in gouache and subtle oil, deep dark teal water shading into luminous turquoise toward right, submerged faded Persian turquoise mosaic fragments along far right edge, lily pads and several small ivory lotus flowers clustering organically along right edge and upper-right corner, subtle reeds and a worn stone rim near lower edge. Left 55 percent mostly quiet dark transparent water with delicate soft refracted light, reserved for readable website text. Water depth and a little algae, poetic intimate atmosphere, sophisticated rich painterly texture. No fish, no people, no letters, no typography, no logos, no border, no UI. Full bleed.",
+      "notes": "Original generated landscape; prepared as WebP quality 86. Source PNG retained outside repository."
+    },
+    "shire": {
+      "file": "shire.webp",
+      "prompt": "Use case: illustration-story. One finished original landscape background artwork for an immersive fantasy portfolio chapter. Wide landscape 1792x1024. Lush storybook pastoral Shire-inspired English countryside at late afternoon, hand-painted gouache and fine watercolor on textured paper. A cozy round green door cottage built into a grassy hill is centered in middle distance, tiny circular windows, warm amber light, winding pale stone footpath toward foreground. Willow trees frame upper edge, rolling hills and smaller distant cottages. Dark moss-green grass and subdued foliage across lower left and lower right create quiet text-safe regions; cottage subject concentrated in central third. Warm light, muted antique sage greens, cream hazy sky, richly detailed but mature illustration rather than cartoon. No people, no text, no UI, no decorative frame. Full bleed.",
+      "notes": "Original generated landscape; prepared as WebP quality 86. Source PNG retained outside repository."
+    },
+    "city": {
+      "file": "city.webp",
+      "prompt": "Use case: stylized-concept. One original cinematic hand-painted fantasy matte painting, wide landscape 1792x1024, for a website Skills chapter background. A monumental white limestone terraced city on a steep mountain rises at the RIGHT 55 percent, seven curving levels of slender towers and arches, high white citadel, pale cascading gardens; epic distant scale. LEFT 45 percent is an open misty blue-sage valley and soft atmospheric sky, quiet uninterrupted negative space for readable text. Silver daylight, muted teal shadows, antique ivory stone, subtle gold sunlight rim. Foreground dark windswept hillside, elevated distant viewpoint. High-quality painterly environment art with exquisite architectural silhouette, no people, no text, no banners, no UI, no frame. Full bleed.",
+      "notes": "Original generated landscape; prepared as WebP quality 86. Source PNG retained outside repository."
+    },
+    "tree": {
+      "file": "tree.webp",
+      "prompt": "Use case: stylized-concept. One original premium dark-fantasy matte painting background for an immersive portfolio chapter, wide landscape 1792x1024. In an immense indigo and ink-blue twilight landscape, a sublime colossal luminous golden tree dominates RIGHT third, delicate branching canopy spreads upward to top edge, molten warm gold leaves and tiny falling motes. A tiny solitary cloaked traveler stands on a rocky outcrop at lower LEFT, seen from behind; they are very small relative to epic landscape. Center and center-left comprise deep quiet blue haze, distant dark cliffs, open negative space for website project copy. Restrained atmospheric glow, painterly grain, elevated cinematic composition, mysterious and contemplative, not busy or oversaturated. No text, no logo, no UI, no frame, full bleed.",
+      "notes": "Original generated landscape; prepared as WebP quality 86. Source PNG retained outside repository."
+    }
+  }
+}

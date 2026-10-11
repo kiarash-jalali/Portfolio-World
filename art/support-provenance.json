@@ -1,0 +1,12 @@
+{
+  "generator": "built-in image_gen",
+  "created": "2026-10-11",
+  "assets": {
+    "glass.webp": "Original generated three-window stained-glass artwork: ruby sentinel, blue celestial mage, emerald botanical knight. Prepared as WebP.",
+    "atlas.webp": "Original generated illustrated parchment fantasy atlas, prepared as WebP; architectural fold planes are authored separately in HTML/SVG/CSS.",
+    "characters.webp": "Original generated transparent character sheet with a waving halfling and a crouched Gollum-inspired character.",
+    "hobbit.webp": "Alpha-bounded crop of the left figure in characters.webp, prepared at 320 x 425 pixels.",
+    "gollum.webp": "Alpha-bounded crop of the right figure in characters.webp, prepared at 320 x 359 pixels."
+  },
+  "animation": "Characters and fish are single painted sprites. Runtime transforms animate them; no frame-by-frame animation sheet is claimed."
+}

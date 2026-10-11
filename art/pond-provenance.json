@@ -1,0 +1,26 @@
+{
+  "generator": "built-in image_gen",
+  "created": "2026-10-11",
+  "assets": {
+    "pond-mobile": {
+      "file": "pond-mobile.webp",
+      "prompt": "Use reference image for art style and palette. Recompose this exact type of Persian pond into a true tall PORTRAIT 1024x1536 mobile website background. Top down perspective, luminous dark teal and turquoise pond, gorgeously painterly gouache texture and caustics. Upper-left and center 65 percent is mostly calm dark water, text-safe. Along narrow RIGHT edge and LOWER edge, richly painted clusters of lily pads, small ivory lotus flowers, submerged weathered turquoise Persian tiles and partial stone rim. Main decorative interest at lower-right, not top. Preserve depth, artistic refinement, palette, lighting. No fish, no text, no letters, no UI. Full bleed portrait image.",
+      "source": "exec-9a2e2f65-2d1e-4065-8992-50a4d33486c6.png",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    "koi": {
+      "file": "koi.webp",
+      "prompt": "Generate one isolated painterly koi fish sprite on fully transparent background, 1024x1024 square, full body fills most horizontal width. True strict overhead top-down view, body axis perfectly straight horizontal, HEAD POINTS RIGHT and tail points LEFT, no bending or diagonal pose. Anatomically symmetric silhouette, paired pectoral fins on top and bottom, narrow tail stem and graceful forked translucent tail. Cream ivory scales and rich coral-red patches, understated charcoal eye details visible symmetrically on both sides of head, delicate semi-translucent fins. Hand-painted fine gouache illustrative style with realistic anatomy, a mature beautiful fish for a Persian garden pond. No water, no pond, no cast shadow, no external glow, no scenery, no text, no border. True alpha transparency surrounding fish.",
+      "source": "exec-a5aaca57-4072-4f66-9c27-9b6f3997c82d.png",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "alpha": true,
+      "heading": "right"
+    }
+  }
+}
