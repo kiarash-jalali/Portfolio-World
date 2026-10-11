@@ -10,21 +10,12 @@ export const themes = {
   atlas: { bg:'rgba(228,221,195,0.96)', fg:'#35483b', line:'rgba(46,69,54,0.24)' }
 };
 export function createMotionState() {
-  const media = matchMedia('(prefers-reduced-motion: reduce)');
-  const listeners = new Set(); let chosen;
-  try { chosen = localStorage.getItem('world-motion'); } catch {}
-  let paused = media.matches || chosen === 'paused';
-  const button = document.querySelector('#motionToggle');
-  function sync() {
-    document.documentElement.classList.toggle('motion-paused', paused);
-    button.setAttribute('aria-pressed', String(paused)); button.setAttribute('aria-label', paused ? 'Resume atmospheric motion' : 'Pause atmospheric motion'); button.firstElementChild.textContent = paused ? '▷' : 'Ⅱ';
-    listeners.forEach(fn => fn(paused));
-  }
-  button.addEventListener('click', () => { paused = !paused; try { localStorage.setItem('world-motion', paused ? 'paused' : 'playing'); } catch {} sync(); });
-  media.addEventListener('change', e => { paused = e.matches; sync(); });
-  document.addEventListener('visibilitychange', () => { document.documentElement.classList.toggle('page-hidden', document.hidden); });
-  sync();
-  return { get paused() { return paused; }, onChange(fn) { listeners.add(fn); return () => listeners.delete(fn); } };
+  const media=matchMedia('(prefers-reduced-motion: reduce)');
+  const listeners=new Set();let paused=media.matches;
+  function sync(){document.documentElement.classList.toggle('motion-paused',paused);listeners.forEach(fn=>fn(paused));}
+  media.addEventListener('change',e=>{paused=e.matches;sync();});
+  document.addEventListener('visibilitychange',()=>document.documentElement.classList.toggle('page-hidden',document.hidden));
+  sync();return{get paused(){return paused;},onChange(fn){listeners.add(fn);return()=>listeners.delete(fn);}};
 }
 export function initScenes(motion) {
   const scenes = [...document.querySelectorAll('[data-scene]')];
@@ -32,7 +23,7 @@ export function initScenes(motion) {
   scenes.forEach(scene => observer.observe(scene));
   const loader = new IntersectionObserver(entries => entries.forEach(({target,isIntersecting}) => {
     if (!isIntersecting) return;
-    if (target.dataset.scene === 'glass') target.style.setProperty('--glass-image', `url("${import.meta.env.BASE_URL}art/glass.webp")`);
+    if (target.dataset.scene === 'glass') target.style.setProperty('--glass-image', `url("${import.meta.env.BASE_URL}art/phase2/glass-triptych.webp")`);
     target.querySelectorAll('img[loading=lazy]').forEach(img => { img.loading = 'eager'; img.decode?.().catch(() => {}); });
     loader.unobserve(target);
   }), { rootMargin:'800px 0px' });
@@ -57,10 +48,11 @@ export function initScenes(motion) {
       if (motion.paused) return;
       const mobile = matchMedia('(max-width:600px)').matches;
       gsap.timeline({ scrollTrigger:{ trigger:'#atlas', start:'top top', end:'bottom bottom', scrub:.45, invalidateOnRefresh:true } })
-        .fromTo('.paper-mountains',{rotateX:mobile ? -55 : -82,y:40,opacity:.35},{rotateX:0,y:0,opacity:1,duration:.4,ease:'none'},0)
-        .fromTo('.paper-wall',{rotateX:mobile ? -65 : -89,opacity:.1},{rotateX:0,opacity:1,duration:.45,ease:'none'},.2)
-        .fromTo('.paper-snow',{rotateX:-45,y:35},{rotateX:0,y:0,duration:.35,ease:'none'},.55)
-        .fromTo('.atlas-map',{scale:1.06,opacity:.8},{scale:1,opacity:.45,duration:1,ease:'none'},0);
+        .fromTo('.paper-mountains',{rotateX:mobile ? -75 : -88,y:35,opacity:.4},{rotateX:0,y:0,opacity:1,duration:.45,ease:'sine.out'},0)
+        .fromTo('.paper-wall',{rotateX:-88,opacity:.25},{rotateX:0,opacity:1,duration:.5,ease:'sine.out'},.2)
+        .fromTo('.paper-snow',{rotateX:-65,y:45},{rotateX:0,y:0,duration:.4,ease:'sine.out'},.55)
+        .fromTo('.atlas-map',{scale:1.06,opacity:.8},{scale:1,opacity:.48,duration:1,ease:'none'},0)
+        .fromTo('.atlas-title',{y:0},{y:-35,duration:.6,ease:'none'},.1);
       gsap.to('.pond-caption', { y:-25, opacity:.2, ease:'none',scrollTrigger:{trigger:'#home',start:'70% top',end:'bottom top',scrub:true} });
       if (!mobile) {
         gsap.fromTo('.city-art img',{y:-15},{y:25,ease:'none',scrollTrigger:{trigger:'#skills',start:'top bottom',end:'bottom top',scrub:true}});

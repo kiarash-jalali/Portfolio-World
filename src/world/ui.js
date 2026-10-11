@@ -49,7 +49,7 @@ export function initAI() {
     const step = data.aiSteps.find(s => s.key === button.dataset.step);
     tabs.forEach(t => { const chosen = t === button; t.setAttribute('aria-selected', String(chosen)); t.tabIndex = chosen ? 0 : -1; });
     const panel = document.querySelector('#stepDetail'); panel.setAttribute('aria-labelledby', button.id);
-    panel.innerHTML = `<span>${step.number} / ${esc(step.title.toUpperCase())}</span><p>${esc(step.detail)}</p>`;
+    panel.innerHTML = `<span>${esc(step.title.toUpperCase())}</span><p>${esc(step.detail)}</p>`;
   }
   tabs.forEach((button, i) => {
     button.addEventListener('click', () => select(button));

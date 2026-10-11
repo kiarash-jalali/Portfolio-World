@@ -205,7 +205,8 @@ Borrow the quality and choreography, not necessarily the platform.
 
 Do NOT overengineer.
 
-Use the simplest technique that produces the best visual result.
+QUALITY-FIRST AMENDMENT — latest user instruction, 2026-10-11:
+Choose the approach that produces the strongest visual fidelity, craftsmanship, and complete experience. Do not choose the easiest implementation or reduce artistic quality to optimize performance or download size. Use richer rendering, original layers, higher-quality assets, and real animation where they improve the result. Accessibility, functional reliability, and usable mobile layouts still apply.
 
 Important principle:
 JavaScript should orchestrate the world.

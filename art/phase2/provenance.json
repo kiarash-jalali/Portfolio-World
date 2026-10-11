@@ -1,0 +1,67 @@
+{
+  "generator": "built-in image_gen",
+  "created": "2026-10-11",
+  "qualityPolicy": "Reference fidelity and craftsmanship take precedence over ease and minimum bytes; WebP quality96–98 at original generated dimensions.",
+  "assets": [
+    {
+      "key": "pond-bottom",
+      "prompt": "Use case: stylized-concept. Create a finished wide landscape illustration, 1792x1024, for a quality-first website environment. Hand-painted anime background art of an overhead Persian courtyard howz, luminous blue turquoise water, visible water depth and turquoise floral mosaic tiles on pond bottom. Loose confident painterly brushwork, reflections of leaves at top edge, refracted sunlight below, delicate pale ripples. Right edge has weathered ivory stone steps and organically grouped round lily leaves and pink lotus blossoms; left 42 percent calm deep teal water reserved for large readable text. The water itself is the hero, layered translucent teal and light blues, not muddy photorealistic scenery. This should recall classic hand-painted animation water and Persian firooze tile craftsmanship. No fish, no paper, no lettering, no UI, no watermark. Full bleed landscape."
+    },
+    {
+      "key": "minas-tirith",
+      "prompt": "Use case: stylized-concept. High fidelity richly detailed painterly illustration of MINAS TIRITH from Lord of the Rings, NOT a generic fantasy city. Landscape 1792x1024. Recognizable seven concentric semicircular tiers of white limestone defensive walls climbing steep Mount Mindolluin, enormous dark central rock spur like ship prow cuts through terraces, tall slender White Tower at summit. Immense architectural grandeur, tiny roads and cypresses give scale. City fills right 60 percent of image, with all tiers visible. Left 35 percent is quieter blue-sage atmospheric valley and dark olive shaded stone overlook, reserved for website text. Noble cobalt daylight, luminous carved ivory stone, painted cloud banks, distant snowy mountains. Illustrated etching detail meets handpainted animation matte painting. No written labels, no UI, no border. Beautiful and unmistakable cinematic Middle-earth geography."
+    },
+    {
+      "key": "erdtree",
+      "prompt": "Use case: stylized-concept. Finished widescreen dark fantasy illustration clearly evocative of ELDEN RING and the Tarnished facing the ERDTREE. 1792x1024 landscape. Colossal ancient Erdtree at right, trunk looks like luminous gold veins rising far above a misty landscape, unbelievably vast radiant branching canopy fills upper right two thirds and disappears beyond frame. Midnight indigo ruined kingdom, pale distant stone aqueduct and towers, drifting gold dust, blue spectral flowers lower left. Tiny lonely armored Tarnished with tattered cloak on lower-left rocky ledge, seen from behind gazing toward tree. Deep distance, sublime scale, solemn contemplative awe. Center-left dark open atmosphere is quiet enough for project copy; do not place important architecture there. Exquisite painterly concept art, crisp authored silhouettes, restrained luminous gold, not generic fairytale tree. No letters, text, logo, UI."
+    },
+    {
+      "key": "glass-triptych",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. A production asset: THREE equal tall Gothic lancet stained-glass windows side-by-side in a single wide 1536x1024 transparent sheet, each occupies precisely its own equal third with narrow transparent spacing. Fullfront orthographic, fine medieval ecclesiastical leaded glass with true small irregular jewel fragments, thick blacklead cames, ornate pointed architectural tracery and cream carvedstone framing. LEFT: Malenia from Elden Ring, unmistakable wingedgold helmet coveringeyes, magnificent long flowing scarlet hair, golden prosthetic arm and slender curved blade, scarletrot flowers and butterflies, rubyamber glass. CENTER: Ranni the Witch from Elden Ring, blueface, wide snowy witchhat, FOUR arms, longbluehair, crescentmoon and silver stars, cobalt and turquoise glass. RIGHT: Maliketh the Black Blade, black beast warrior with long pale mane, ornate blackgold armor and giant red-veined blade, gold/ivory/obsidian glass. Solemn sacred medieval churchglass, exquisite craft and dramatic figures, not tradingcards, not generic fantasy, no lettering/no text. Window art complete top tobottom. Transparent exterior around three window arches; luminous coloredglass interior."
+    },
+    {
+      "key": "wall",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One isolated wide paper-diorama cutout, on genuinely transparent background. Game of Thrones THE WALL and Castle Black, 1792x1024 landscape. A staggeringly tall continuous rampart of pale blue ice, long nearly level top with slight perspective, receding toward leftdistance. Crystalline vertical striations, winter light, tiny dark timber fortified Castle Black buildings at its base to convey incredible scale, small gateway through ice. Frontal slightly elevated viewpoint suited to standing as ONE upright layer in a popup atlas. Handpainted watercolor and precise antique engraving on thick ivory cutpaper, visible thin cream paper edge following silhouette. Include icywall and attached tiny buildings and narrow snowledge beneath only; NO mountains behind, NO sky, NO full rectangular backdrop, NO lettering, NO UI. Elegant believable dramatic architecture, not abstract shapes."
+    },
+    {
+      "key": "terrain",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One isolated wide horizontal cut-paper terrain plane for a fantasy popup book on transparent background, 1792x1024. Snowy jagged northern mountain ridgeline and tiny dark pine forest at foot, illustrated in exquisite grey-blue watercolor washes and antique engraved lines on ivory paper. Tallest peaks center and left, slope down to right, uneven natural silhouette. Thin warmivory paper edge, little folded supporttabs bottom. View directly from front slightly above, single terrainplane, no groundbackground, no sky, no wall, no text. Coordinate with Game of Thrones northern icy Wall cartography. The actual ridgeline should fill width but only middle60% height, remaining is transparent."
+    },
+    {
+      "key": "koi-pair",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Transparent production sprite sheet, landscape1536x1024, TWO separate fullyisolated koi fish one per horizontal row, upper fish entirely in upperhalf lower fish entirely in lowerhalf, equalbodylength, generous transparent space between. Both are strict overhead view with HEAD pointed perfectly RIGHT and tail LEFT, axis horizontal, no perspective or tilt, symmetrical overhead anatomy, paired pectoral fins and graceful translucent tail. Upperfish: beautiful milkyivory and coralred patch Kohaku, unique three large redpatches. Lowerfish: golden honey ochre and charcoal patterned koi, delicate pearl fins. Handpainted classic animebackground gouache quality, visible gentle brushtexture, graceful anatomy rather than cartoon faces. No water, no shadow, no text, no grid, no scene. True alpha exterior. Fish intended for articulated vertexmesh swimming, body straight neutralpose."
+    },
+    {
+      "key": "gollum-strip",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. A production pixel-art animation SPRITE SHEET, transparent background, 1536x512 wide. Exactly FOUR equallyspaced frames in one horizontalrow, each384x512 cell, no borders/grid/labels. Same GOLLUM from Lord of the Rings in every frame, facingLEFT, crouching low, big palegrey head, huge blueeyes, skinnygangly limbs, brown loincloth, bonyback, pointedears. High quality intricate pixelart with deliberately visible squareclusters, crisp edges and flatshading, beautiful retrogame sprite. Frame1 resting crouch, frame2 sneakstep with leftarm forward, frame3 sneakstep rightarmforward, frame4 crouch hugging small goldring near chest. Same scale and baseline allframes, wholebody within eachcell with padding. True transparent background, no glow, no scenery, no words."
+    },
+    {
+      "key": "hobbit-strip",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Production highquality pixel-art animation SPRITE SHEET, transparent background, 1536x512 wide. Exactly FOUR equallyspaced frames in a single horizontalrow, each384x512cell, no borders grid orlabels. Same friendly hobbit male in eachframe, fullbodyfrontview, curlybrown hair, pointedears, green waistcoat overcreamshirt, browntrousers, barelargefeet, cheerfulsmile. Consistent highresolution pixelart made of crisp squareclusters and restrainedshading. Frames: one standing with handraised, two wavinghand toleft, three wavinghand toright, four handlowered friendlynod. Same exactscale and baseline for allframes, generouscellpadding. Only isolated sprites no scene no shadow no lettering, truealpha."
+    },
+    {
+      "key": "snow-foreground",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Isolated foreground cut-paper plane for a fine fantasy popupbook. Wide1792x1024 transparent asset. Snowcovered rolling ground with engraved slateblue grasses, a few scattered tiny dark rocks and pine saplings, a subtle curved footpath through snow, thin layeredivorypaper edge along bottom, a small crimsonleaved weirwood tree at FAR RIGHT side. Draw low horizontal silhouette overall, mostlyempty white snow middle, suitable as bottomforeground in frontof icyWall. Watercolor and precise antique copperplate etched illustration on ivorypaper. Orthographic front/slightly overhead. No sky, no mountains, no wall, no backgroundrectangle, no text."
+    },
+    {
+      "key": "pond-botanics",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Isolated botanical sprite for painterly animeadjacent pond, topdown view. One organic cluster of four round jadegreen lotusleaves with fine visible veins, two delicately painted pinklotus blossoms with goldenstamens, one flowerbud. Cluster oriented diagonally lowerleft to upperright, fits entirely within frame. Soft elegant handpainted gouachewatercolor, natural richbrushwork, harmonize turquoisePersianpond. True transparent background, no surroundingwater, no puddle, no castshadow, no text no UI."
+    },
+    {
+      "key": "pond-mobile",
+      "prompt": "Use case: style-transfer. Recompose the supplied pond image into a finished portrait 1024x1536 mobile background painting. Preserve the handpainted anime water rendering, luminous turquoise depth and submerged Persian floral mosaic, pinklotus and lilyflora, ivory stone rim. Keep upper LEFT 70percent quiet darkteal water for website text and artwork focus on bottom and right edge. No fish no papers no text. Artwork is the same pond, much taller composition, not a stretched landscape. Fullbleed highquality."
+    },
+    {
+      "key": "erdtree-mobile",
+      "prompt": "Use case: style-transfer. Recompose reference Elden Ring inspired scene into high-quality PORTRAIT 1024x1536 mobile chapter illustration. Preserve immense luminous Erdtree filling TOP RIGHT and upper half, indigo ruined kingdom, spectralblue flowers and mist, solemn scale. Crucially preserve tiny Tarnished warrior visible at LOWER LEFT looking toward tree, standingon darkstone ledge with tatteredcloak. Lower25percent fades to quiet darkinkblue atmosphere where projectcopy will continue. This is a fresh intentional portrait composition, not a crop. No text, no logo, no UI. Same exquisite cinematic painterly art."
+    }
+  ]
+}

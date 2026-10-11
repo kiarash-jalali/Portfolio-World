@@ -20,19 +20,20 @@ npm run verify
 
 - `src/world/content.js`: English portfolio content and project records.
 - `scripts/render-page.mjs`: accessible, pre-rendered page structure; generates the source `index.html` before each build.
-- `src/world/styles.css`: chapter layouts, typography, responsive composition, atmospheric CSS motion.
+- `src/world/styles.css` and `src/world/phase2.css`: chapter layouts, readable typography, responsive composition, and atmospheric motion.
+- `src/world/pond.js`: WebGL water refraction, surface normals, landing ripples, and distinct articulated koi.
 - `src/world/scenes.js`: visibility, lazy art loading, motion preference, GSAP ScrollTrigger choreography.
-- `src/world/opening.js`: thirteen independent parchment letters, session replay guard, skip control, and scroll-lock fail-safe.
+- `src/world/opening.js`: thirteen persistent parchment letters, replay on top-of-page arrival, skip control, and scroll-lock fail-safe.
 - `src/world/characters.js`: cottage-door sequence and infrequent ambient character appearances.
 - `src/world/ui.js`: navigation, accessible project dialogs, AI illustrations, email draft flow.
 - `src/world/workshop.js`: keyboard/pointer spring experiments.
 - `public/art/`: original generated WebP environments and transparent sprites. Asset provenance is included alongside them.
 - `tests/site.test.mjs`: built-output and Happy DOM interaction checks.
 
-There is no language or theme switch. Each chapter owns its palette. The motion control pauses atmosphere and scroll choreography; system reduced-motion preferences are respected automatically.
+There is no language, theme, or visible motion switch. Each chapter owns its palette. System reduced-motion preferences provide a calm, unlocked experience automatically.
 
 ## Design authority
 
-`docs/IMPLEMENTATION_BRIEF.txt` is the supplied master implementation brief. Latest user decisions override its older options: **English only; no theme-change control; implementation authorized**. `docs/ART_DIRECTION_MASTER_PLAN.txt` is an earlier historical plan.
+`docs/IMPLEMENTATION_BRIEF.txt` is the supplied master implementation brief. `docs/PHASE2_BRIEF.txt` supplies the correction pass. Latest user decisions override older options: **quality and reference fidelity before easy implementation or optimization; English only; no theme or motion control; persistent, replayable paper intro**. `docs/ART_DIRECTION_MASTER_PLAN.txt` is an earlier historical plan.
 
 See `docs/IMPLEMENTATION.md` for reference mapping, asset decisions, behavior, and verification limits. The `baseline-production-clone` branch preserves the initial source.

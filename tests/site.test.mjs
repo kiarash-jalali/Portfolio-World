@@ -2,18 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {Window} from 'happy-dom';
+import {POND_FISH,fishPosition} from '../src/world/pond.js';
 import {data} from '../src/world/content.js';
 const html=readFileSync('dist/index.html','utf8');
 const js=readFileSync('dist/assets/'+readdirSync('dist/assets').find(p=>p.endsWith('.js')),'utf8');
 function setup({intro=false,reduced=false}={}){
- const w=new Window({url:'https://example.test/Portfolio-World/',settings:{disableCSSFileLoading:true,disableJavaScriptFileLoading:true}});
+ const w=new Window({url:intro?'https://example.test/Portfolio-World/':'https://example.test/Portfolio-World/#contact',settings:{disableCSSFileLoading:true,disableJavaScriptFileLoading:true}});
  w.document.write(html);
  w.matchMedia=query=>({matches:query.includes('reduced-motion')&&reduced,media:query,addListener(){},removeListener(){},addEventListener(){},removeEventListener(){}});
  Object.defineProperty(w.document,'fonts',{value:{ready:Promise.resolve()}});
  w.HTMLElement.prototype.animate=function(){return{cancel(){},finished:Promise.resolve()};};
  w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};
  w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new w.Event('close'));};
- if(!intro)w.sessionStorage.setItem('world-intro','seen');
+ w.sessionStorage.setItem('world-intro','seen'); // Old session state must no longer suppress the opening.
  const errors=[];w.addEventListener('error',e=>errors.push(e.error));
  w.eval(js);return {w,d:w.document,errors};
 }
@@ -21,7 +22,7 @@ test('All content is available as English semantic HTML before JavaScript',()=>{
  const w=new Window();w.document.write(html);const d=w.document;
  assert.equal(d.documentElement.lang,'en');assert.equal(d.querySelectorAll('h1').length,1);
  for(const id of ['home','about','skills','projects','collected-work','ai','lab','contact'])assert.ok(d.getElementById(id),id);
- assert.ok(!/[\u0600-\u06FF]/.test(d.body.textContent));assert.equal(d.querySelectorAll('#langBtn,#themeBtn').length,0);
+ assert.ok(!/[\u0600-\u06FF]/.test(d.body.textContent));assert.ok(!/\b0[1-9]\s*\//.test(d.body.textContent));assert.equal(d.querySelectorAll('#langBtn,#themeBtn,#motionToggle,.skill-number').length,0);
  for(const p of data.projects)assert.ok(d.body.textContent.includes(p.title));
  for(const a of d.querySelectorAll('a[href^="#"]'))assert.ok(d.querySelector(a.getAttribute('href')),a.outerHTML);
  const ids=[...d.querySelectorAll('[id]')].map(e=>e.id);assert.equal(ids.length,new Set(ids).size);
@@ -54,12 +55,25 @@ test('AI tabs, keyboard controls, prompt refinement and reset',async()=>{
 test('Exactly one spring cell is selected; arrow keys transfer selection',async()=>{
  const {w,d}=setup();const cells=[...d.querySelectorAll('#springGrid button')];assert.equal(cells.length,100);cells[2].click();assert.equal(d.querySelectorAll('#springGrid [aria-pressed=true]').length,1);assert.equal(cells[2].getAttribute('aria-pressed'),'true');cells[2].dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowDown',bubbles:true}));assert.equal(cells[12].getAttribute('aria-pressed'),'true');assert.equal(d.querySelectorAll('#springGrid [tabindex="0"]').length,1);await w.happyDOM.abort();
 });
-test('Menu and motion controls expose their state without any theme switch',async()=>{
- const {w,d}=setup();const menu=d.querySelector('.menu-toggle');menu.click();assert.equal(menu.getAttribute('aria-expanded'),'true');assert.equal(d.documentElement.style.overflow,'hidden');d.querySelector('#mobileNav a').click();assert.equal(menu.getAttribute('aria-expanded'),'false');assert.equal(d.documentElement.style.overflow,'');d.querySelector('#motionToggle').click();assert.equal(d.querySelector('#motionToggle').getAttribute('aria-pressed'),'true');assert.ok(d.documentElement.classList.contains('motion-paused'));await w.happyDOM.abort();
+test('Menu works and there is no visible motion or theme control',async()=>{
+ const {w,d}=setup();const menu=d.querySelector('.menu-toggle');menu.click();assert.equal(menu.getAttribute('aria-expanded'),'true');assert.equal(d.documentElement.style.overflow,'hidden');d.querySelector('#mobileNav a').click();assert.equal(menu.getAttribute('aria-expanded'),'false');assert.equal(d.documentElement.style.overflow,'');assert.equal(d.querySelector('#motionToggle'),null);await w.happyDOM.abort();
 });
 test('Reduced motion skips the intro and never locks scrolling',async()=>{
  const {w,d}=setup({intro:true,reduced:true});await new Promise(r=>setTimeout(r,30));assert.equal(d.documentElement.style.overflow,'');assert.equal(d.querySelector('#skipIntro').hidden,true);assert.ok(!d.querySelector('#home').classList.contains('intro-running'));await w.happyDOM.abort();
 });
 test('The opening can always be skipped and restores scroll',async()=>{
- const {w,d}=setup({intro:true});await new Promise(r=>setTimeout(r,800));assert.equal(d.documentElement.style.overflow,'hidden');assert.equal(d.querySelectorAll('.parchment-letter').length,13);d.querySelector('#skipIntro').click();assert.equal(d.documentElement.style.overflow,'');assert.equal(d.querySelector('#skipIntro').hidden,true);assert.equal(w.sessionStorage.getItem('world-intro'),'seen');await w.happyDOM.abort();
+ const {w,d}=setup({intro:true});await new Promise(r=>setTimeout(r,800));assert.equal(d.documentElement.style.overflow,'hidden');assert.equal(d.querySelectorAll('.parchment-letter').length,13);d.querySelector('#skipIntro').click();assert.equal(d.documentElement.style.overflow,'');assert.equal(d.querySelector('#skipIntro').hidden,true);assert.equal(d.querySelectorAll('.parchment-letter.afloat').length,13);assert.equal(d.querySelector('#parchmentStage').textContent,'KIARASHJALALI');await w.happyDOM.abort();
+});
+
+test('Normal arrival completes, unlocks, and retains every paper even with a previous session flag',async()=>{
+ const {w,d}=setup({intro:true});assert.equal(d.documentElement.style.overflow,'hidden');
+ await new Promise(r=>setTimeout(r,4900));assert.equal(d.documentElement.style.overflow,'');assert.equal(d.querySelectorAll('.parchment-letter.afloat').length,13);assert.ok(d.querySelector('#home').classList.contains('papers-landed'));await w.happyDOM.abort();
+});
+test('Two individually authored koi stay in the open water on desktop and mobile',()=>{
+ assert.equal(new Set(POND_FISH.map(f=>f.asset)).size,2);
+ for(const [w,h] of [[1440,1050],[390,1160]])for(let i=0;i<2;i++)for(let t=0;t<180;t+=.4){const p=fishPosition(t,i,w,h);assert.ok(Number.isFinite(p.angle));assert.ok(p.x>0&&p.x<w);assert.ok(p.y>0&&p.y<h);if(w<701)assert.ok(p.y>h*.65);}
+});
+test('NPC arrives within the visible habitat instead of waiting almost a minute',async()=>{
+ const {w,d}=setup();const habitat=d.querySelector('.npc-habitat');habitat.getBoundingClientRect=()=>({top:250,bottom:420,left:500,right:800,width:300,height:170});
+ await new Promise(r=>setTimeout(r,1700));assert.equal(d.querySelector('#gollum').parentElement,habitat);assert.ok(Number(d.querySelector('#gollum').style.opacity)>.5);await w.happyDOM.abort();
 });

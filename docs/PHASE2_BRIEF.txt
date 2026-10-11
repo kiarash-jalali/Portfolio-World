@@ -1,0 +1,317 @@
+ASTRA 6.1 — PHASE 2 CORRECTION / COMPLETION PROMPT
+Project: kiarash-jalali/Portfolio-World
+Production review target: https://kiarash-jalali.github.io/Portfolio-World/
+Context: This is a second-pass correction prompt. The current implementation is usable as a structural base, but only about 50% of the intended art direction and interaction quality has been achieved. Do NOT restart from scratch. Keep the existing one-page architecture, content inventory, and overall chapter sequence, but repair, replace, and complete the implementation so it matches the intended creative direction much more closely.
+
+IMPORTANT WORKING MODE
+- Work directly against the current repository/project state.
+- Treat the current build as a first-pass prototype, not the final execution.
+- Preserve what is worth keeping: the one-page architecture, section order, existing content, major scene breakdown, the door interaction concept, the fold / unfold atlas concept, and the overall project structure.
+- Replace placeholder-quality art direction, weak visuals, cursed approximations, generic fantasy substitutions, and any UI decisions that conflict with the design brief.
+- Do not add unnecessary new features.
+- This pass is about fidelity, completion, readability, alignment, and art direction.
+
+TOP-LEVEL GOAL
+Turn the current site from a “good first pass” into a convincing, art-directed personal world/portfolio. The site should feel intentionally authored, not just “a background image with HTML laid on top.” Each section must feel like a distinct scene with its own visual language while still transitioning smoothly through the page.
+
+MASTER CORRECTION SUMMARY
+The current version is missing or mishandling the following:
+- pond/water does not feel like real illustrated water
+- koi are just reused copies of the old experiment asset
+- the art direction is too generic across multiple sections
+- LOTR / Shire / Minas Tirith / Elden Ring / GoT references are not landing clearly enough
+- stained-glass section is too generic and not specifically aligned to the intended Elden Ring / medieval glass direction
+- the Wall / GoT pop-up zone looks wrong and too abstract / cursed
+- Gollum effectively does not exist for normal visitors
+- the intro paper-letter moment is too transient and only appears once
+- the letters disappear instead of remaining part of the pond world
+- text readability is weak in many areas due to small sizes, fonts, positioning, and contrast
+- there are too many visible numeric labels like 01 / 02 / 03 throughout the site
+- the motion pause button / visible pause control feels unnecessary and should not remain like this
+
+NON-NEGOTIABLE NEW NOTES FROM USER
+1. The letter-drop intro animation should not effectively be a one-time invisible event.
+   - Right now it appears only once and the user can barely experience it again.
+   - Make it reliably replayable on refresh / revisit at top of page.
+   - Deep links and accessibility exceptions can still bypass it when appropriate, but normal arrival at the top should clearly show it.
+2. The parchment letters should remain in the pond after the intro.
+   - They should not simply fade into nothing / abyss.
+   - They can float, drift, partly sink, get waterlogged, overlap, separate, or become partly obscured, but they should still feel like physical remnants in the pond.
+3. The overall art direction is still not right.
+   - The pond does not yet feel like the painted/anime/painterly vision discussed.
+   - The “city / Minas Tirith” section is not visually clear enough as that world.
+   - The Elden Ring sections do not feel recognizably aligned to the intended mood and imagery.
+4. Avoid using visible numbering like 01, 02, 03 in the page design.
+   - Remove section numbering, card numbering, service numbering, etc.
+   - If structure is needed, use headings, spacing, or symbolic devices instead.
+
+WHAT TO KEEP
+These elements can remain conceptually, though they may need visual and technical revision:
+- one-page site structure
+- current content inventory and section order, unless a micro-rearrangement is needed for clarity
+- intro concept with name/papers falling into pond
+- the pond as the opening world
+- the Shire / hobbit-door section
+- the Skills section as Minas Tirith-inspired environment
+- Rootine as the featured project section
+- stained-glass project section
+- atlas / Wall / paper-diorama transition concept
+- AI / lab / contact content existing later in the page
+- overall responsive goal: desktop-first, but still adapted for mobile
+
+WHAT TO REMOVE OR SIGNIFICANTLY CHANGE
+1. Remove visible numeric labels everywhere.
+   Examples: “01 / 02 / 03”, numbered eyebrow labels, numbered services, numbered cards, numbered project panels, etc.
+   Replace with clean headings, icons, ornament, typographic hierarchy, or labels without numbers.
+
+2. Remove the visible pause / motion toggle button from the UI.
+   - Keep accessibility support such as reduced motion internally.
+   - Do not expose an awkward visible pause button unless absolutely necessary and beautifully integrated.
+   - System-level reduced-motion support is enough.
+
+3. Remove “placeholder fantasy” feeling.
+   - Do not solve a section by placing generic fantasy images and calling it done.
+   - Each scene must visibly match the intended world and reference family.
+
+SECTION-BY-SECTION CORRECTION BRIEF
+
+A. HERO / POND SECTION
+This is still the emotional anchor of the site and needs the biggest art-direction upgrade.
+
+Current problems:
+- it reads as “generated image + some fish copies” rather than a living painted pond
+- water surface is not convincing
+- reflections and depth are too weak
+- fish motion feels inherited from the earlier experiment rather than authored for this site
+- letters vanish too much
+- the overall painterly / anime-like pond vision is not fully there
+
+Target direction:
+- overhead or near-overhead Persian courtyard pond / howz with painterly, anime-adjacent, hand-painted sensibility
+- visible water depth and surface language
+- turquoise / firooze tile influence, floral / lotus motifs, pond-edge / step cues where appropriate
+- botanical life: lotus, lily pads, small plant accents, but not cluttered
+- subtle light play in the water: caustics, ripples, reflection shimmer, reflected brightness near lower areas
+- 2 or 3 fish only, not many
+- everything should feel calm, elegant, and alive
+
+Required fixes:
+1. Rebuild the pond visual system, not just by tweaking one background image.
+   The section should feel layered:
+   - pond base / bottom art
+   - water coloration/depth layer
+   - reflection / caustic layer
+   - fish layer
+   - floating letters layer
+   - subtle plant layer
+2. Fish must no longer be perceived as simple copies of a previous experiment.
+   - Use better-authored fish visuals.
+   - Distinct individuals, even if they share a family look.
+   - Top-down view must make visual sense.
+   - Motion should feel authored for the pond.
+3. The letters should fall as individual parchment pieces.
+   - Each letter on its own small paper.
+   - Motion must feel physical and distinct.
+   - Some papers can sink more, some stay afloat, some drift slowly.
+   - They remain in the pond after the intro.
+4. Intro behavior:
+   - page starts locked
+   - the name sequence happens clearly
+   - letters hit water and become part of the pond
+   - scrolling unlocks only after the sequence completes
+   - replay on refresh / revisit at top should work reliably
+5. Remove any feeling that the pond is just a static decorative wallpaper.
+   It should feel like an environment.
+
+B. ABOUT / SHIRE SECTION
+Current state is among the better foundations, but it still needs refinement and cleaner integration.
+
+Keep:
+- hobbit home / round door
+- click interaction
+- waving hobbit
+- warm Shire feeling
+
+Fixes:
+1. Make the art direction stronger and more cohesive.
+   It should feel unmistakably like a warm Shire-inspired pastoral scene.
+2. Improve positioning and visual integration of content and art.
+3. Ensure the door animation feels polished and charming.
+4. Keep the scene alive in subtle ways if possible (gentle motion, smoke, clouds, grass, tiny environmental motion), but do not overcomplicate.
+5. Typography/readability here must improve.
+
+C. GOLLUM-LIKE NPC (ABOUT + SKILLS RANGE)
+Current problem:
+- technically present, practically invisible
+- appears too rarely and feels nonexistent
+- behavior is too weak compared to the concept
+
+Target:
+A small ambient pixel-art Gollum-like creature lives around the About / Skills zone.
+He is not a central interaction, but he should clearly exist for visitors who spend a little time in those sections.
+
+Required behavior:
+- appears much more reliably
+- present within a reasonable time of entering that page region
+- idles / sneaks / moves around
+- occasional rare events:
+  - word stealing
+  - ring discovery / delight / slip / frustration
+  - sleep / idle / crouch variations
+- remains bounded to the intended sections
+
+Implementation direction:
+- prioritize believability over complexity
+- visible ambient life first, rare special events second
+- if needed, reduce the event system complexity but make the base presence much clearer
+
+D. SKILLS / MINAS TIRITH SECTION
+Current problem:
+- it is not clearly reading as Minas Tirith / monumental white city
+- art direction is too generic / pale
+
+Target:
+- a high fantasy white-city environment, clearly evocative of Minas Tirith without being confused or vague
+- architectural grandeur, terraces, stone, elevation, noble atmosphere
+- content remains readable and structured
+
+Required fixes:
+1. Strengthen the environmental identity.
+2. Make the scene unmistakably feel like this world.
+3. Improve content placement so the art and text do not fight.
+4. Keep it elegant and readable.
+
+E. ROOTINE / ELDEN TREE / FEATURED PROJECT SECTION
+Current state:
+- has a decent base, but still feels generic compared to the intended world
+
+Target:
+- a dark monumental fantasy scene inspired by the Tarnished gazing toward a luminous world-tree
+- mood: awe, distance, solitude, glow, scale
+- Rootine card/content should feel integrated into the environment, not slapped on top
+
+Required fixes:
+1. Strengthen the art direction so the scene better evokes the intended Elden Ring atmosphere.
+2. Improve integration of project content into the world.
+3. Maintain readability.
+
+F. STAINED GLASS / WORK 2 SECTION
+Current problem:
+- too generic
+- not sufficiently aligned to the intended Elden Ring / medieval church glass / leaded glass idea
+- current art feels like generic fantasy archetypes rather than the specific mood family desired
+
+Target:
+- three strong vertical stained-glass style project panels
+- feel like medieval / ecclesiastical / leaded glass works
+- jewel-toned, ornate, luminous
+- should evoke the intended fantasy-boss / iconic-game-art energy more strongly
+
+Required fixes:
+1. Replace weak / generic glass imagery.
+2. Build stronger glass-window compositions.
+3. Improve panel readability and content composition.
+4. The section should feel like an authored triptych, not a generic card grid.
+
+G. ATLAS / WALL / GOT-INSPIRED TRANSITION
+Current problem:
+- the fold/unfold mechanic exists, but the “Wall” looks cursed / fake / too abstract
+- scene does not sufficiently deliver the GoT / cartography / paper-diorama promise
+
+Target:
+- a pop-up / paper-engineered fantasy section
+- scroll-driven folding / unfolding is kept
+- visuals become much more convincing
+- strong cues: icy Wall, map, heraldic / fantasy-cartographic atmosphere, paper architecture
+
+Required fixes:
+1. Keep the folding mechanic concept.
+2. Replace placeholder-like wall visuals and abstract CSS-looking forms.
+3. Use real illustrated layer logic:
+   - map / base parchment world
+   - mountains / terrain layer
+   - Wall layer
+   - snow / foreground paper plane
+   - heraldic / cartographic details
+4. Make the unfolding feel like a crafted pop-up book moment.
+5. If useful, allow some sections of later content to continue this paper/cartographic visual language.
+
+H. AI / LAB / CONTACT / LATER SECTIONS
+Current state:
+- structurally okay
+- visually underdeveloped compared to earlier ambition
+
+Required fixes:
+1. Keep the content but improve readability.
+2. Ensure visual continuity with the later-world / archive / paper fantasy language.
+3. Avoid overdecorating with numbers.
+4. Make this part feel finished, not merely attached after the dramatic earlier sections.
+
+READABILITY / TYPOGRAPHY / LAYOUT REQUIREMENTS
+This is crucial.
+The current site has too much text sitting in weak contrast or too-small sizes.
+
+Required rules:
+1. Increase body readability throughout the site.
+   Avoid tiny 8–11px body-like text for important content.
+2. Improve contrast between text and background.
+3. Use text-safe composition zones inside each scene.
+4. Preserve art direction while making reading comfortable.
+5. Avoid forcing text directly onto noisy detailed image regions.
+6. Section typography can differ by section, but readability comes first.
+7. Remove decorative numbering from the visual system.
+
+ART DIRECTION CORRECTION RULES
+This is one of the most important parts.
+The user’s complaint is that the art direction is not really matching the discussed worlds.
+
+Therefore:
+1. Do not accept “generic fantasy” as a solution.
+2. Each section must have a clearer stylistic identity.
+3. Section styles may differ, but transitions must be graceful and eye-friendly.
+4. The site should feel like a curated journey through different visual worlds.
+5. The pond should feel painterly / anime-adjacent / hand-painted.
+6. The Shire should feel warm and storybook / pastoral.
+7. Minas Tirith should feel monumental and architectural.
+8. Elden sections should feel darker, sublime, and more evocative of the intended references.
+9. The atlas / Wall section should feel like cartographic paper engineering, not CSS placeholder construction.
+
+INTERACTION RULES
+- Only keep interactions that genuinely support the experience.
+- Primary explicit user interaction remains the hobbit door.
+- Ambient behaviors (fish, letters, Gollum, subtle environmental motion) are welcome.
+- Do not clutter the page with unnecessary controls.
+- Do not add gimmicky toggles.
+
+RESPONSIVE RULES
+- Desktop-first remains fine.
+- Mobile adaptation must still work.
+- The mobile version does not need to preserve every exact composition, but the scenes must remain intelligible and attractive.
+- Critical art / text overlaps should be resolved, not merely scaled down.
+
+DELIVERABLE EXPECTATIONS
+When implementing this pass:
+1. Keep the working structure and repo.
+2. Improve the existing assets, layering, and section compositions.
+3. Replace placeholder or weak scene logic with stronger art-directed implementation.
+4. Do a true second pass, not cosmetic tweaks only.
+
+ACCEPTANCE CHECKLIST
+The revision should satisfy the following:
+- intro clearly replays on refresh / revisit at top
+- intro papers remain in pond after landing
+- pond feels like layered water, not a plain background image
+- fish no longer feel like obvious recycled experiment copies
+- pause button / visible motion toggle removed
+- visible numbering like 01 / 02 / 03 removed from page design
+- Shire section feels stronger and more integrated
+- Gollum-like NPC is visibly present in About / Skills region
+- Skills section reads much more clearly as Minas Tirith-inspired
+- Rootine / tree section feels more convincingly aligned with intended dark fantasy mood
+- stained-glass triptych feels specifically art-directed and stronger
+- Wall / atlas pop-up looks intentional and no longer cursed
+- text is readable everywhere
+- overall site feels much closer to the intended multi-world portfolio journey
+
+FINAL INSTRUCTION
+Treat this as a refinement and completion phase, not a rewrite. The current site has a valid skeleton but too many placeholders, weak approximations, generic substitutions, and unfinished art-direction decisions. Upgrade it into a convincing authored experience that better matches the discussed vision.
