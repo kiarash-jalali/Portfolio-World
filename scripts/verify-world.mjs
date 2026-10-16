@@ -5,7 +5,8 @@ for(const path of ['CNAME','public/CNAME']){try{await access(path);throw new Err
 // Syntax-check every module of the page, including those in chapter folders.
 const files=await readdir('src/world',{recursive:true});
 for(const f of files.filter(f=>f.endsWith('.js'))){const result=spawnSync(process.execPath,['--check',`src/world/${f}`],{stdio:'inherit'});if(result.status)process.exit(result.status);}
-const build=spawnSync('npm',['run','build'],{stdio:'inherit'});if(build.status)process.exit(build.status);
+// npm is a .cmd script on Windows, so run it through a shell; a failed spawn has no status, so check error too.
+const build=spawnSync('npm run build',{stdio:'inherit',shell:true});if(build.error||build.status)process.exit(build.status||1);
 const test=spawnSync(process.execPath,['--test','tests/site.test.mjs'],{stdio:'inherit'});if(test.status)process.exit(test.status);
 const html=await readFile('dist/index.html','utf8');if(!html.includes('noindex,nofollow'))throw new Error('Experimental site should remain noindex');
 console.log('Verified: build, assets, English content, interactions, accessibility state, intro escape, and experimental domain boundary.');
