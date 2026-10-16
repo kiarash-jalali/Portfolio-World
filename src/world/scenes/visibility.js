@@ -2,6 +2,14 @@
 const PRELOAD_DISTANCE = '800px 0px';
 
 /**
+ * The stained glass is set through the `--glass-image` custom property, and a
+ * relative url() inside a custom property resolves against the stylesheet that
+ * reads it (assets/), not the page. So the URL must be absolute.
+ */
+const glassArt = () =>
+  new URL(`${import.meta.env.BASE_URL}art/phase2/glass-triptych.webp`, document.baseURI).href;
+
+/**
  * Marks scenes that are on screen with `.scene-active` (CSS pauses ambient loops
  * elsewhere) and announces it with a `scenevisibility` event for scripts.
  */
@@ -24,10 +32,7 @@ export function initSceneVisibility() {
       entries.forEach(({ target, isIntersecting }) => {
         if (!isIntersecting) return;
         if (target.dataset.scene === 'glass') {
-          target.style.setProperty(
-            '--glass-image',
-            `url("${import.meta.env.BASE_URL}art/phase2/glass-triptych.webp")`,
-          );
+          target.style.setProperty('--glass-image', `url("${glassArt()}")`);
         }
         target.querySelectorAll('img[loading=lazy]').forEach((img) => {
           img.loading = 'eager';

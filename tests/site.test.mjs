@@ -77,3 +77,8 @@ test('NPC arrives within the visible habitat instead of waiting almost a minute'
  const {w,d}=setup();const habitat=d.querySelector('.npc-habitat');habitat.getBoundingClientRect=()=>({top:250,bottom:420,left:500,right:800,width:300,height:170});
  await new Promise(r=>setTimeout(r,1700));assert.equal(d.querySelector('#gollum').parentElement,habitat);assert.ok(Number(d.querySelector('#gollum').style.opacity)>.5);await w.happyDOM.abort();
 });
+test('Stained glass art resolves under the Pages base path',()=>{
+ // A relative url() inside a custom property resolves against the stylesheet in assets/, not the page.
+ assert.ok(!/--glass-image:\s*url\(/.test(html),'The no-JS fallback must not set --glass-image to a relative URL');
+ assert.ok(js.includes('document.baseURI'),'The glass loader must build an absolute URL');
+});

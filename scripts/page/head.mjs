@@ -21,9 +21,13 @@ export const head = () => html`
     <link rel="stylesheet" href="/src/world/styles/index.css">
   </head>`;
 
-/** Without JavaScript the page is still complete; only motion and experiments are missing. */
+/**
+ * Without JavaScript the page is still complete; only motion and experiments are missing.
+ * The glass is set directly rather than through `--glass-image`: a relative url() inside a
+ * custom property would resolve against the bundled stylesheet in assets/ and 404.
+ */
 export const noscript = () => html`
   <noscript>
-    <style>.glass-world{--glass-image:url('/art/phase2/glass-triptych.webp')}.letter-form{display:none}</style>
+    <style>.glass-world .glass-picture{background-image:url('/art/phase2/glass-triptych.webp')}.letter-form{display:none}</style>
     <p class="noscript-note">The illustrated portfolio is ready to explore. Enable JavaScript for animations and interactive experiments.</p>
   </noscript>`;
