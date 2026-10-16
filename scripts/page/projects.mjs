@@ -1,13 +1,20 @@
 import { html, esc } from './html.mjs';
 import { tagList } from './shared.mjs';
 
-const MOTES = 9;
+const MOTES = 12;
 
-/** Gold motes drifting around the Erdtree, spread across the scene. */
+/** Gold motes drifting up from the Erdtree's roots, spread across the scene. */
 const motes = () =>
-  Array.from({ length: MOTES }, (_, i) => `<i style="--i:${i};left:${20 + i * 8}%;top:${20 + ((i * 13) % 65)}%"></i>`).join('');
+  Array.from(
+    { length: MOTES },
+    (_, i) => `<i style="--i:${i};left:${8 + ((i * 37) % 86)}%;top:${30 + ((i * 23) % 60)}%"></i>`,
+  ).join('');
 
-/** The Erdtree chapter. Rootine is the featured project, honestly labeled as a private alpha. */
+/**
+ * The Erdtree chapter, laid out after work1.png: the Tarnished on the ledge to
+ * the left, the Erdtree to the right, and Rootine in a tall panel between
+ * them. Rootine is honestly labeled as a private alpha.
+ */
 export const projects = ({ copy, projects: [rootine] }) => html`
   <section id="projects" class="chapter tree-world" data-scene="tree" data-theme="tree" aria-labelledby="workTitle">
     <div class="scene-art" aria-hidden="true">
@@ -17,27 +24,31 @@ export const projects = ({ copy, projects: [rootine] }) => html`
       </picture>
     </div>
     <div class="tree-light" aria-hidden="true"></div>
+    <div class="dusk-veil" aria-hidden="true"></div>
     <div class="gold-motes" aria-hidden="true">${motes()}</div>
 
-    <div class="content-width work-header">
-      <span class="eyebrow">SOMETHING WORTH BUILDING</span>
-      <h2 id="workTitle">Small beginnings.<br><em>Room to grow.</em></h2>
+    <div class="tree-layout">
+      <article class="rootine-panel">
+        <header class="work-header">
+          <span class="eyebrow">SOMETHING WORTH BUILDING</span>
+          <h2 id="workTitle">Small beginnings.<br><em>Room to grow.</em></h2>
+        </header>
+        <div class="grace-rule" aria-hidden="true"><i></i></div>
+        <div class="rootine-story">
+          <span class="eyebrow">FEATURED PROJECT</span>
+          <h3>Rootine</h3>
+          <p class="project-subtitle">${esc(copy.projects.rootineTagline)}</p>
+          <p>${esc(rootine.description)}</p>
+          <div class="tags">${tagList(rootine)}</div>
+          <div class="actions">
+            <button class="button" data-project="rootine" type="button">Inside the project <span>↗</span></button>
+            <a class="text-link" href="${rootine.live}" target="_blank" rel="noopener">Visit Rootine ↗</a>
+          </div>
+          <a class="project-repo" href="${rootine.repo}" target="_blank" rel="noopener">View source on GitHub ↗</a>
+          <small class="project-status">PRIVATE ALPHA · IN PROGRESS</small>
+        </div>
+      </article>
     </div>
 
-    <article class="rootine-story">
-      <span class="eyebrow">FEATURED PROJECT</span>
-      <h3>Rootine<span>✦</span></h3>
-      <p class="project-subtitle">${esc(copy.projects.rootineTagline)}</p>
-      <p>${esc(rootine.description)}</p>
-      <div class="tags">${tagList(rootine)}</div>
-      <div class="actions">
-        <button class="button" data-project="rootine" type="button">Inside the project <span>↗</span></button>
-        <a class="text-link" href="${rootine.live}" target="_blank" rel="noopener">Visit Rootine ↗</a>
-      </div>
-      <a class="project-repo" href="${rootine.repo}" target="_blank" rel="noopener">View source on GitHub ↗</a>
-      <small class="project-status">PRIVATE ALPHA · IN PROGRESS</small>
-    </article>
-
     <p class="landscape-caption">An idea becomes a practice.<br>A practice becomes a world.</p>
-    <div class="glass-approach" aria-hidden="true"></div>
   </section>`;

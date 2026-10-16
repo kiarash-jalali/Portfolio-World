@@ -1,21 +1,23 @@
 import { html, esc, each } from './html.mjs';
 import { tagList } from './shared.mjs';
 
-/** One tall leaded window. `--panel` picks its slice of the triptych painting. */
+/** One tall leaded window with its project on a glass plaque. `--panel` picks its slice of the painting. */
 const glassPanel = (project, index) => html`
   <article class="glass-panel" style="--panel:${index}">
     <div class="glass-picture" aria-hidden="true"></div>
     <div class="glass-shine" aria-hidden="true"></div>
-    <div class="window-title">
-      <span>${esc(project.category)}</span>
-      <h3>${esc(project.title)}</h3>
-    </div>
-    <div class="glass-copy">
-      <p>${esc(project.description)}</p>
-      <div class="tags">${tagList(project)}</div>
-      <div class="actions">
-        <button class="text-link" type="button" data-project="${project.key}">The details <span>↗</span></button>
-        <a class="text-link" href="${project.live}" target="_blank" rel="noopener">Live project ↗</a>
+    <div class="glass-plaque">
+      <div class="window-title">
+        <span>${esc(project.category)}</span>
+        <h3>${esc(project.title)}</h3>
+      </div>
+      <div class="glass-copy">
+        <p>${esc(project.description)}</p>
+        <div class="tags">${tagList(project)}</div>
+        <div class="actions">
+          <button class="text-link" type="button" data-project="${project.key}">The details <span>↗</span></button>
+          <a class="text-link" href="${project.live}" target="_blank" rel="noopener">Live project ↗</a>
+        </div>
       </div>
     </div>
   </article>`;

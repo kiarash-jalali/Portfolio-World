@@ -15,38 +15,49 @@ const skillGroups = (groups) => html`
     )}
   </div>`;
 
-const tools = (list, learning) => html`
-  <div class="tool-terrace">
-    <span class="eyebrow">THE TOOLS AT MY TABLE</span>
-    <div class="tool-list">${each(list, (tool) => `<span>${esc(tool.name)}</span>`)}</div>
-    <p><strong>Currently exploring</strong><br>${esc(learning)}</p>
+/** The tall tablet on the left, on the stone overlook: the title and the skills. */
+const tablet = (copy, groups) => html`
+  <div class="city-tablet">
+    <header>
+      <span class="eyebrow">THE CRAFT</span>
+      <h2 id="skillsTitle">Built one<br><em>stone at a time.</em></h2>
+      <p data-gollum-words>${esc(copy.skills.subtitle)}</p>
+    </header>
+    ${skillGroups(groups)}
   </div>`;
 
-const interests = (list) => html`
-  <div class="interests content-width">
-    <span class="eyebrow">AWAY FROM THE KEYBOARD</span>
-    <div>
-      ${each(list, (interest) => `<article><h3>${esc(interest.title)}</h3><p>${esc(interest.body)}</p></article>`)}
+/** The wide terrace below the city: tools at hand, and life away from the keyboard. */
+const terrace = (toolList, learning, interestList) => html`
+  <div class="city-terrace">
+    <div class="npc-habitat" aria-hidden="true"></div>
+    <div class="tool-terrace">
+      <span class="eyebrow">THE TOOLS AT MY TABLE</span>
+      <div class="tool-list">${each(toolList, (tool) => `<span>${esc(tool.name)}</span>`)}</div>
+      <p><strong>Currently exploring</strong> ${esc(learning)}</p>
+    </div>
+    <div class="interests">
+      <span class="eyebrow">AWAY FROM THE KEYBOARD</span>
+      <div data-gollum-words>
+        ${each(interestList, (interest) => `<article><h3>${esc(interest.title)}</h3><p>${esc(interest.body)}</p></article>`)}
+      </div>
     </div>
   </div>`;
 
-/** Minas Tirith: skills, tools and interests, set against the white city. */
+/**
+ * Minas Tirith, laid out after skills.png: a tall tablet of skills on the stone
+ * overlook to the left, the white city filling the upper right, and a wide
+ * terrace of tools and interests beneath it. Gollum creeps along the terrace.
+ */
 export const city = ({ copy, skillGroups: groups, tools: toolList, interests: interestList }) => html`
   <section id="skills" class="chapter city" data-scene="city" data-theme="city" aria-labelledby="skillsTitle">
     <div class="scene-art city-art" aria-hidden="true">
-      <img src="/art/phase2/minas-tirith.webp" alt="" width="1536" height="1024" loading="lazy">
+      <img src="/art/phase2/minas-tirith.webp" alt="" width="1659" height="948" loading="lazy">
     </div>
     <div class="city-mist" aria-hidden="true"></div>
-    <div class="content-width skill-layout">
-      <header>
-        <span class="eyebrow">THE CRAFT</span>
-        <h2 id="skillsTitle">Built one<br><em>stone at a time.</em></h2>
-        <p>${esc(copy.skills.subtitle)}</p>
-      </header>
-      ${skillGroups(groups)}
-      ${tools(toolList, copy.skills.learning)}
+    <div class="city-layout">
+      ${tablet(copy, groups)}
+      <div class="city-view" aria-hidden="true"></div>
+      ${terrace(toolList, copy.skills.learning, interestList)}
     </div>
-    ${interests(interestList)}
-    <div class="npc-habitat" aria-hidden="true"></div>
     <div class="city-exit" aria-hidden="true"></div>
   </section>`;

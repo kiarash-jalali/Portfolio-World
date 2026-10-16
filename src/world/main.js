@@ -12,7 +12,7 @@ import { initDoor } from './chapters/shire/door.js';
 import { initGollum } from './chapters/gollum.js';
 import { cityScroll } from './chapters/city.js';
 import { projectsScroll } from './chapters/projects.js';
-import { atlasScroll } from './chapters/atlas.js';
+import { initAtlas, atlasScroll } from './chapters/atlas/index.js';
 import { initAiChapter } from './chapters/ai.js';
 import { initLab } from './chapters/lab.js';
 import { initContact } from './chapters/contact.js';
@@ -30,6 +30,7 @@ initChapterTheme(motion);
 initScrollMotion(motion, [atlasScroll, pondCaptionScroll, cityScroll, projectsScroll]);
 
 initDoor(motion);
+initAtlas(motion);
 initGollum(motion);
 initLab(motion);
 

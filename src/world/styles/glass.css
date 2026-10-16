@@ -1,87 +1,141 @@
-/* The stained-glass triptych: three tall windows for the collected projects. */
+/*
+ * The stained-glass triptych, after work2.png: three tall leaded windows side
+ * by side, each with its project set on a dark glass plaque in its lower half,
+ * leaving the figure's head and halo in the light above.
+ */
 
+.glass-world {
+  --lead: #b89b5a;
+  --plaque: #0d0b09e0;
+  color: #e9d8ad;
+  padding: 120px 0 140px;
+  background: radial-gradient(ellipse at 50% 30%, #33291d, #111612 66%);
+}
 .glass-world .chapter-heading {
-  margin-bottom: 70px;
+  margin-bottom: 56px;
 }
 .glass-world h2 {
   font-family: var(--epic-display);
+  font-size: clamp(36px, 4.2vw, 60px);
   line-height: 1.2;
-}
-@media (min-width: 701px) {
-  .glass-world h2 {
-    font-size: clamp(36px, 4.3vw, 61px);
-  }
 }
 .glass-world h2 em {
   font-family: var(--pond-display);
   font-size: 1.25em;
 }
+.glass-world .chapter-heading > p {
+  color: #d8d1b8;
+}
+
 .triptych {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1160px;
+  gap: clamp(14px, 1.6vw, 26px);
+  max-width: 1360px;
 }
 .glass-panel {
   position: relative;
   isolation: isolate;
-  padding-top: 470px;
-  border: 1px solid #a18c5655;
-  border-radius: 180px 180px 3px 3px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px #0005;
-  background: #121a16;
 }
-.glass-picture:after {
-  content: "";
-  position: absolute;
-  inset: 60% 0 0;
-  background: linear-gradient(transparent, #121a16);
-  display: none;
+/* The window: one third of the triptych painting (see scenes/visibility.js). */
+.glass-picture {
+  aspect-ratio: 1 / 2;
+  background-image: var(--glass-image);
+  background-size: 300% 100%;
+  background-position: calc(var(--panel) * 50%) top;
+  filter: drop-shadow(0 0 28px #d6ae4930);
+  transition: filter 0.8s;
 }
+.glass-panel:hover .glass-picture,
+.glass-panel:focus-within .glass-picture {
+  filter: drop-shadow(0 0 34px #d6ae4966) brightness(1.08);
+}
+/* A slow band of light moving across the glass. */
 .glass-shine {
   position: absolute;
-  inset: 0;
-  z-index: -1;
+  inset: 0 0 50%;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.3;
-  animation: glasslight 12s ease-in-out infinite alternate;
-  animation-delay: calc(var(--panel) * -4s);
-  top: 0;
-  bottom: auto;
-  height: 65%;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    #f8d48419 50%,
-    transparent 70%
-  );
+  opacity: 0.35;
+  background: linear-gradient(120deg, transparent 30%, #f8d4841a 50%, transparent 70%);
+  animation: glass-light 12s ease-in-out calc(var(--panel) * -4s) infinite alternate;
+}
+
+/* ---------- The plaque in each window ---------- */
+
+.glass-plaque {
+  position: absolute;
+  left: 13%;
+  right: 13%;
+  top: 45%;
+  bottom: 7.5%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 22px;
+  background: var(--plaque);
+  backdrop-filter: blur(2px);
+  /* Leading: a gold came around a dark inner rule. */
+  border: 2px solid var(--lead);
+  box-shadow:
+    inset 0 0 0 4px #0d0b09,
+    inset 0 0 0 5px #b89b5a66,
+    0 18px 40px #000a;
 }
 .window-title > span {
+  font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 11px;
   color: #dcc995;
 }
 .window-title h3 {
-  font: 30px/1.15 var(--epic-display);
-  letter-spacing: -0.04em;
-  margin-top: 12px;
-  min-height: 70px;
+  margin-top: 8px;
+  font: clamp(21px, 1.9vw, 28px) / 1.2 var(--epic-display);
+  letter-spacing: -0.02em;
+  color: #f1e3b8;
 }
-.glass-footnote {
-  width: min(1160px, 86%);
-  margin: 36px auto 0;
+.glass-copy {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 12px;
+}
+.glass-copy > p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #e2dec9;
+}
+.glass-copy .tags {
+  gap: 6px 12px;
+  margin: 14px 0;
+  font-size: 11px;
+  color: #cbbd93;
+}
+.glass-copy .actions {
+  margin-top: auto;
+  gap: 8px 18px;
+}
+.glass-copy .text-link {
+  min-height: 40px;
+  padding: 6px 0;
+  font-size: 13.5px;
+  color: #f1e3b8;
+}
+
+.glass-footnote {
+  display: flex;
   justify-content: space-between;
-  font-size: 9px;
-  color: #a8aa8e;
+  gap: 20px;
+  width: min(1360px, 86%);
+  margin: 56px auto 0;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #c7c6af;
 }
 .glass-footnote > span:first-child {
   letter-spacing: 0.17em;
 }
-@keyframes glasslight {
+@keyframes glass-light {
   to {
     opacity: 0.8;
     transform: translateX(12px);
@@ -90,283 +144,65 @@
 [data-scene]:not(.scene-active) .glass-shine {
   animation-play-state: paused;
 }
-@media (max-width: 1100px) {
-  .glass-panel {
-    padding-top: 390px;
-  }
-  .glass-picture {
-    height: 490px;
-  }
-  .window-title,
-  .glass-copy {
-    padding-left: 22px;
-    padding-right: 22px;
+
+/* ---------- Narrower screens ---------- */
+
+@media (max-width: 1180px) {
+  .glass-plaque {
+    left: 8%;
+    right: 8%;
+    top: 44%;
+    padding: 22px 18px 18px;
   }
   .glass-copy > p {
-    min-height: 130px;
-  }
-  .glass-copy .actions {
-    gap: 14px;
+    font-size: 13.5px;
   }
 }
-@media (max-width: 820px) {
-  .glass-panel {
-    padding-top: 290px;
-  }
-  .glass-picture {
-    height: 410px;
-  }
-  .window-title h3 {
-    font-size: 22px;
-    min-height: 55px;
-  }
-  .window-title,
-  .glass-copy {
-    padding-inline: 17px;
-  }
-  .glass-copy > p {
-    font-size: 10px;
-    min-height: 150px;
-  }
-  .glass-copy .tags {
-    min-height: 68px;
-  }
-  .glass-copy .actions {
-    display: block;
-  }
-  .glass-copy .text-link {
-    margin-bottom: 8px;
+@media (max-width: 900px) {
+  /* The plaque steps down below the sill so the text has room. */
+  .glass-plaque {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: -34% 6% 0;
   }
 }
-@media (max-width: 600px) {
-  .glass-world {
-    padding-top: 65px;
-  }
-  .triptych {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    max-width: 420px;
-  }
-  .glass-panel {
-    padding-top: 465px;
-    border-radius: 160px 160px 3px 3px;
-  }
-  .glass-picture {
-    height: 590px;
-  }
-  .window-title,
-  .glass-copy {
-    padding-inline: 26px;
-  }
-  .window-title h3 {
-    font-size: 29px;
-    min-height: 0;
-  }
-  .glass-copy > p {
-    min-height: 0;
-    font-size: 12px;
-  }
-  .glass-copy .tags {
-    min-height: 0;
-    font-size: 8px;
-  }
-  .glass-copy .actions {
-    display: flex;
-    margin-top: 20px;
-  }
-  .glass-copy .text-link {
-    font-size: 11px;
-  }
-  .glass-footnote {
-    display: block;
-    text-align: center;
-    font-size: 9px;
-    max-width: 280px;
-  }
-  .glass-footnote > span {
-    display: block;
-    margin-top: 15px;
-  }
-}
-@media (max-width: 370px) {
-  .glass-panel {
-    padding-top: 400px;
-  }
-  .glass-picture {
-    height: 530px;
-  }
-}
-.glass-copy > p {
-  line-height: 1.85;
-  font-size: 15px;
-  min-height: 0;
-  color: #e2dec9;
-}
-.glass-world {
-  color: #e9d8ad;
-  padding: 120px 0 150px;
-  background: radial-gradient(ellipse at 50% 25%, #30271c, #111612 64%);
-}
-.triptych {
-  max-width: 1320px;
-  gap: 42px;
-  align-items: start;
-}
-.glass-panel {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-  overflow: visible;
-}
-.glass-panel:nth-child(2) {
-  margin-top: 75px;
-}
-.glass-picture {
-  top: 0;
-  left: 0;
-  right: 0;
-  background-image: var(--glass-image);
-  background-position: calc(var(--panel) * 50%) top;
-  transition: filter 0.8s;
-  position: relative;
-  inset: auto;
-  aspect-ratio: 1/2;
-  width: 100%;
-  height: auto;
-  background-size: 300% 100%;
-  filter: drop-shadow(0 0 26px #d6ae4933);
-  z-index: 0;
-}
-.glass-panel:hover .glass-picture {
-  filter: drop-shadow(0 0 30px #d6ae4955) brightness(1.07);
-}
-.window-title {
-  position: relative;
-  padding: 26px 0 18px;
-}
-.window-title h3 {
-  font-size: 29px;
-  min-height: 0;
-  margin-top: 12px;
-  line-height: 1.3;
-}
-.glass-copy {
-  padding: 0;
-}
-.glass-copy .tags {
-  gap: 8px;
-  font-size: 11px;
-  min-height: 0;
-  margin: 23px 0;
-}
-.glass-copy .text-link {
-  font-size: 14px;
-}
-.glass-copy .actions {
-  gap: 14px;
-  display: flex;
-  justify-content: flex-start;
-}
-.glass-footnote {
-  font-size: 13px;
-  line-height: 1.9;
-  color: #c7c6af;
-  max-width: 1320px;
-  margin-top: 65px;
-}
-@media (max-width: 1100px) {
-  .triptych {
-    gap: 26px;
-  }
-  .window-title h3 {
-    font-size: 25px;
-  }
-  .glass-copy .actions {
-    display: block;
-  }
-  .glass-copy .text-link {
-    margin-right: 18px;
-  }
-}
-@media (max-width: 820px) {
-  .triptych {
-    gap: 23px;
-    width: 92%;
-  }
-  .glass-panel:nth-child(2) {
-    margin-top: 35px;
-  }
-  .glass-copy > p {
-    font-size: 14px;
-  }
-  .window-title h3 {
-    font-size: 23px;
-  }
-  .glass-footnote {
-    font-size: 12px;
-  }
-}
+/* Portrait: one window at a time, stacked, each with its plaque over the lower glass. */
 @media (max-width: 700px) {
   .glass-world {
     padding: 100px 0;
   }
-  .glass-world h2 {
-    font-size: clamp(31px, 6.2vw, 43px);
-  }
   .triptych {
     display: flex;
     flex-direction: column;
+    gap: 56px;
     width: 84%;
     max-width: 440px;
-    gap: 64px;
   }
-  .glass-panel {
-    width: 100%;
-    padding: 0;
-  }
-  .glass-panel:nth-child(2) {
-    margin-top: 0;
-  }
-  .glass-picture {
-    height: auto;
-    aspect-ratio: 1/2;
-  }
-  .window-title,
-  .glass-copy {
-    padding-inline: 0;
+  .glass-plaque {
+    margin: -48% 7% 0;
+    padding: 24px 20px 20px;
   }
   .window-title h3 {
-    font-size: 29px;
+    font-size: 26px;
   }
   .glass-copy > p {
-    font-size: 16px;
-  }
-  .glass-copy .tags {
-    font-size: 12px;
-  }
-  .glass-copy .actions {
-    display: flex;
+    font-size: 15px;
   }
   .glass-footnote {
     display: block;
-    font-size: 13px;
-    text-align: left;
     width: 84%;
     max-width: 440px;
   }
   .glass-footnote > span {
     display: block;
-    margin-top: 17px;
+    margin-top: 14px;
   }
 }
-@media (max-width: 390px) {
-  .triptych {
-    width: 87%;
-  }
-  .window-title h3 {
-    font-size: 26px;
+@media (prefers-reduced-motion: reduce) {
+  .glass-shine {
+    animation: none;
   }
 }
