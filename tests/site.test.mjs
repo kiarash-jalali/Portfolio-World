@@ -69,9 +69,12 @@ test('Normal arrival completes, unlocks, and retains every paper even with a pre
  const {w,d}=setup({intro:true});assert.equal(d.documentElement.style.overflow,'hidden');
  await new Promise(r=>setTimeout(r,4900));assert.equal(d.documentElement.style.overflow,'');assert.equal(d.querySelectorAll('.parchment-letter.afloat').length,13);assert.ok(d.querySelector('#home').classList.contains('papers-landed'));await w.happyDOM.abort();
 });
-test('Two individually authored koi stay in the open water on desktop and mobile',()=>{
- assert.equal(new Set(POND_FISH.map(f=>f.asset)).size,2);
- for(const [w,h] of [[1440,1050],[390,1160]])for(let i=0;i<2;i++)for(let t=0;t<180;t+=.4){const p=fishPosition(t,i,w,h);assert.ok(Number.isFinite(p.angle));assert.ok(p.x>0&&p.x<w);assert.ok(p.y>0&&p.y<h);if(w<701)assert.ok(p.y>h*.65);}
+test('Three distinct koi stay in the open water on desktop and mobile',()=>{
+ assert.equal(POND_FISH.length,3);
+ // Distinct markings: each fish is its own painted asset or a recolored variant of one.
+ assert.equal(new Set(POND_FISH.map(f=>f.asset+'/'+(f.recolor||''))).size,3);
+ assert.equal(new Set(POND_FISH.map(f=>f.size)).size,3);
+ for(const [w,h] of [[1440,1050],[390,1160]])for(let i=0;i<POND_FISH.length;i++)for(let t=0;t<180;t+=.4){const p=fishPosition(t,i,w,h);assert.ok(Number.isFinite(p.angle));assert.ok(p.x>0&&p.x<w);assert.ok(p.y>0&&p.y<h);if(w<701)assert.ok(p.y>h*.65);}
 });
 test('NPC arrives within the visible habitat instead of waiting almost a minute',async()=>{
  const {w,d}=setup();const habitat=d.querySelector('.npc-habitat');habitat.getBoundingClientRect=()=>({top:250,bottom:420,left:500,right:800,width:300,height:170});

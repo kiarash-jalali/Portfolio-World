@@ -140,33 +140,6 @@
   padding: 12px 20px;
   font-size: 11px;
 }
-.parchment-letter {
-  position: absolute;
-  z-index: 8;
-  pointer-events: none;
-  display: grid;
-  place-items: center;
-  width: clamp(24px, 3.8vw, 52px);
-  height: clamp(36px, 5vw, 69px);
-  font-family: var(--epic-display);
-  font-size: clamp(24px, 3vw, 44px);
-  line-height: 1;
-  background: linear-gradient(120deg, #e6d4a6, #bfa774 80%);
-  color: #493d28;
-  box-shadow: 2px 4px 14px #0004;
-  clip-path: polygon(
-    3% 2%,
-    30% 4%,
-    66% 0,
-    96% 3%,
-    99% 49%,
-    95% 100%,
-    70% 97%,
-    35% 100%,
-    0 94%,
-    3% 40%
-  );
-}
 .intro-running .hero-content h1 {
   transition: opacity 0.4s;
   opacity: 0;
@@ -285,11 +258,6 @@
     right: 20px;
     bottom: 20px;
   }
-  .parchment-letter {
-    width: 24px;
-    height: 34px;
-    font-size: 22px;
-  }
 }
 @media (max-width: 370px) {
   .hero-content h1 {
@@ -381,14 +349,21 @@
 .pond-plants {
   z-index: 4;
 }
+/*
+ * The lotus cluster floats on the surface near the painted lily column, low on
+ * the right where it frames the open water without touching the text. Its
+ * shadow falls far below and to the right, on the floor, which gives the water
+ * its depth. Height follows the image's own aspect ratio.
+ */
 .floating-botanics {
   position: absolute;
-  width: 270px;
-  right: 1%;
-  bottom: 6%;
-  filter: drop-shadow(7px 12px 8px #032e3266);
+  width: clamp(340px, 30vw, 520px);
+  height: auto;
+  right: 12%;
+  bottom: 15%;
+  filter: drop-shadow(22px 34px 9px #01262c73);
   animation: botanical-drift 13s ease-in-out infinite alternate;
-  transform-origin: center;
+  transform-origin: 60% 60%;
 }
 .fish-fallback .koi-one {
   left: 62%;
@@ -413,55 +388,83 @@
   perspective: 950px;
   overflow: hidden;
 }
+/*
+ * A parchment piece. Its torn outline, tone and age marks are painted per piece
+ * in paper.js and arrive as --paper-dry and --paper-wet; the plain fill below
+ * is only the fallback when canvas isn't available.
+ */
 .parchment-letter {
+  --paper-scale: 1;
+  position: absolute;
   left: 0;
   top: 0;
-  background: none;
-  box-shadow: none;
-  clip-path: none;
-  width: 43px;
-  height: 61px;
   display: block;
+  width: calc(var(--paper-w, 46px) * var(--paper-scale));
+  height: calc(var(--paper-h, 62px) * var(--paper-scale));
   transform-origin: center;
   will-change: transform;
   pointer-events: none;
 }
+.paper,
+.paper-shadow,
 .paper-face {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.paper-shadow {
+  background: var(--paper-dry, #000) center / 100% 100%;
+  filter: brightness(0) blur(1.5px);
+  opacity: 0.4;
+}
+.paper-face {
+  isolation: isolate;
   display: grid;
   place-items: center;
-  width: 100%;
-  height: 100%;
-  font: 32px/1 var(--epic-display);
-  color: #453b28;
-  background: radial-gradient(ellipse at 25% 25%, #f6e5b6, #d5bb80 80%);
-  box-shadow:
-    0 7px 11px #01323a77,
-    inset 0 0 7px #705b2738;
-  clip-path: polygon(
-    3% 0,
-    31% 3%,
-    62% 0,
-    97% 4%,
-    99% 48%,
-    96% 98%,
-    67% 96%,
-    33% 100%,
-    0 95%,
-    3% 47%
-  );
-  border: 1px solid #e4cc9466;
+  background: radial-gradient(ellipse at 25% 25%, #f3e2b4, #cfb47a 80%);
 }
-.parchment-letter.afloat .paper-face {
-  animation: paper-drift var(--float-time) ease-in-out var(--float-delay)
-    infinite alternate;
+.painted .paper-face {
+  background: var(--paper-dry) center / 100% 100%;
 }
-.parchment-letter.waterlogged .paper-face {
-  color: #476151;
-  background: linear-gradient(125deg, #cfc496, #7eab9b);
-  box-shadow: 0 1px 4px #123e4480;
-  filter: blur(0.25px);
+/* The soaked version fades in over the dry one after the paper touches the water. */
+.paper-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper-wet, linear-gradient(125deg, #cfc496, #8fb3a2)) center / 100% 100%;
+  opacity: 0;
+  transition: opacity 2.6s ease-out 0.15s;
 }
-.parchment-letter.landed:after {
+.wet .paper-face::before {
+  opacity: 1;
+}
+/* Iron-gall ink, written by hand. It bleeds a little once the paper is wet. */
+.paper-ink {
+  display: block;
+  font: calc(var(--paper-h, 62px) * var(--paper-scale) * 0.5) / 1 var(--epic-display);
+  color: #3e2f1c;
+  text-shadow: 0 0 0.5px #3e2f1c88;
+  transition:
+    color 2.6s,
+    text-shadow 2.6s;
+}
+.wet .paper-ink {
+  color: #34352b;
+  text-shadow: 0 0 1.6px #2c3a3366;
+}
+.parchment-letter.afloat .paper {
+  animation: paper-drift var(--float-time) ease-in-out var(--float-delay) infinite alternate;
+}
+/* A waterlogged paper has partly sunk: the far side fades under the surface. */
+.parchment-letter.waterlogged .paper {
+  -webkit-mask-image: linear-gradient(var(--sink-angle), #000 30%, #0005 72%, #0002);
+  mask-image: linear-gradient(var(--sink-angle), #000 30%, #0005 72%, #0002);
+}
+.parchment-letter.waterlogged .paper-shadow {
+  opacity: 0.15 !important;
+}
+.parchment-letter.landed::after {
   content: "";
   position: absolute;
   inset: 30% -18%;
@@ -505,7 +508,7 @@
     rotate: 35deg;
   }
 }
-[data-scene]:not(.scene-active) .paper-face,
+[data-scene]:not(.scene-active) .paper,
 [data-scene]:not(.scene-active) .floating-botanics {
   animation-play-state: paused;
 }
@@ -543,10 +546,12 @@
     font-size: 12px;
     max-width: 340px;
   }
+  /* Portrait: a smaller cluster tucked against the right edge, below the text. */
   .floating-botanics {
-    width: 160px;
-    bottom: 4%;
-    right: -6%;
+    width: 230px;
+    right: -64px;
+    bottom: 285px;
+    filter: drop-shadow(14px 22px 6px #01262c73);
   }
   .pond-caption {
     bottom: 75px;
@@ -557,11 +562,7 @@
     font-size: 23px;
   }
   .parchment-letter {
-    width: 26px;
-    height: 38px;
-  }
-  .paper-face {
-    font-size: 23px;
+    --paper-scale: 0.62;
   }
   .fish-fallback {
     left: 0;
@@ -604,12 +605,13 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .paper-face,
+  .paper,
   .floating-botanics,
   .koi {
     animation: none !important;
   }
-  .paper-face {
-    box-shadow: 0 2px 5px #02313866;
+  .paper-face::before,
+  .paper-ink {
+    transition: none;
   }
 }

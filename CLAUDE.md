@@ -78,7 +78,7 @@ Kiarash wants the code to read like **his own handwriting**: plain, readable HTM
 
 1. ~~**Live bug:** the stained-glass windows never load.~~ Fixed 16 Oct 2026 (`4fa9243`): absolute URL in JS, direct `background-image` in the no-JS fallback, regression test.
 2. ~~The code is unmaintainable.~~ Fixed 16 Oct 2026: CSS, JS and the page template are split into readable per-chapter modules (`3be2e33`, `06a4d2e`), verified identical in computed style at six viewport widths.
-3. Hero: the `pond-botanics` overlay is blown up and smeared down the right edge, and covers the text on mobile. The water reads photographic, not painterly like the goals references. The koi are barely visible. The intro letters look like identical Scrabble tiles in a row.
+3. ~~Hero: botanics smeared, water photographic, koi barely visible, letters identical tiles.~~ Reworked 16 Oct 2026: botanics recomposed (the `<img>` kept its 1024px height attribute), Kuwahara paint pass and cel-shaded caustics in `water-shader.js` (`WATER_STYLE`), three distinct koi with floor shadows (`koi.js`, tancho recolored in code), torn per-letter parchment painted in `pond/paper.js`. Optional painted replacements are specified in `resources/art-requests/pond.md`. Not yet checked on a real phone GPU.
 4. Shire: a big empty band above the scene; the subtitle is unreadable over the art; a CSS door circle sits on top of the painted door; the content cards cover the house.
 5. Gollum and Hobbit sprites are smooth painted figures, **not pixel art** as the brief and references ask.
 6. Rootine: the scene art is cropped and the project content floats in an empty dark area below it.
@@ -91,7 +91,7 @@ Kiarash wants the code to read like **his own handwriting**: plain, readable HTM
 - **Done (confirmed by Kiarash):** the front-end source is rewritten into readable modules, one CSS and JS module per chapter, keeping structure, content and assets.
 - **Open:** Gollum's word stealing wraps the word in a real `<span>` (`chapters/gollum.js`), which mutates the DOM text. The rules say it should be visual only (clone plus mask).
 - **Art pipeline is hybrid:** Claude builds what it can in code (SVG, canvas, WebGL, hand-made pixel art for Gollum and the Hobbit, reworking existing assets). For new painted rasters, Claude writes precise prompts and Kiarash generates the images; Claude has no image generator.
-- **Next target:** the hero pond (painterly water, botanics composition, distinct koi, real parchment letters).
+- **Next target:** the Shire (Known problems 4), then pixel-art Gollum and Hobbit (5). The hero pond rework is done pending Kiarash's review.
 - Verify visually in a real browser after every meaningful change, desktop and mobile. Report what was actually tested.
 
 ## Deep context (only when needed)

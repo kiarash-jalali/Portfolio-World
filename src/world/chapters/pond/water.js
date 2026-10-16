@@ -1,11 +1,11 @@
 import { vertexShader, fragmentShader, MAX_IMPACTS } from './water-shader.js';
-import { POND_FISH, drawKoi } from './koi.js';
+import { POND_FISH, prepareKoi, drawKoi } from './koi.js';
 
 const ART = `${import.meta.env.BASE_URL}art/phase2/`;
 const MOBILE_LAYOUT = '(max-width:700px)';
 const MOBILE_WIDTH = 701;
-/** Device-pixel ratio is capped; the painting is soft and doesn't need more. */
-const MAX_PIXEL_RATIO = 2;
+/** Device-pixel ratio is capped; the paint filter softens detail anyway. */
+const MAX_PIXEL_RATIO = 1.5;
 /** A long frame (a background tab, a hitch) never jumps the water forward more than this. */
 const MAX_FRAME_SECONDS = 0.05;
 
@@ -34,7 +34,7 @@ export function initWater(motion) {
   const koiCanvas = document.createElement('canvas');
 
   let gl, program, koiContext, floor;
-  const koiImages = [];
+  let koi = [];
   const textures = [];
   const uniforms = {};
 
@@ -73,7 +73,9 @@ export function initWater(motion) {
     const shader = gl.createShader(type);
     gl.shaderSource(shader, source);
     gl.compileShader(shader);
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw Error('Water shader failed');
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      throw Error(`Water shader failed: ${gl.getShaderInfoLog(shader)}`);
+    }
     return shader;
   }
 
@@ -99,7 +101,7 @@ export function initWater(motion) {
     const width = host.clientWidth;
     const height = host.clientHeight;
     if (!width || !height) return;
-    drawKoi(koiContext, koiImages, elapsed, width, height, canvas.width / width, canvas.height / height);
+    drawKoi(koiContext, koi, elapsed, width, height, canvas.width / width, canvas.height / height);
     upload(1, koiCanvas);
   }
 
@@ -180,7 +182,7 @@ export function initWater(motion) {
         ...POND_FISH.map((f) => loadImage(ART + f.asset)),
       ]);
       floor = floorImage;
-      koiImages.push(...fish);
+      koi = prepareKoi(fish);
       upload(0, floor);
 
       ready = true;
@@ -199,7 +201,8 @@ export function initWater(motion) {
           fallback();
         }
       });
-    } catch {
+    } catch (error) {
+      console.warn('Pond water unavailable, showing the still painting.', error);
       fallback();
     }
   }
