@@ -60,18 +60,24 @@ Kiarash wants the code to read like **his own handwriting**: plain, readable HTM
 
 ## Repository layout and build
 
-- Active app: `src/world/` (`main.js` wires modules; `pond.js` WebGL water and koi; `opening.js` parchment intro; `scenes.js` scene visibility and ScrollTrigger; `characters.js` door and Gollum; `ui.js` nav, dialogs, AI demo, contact; `workshop.js` Lab; `styles.css` and `phase2.css`).
-- `scripts/render-page.mjs` generates `index.html` from `content.js`. Edit the template there, not the HTML file.
+- Active app: `src/world/`, one module per chapter (split from the old dense files on 16 Oct 2026):
+  - `main.js` wires everything in page order. `content.js` holds all copy and links.
+  - `core/` motion state (reduced motion), scroll locks, toast, `escapeHtml`.
+  - `navigation/` the mobile menu, progress rail and per-chapter nav colors. `scenes/` scene visibility, art preloading and the shared ScrollTrigger runner (`initScrollMotion`) that each chapter plugs into.
+  - `chapters/` the pond (`pond/water.js` WebGL, `water-shader.js` GLSL, `koi.js`, `opening.js` parchment intro, `caption.js`), `shire/door.js`, `gollum.js`, `city.js`, `projects.js`, `atlas.js`, `ai.js`, `lab.js`, `contact.js`. `dialogs/project-dialog.js`.
+  - `styles/` with `index.css` (fonts, then `base.css`, then one file per chapter in page order). Order matters: chapter files refine `base.css`.
+- `scripts/render-page.mjs` generates `index.html` from `content.js` and the per-chapter templates in `scripts/page/`. Edit those, not the HTML file. Their `html` tag strips line breaks and indentation, so never break a line where a space matters.
 - Legacy and experiments: `src/js/`, `src/styles/`, `src/world-lab/`, `world-lab/`, `public/vendor/`. These don't drive the current page.
 - Art lives in `public/art/` (first pass) and `public/art/phase2/` (current), with generation prompts in `provenance.json`.
 - Commands: `npm ci`, `npm run dev` (port 4173), `npm run build`, `npm test`, `npm run verify`. Node ≥ 22.12.
 - Deploy: pushing to `main` runs `.github/workflows/deploy-world-lab.yml`, which builds and publishes `dist/` to Pages. `build` also mirrors `dist/` into the repo root (`prepare-static-root.mjs`) for a legacy branch publisher. The root `index.html`, `assets/`, `art/` and `images/` are **generated copies**: never hand-edit them. The currently committed root `index.html` is source HTML, so it's out of sync.
-- Vite `base` is `./` (the site lives under `/Portfolio-World/`). **Watch relative URLs inside CSS custom properties**: Chrome resolves them against the stylesheet in `assets/`, not the page.
+- Vite `base` is `./` (the site lives under `/Portfolio-World/`). **Never put a relative URL inside a CSS custom property**: it resolves against the stylesheet that reads it (`assets/`), not the page, even when set inline or in a document `<style>`. Use an absolute URL (`new URL(path, document.baseURI)`) or set the real property directly.
+- `npm test` reads `dist/`, so run `npm run build` first.
 
 ## Known problems (audit of 16 Oct 2026, rendered in a browser at 1440×900 and 390×844)
 
-1. **Live bug:** the stained-glass windows never load. `scenes.js` sets `--glass-image: url("./art/phase2/glass-triptych.webp")`, which resolves to `assets/art/...` and 404s, so Work 2 shows empty dark panels.
-2. The code is unmaintainable: `styles.css` is 42 KB in 40 lines, the shader is one line, the modules are dense one-liners.
+1. ~~**Live bug:** the stained-glass windows never load.~~ Fixed 16 Oct 2026 (`4fa9243`): absolute URL in JS, direct `background-image` in the no-JS fallback, regression test.
+2. ~~The code is unmaintainable.~~ Fixed 16 Oct 2026: CSS, JS and the page template are split into readable per-chapter modules (`3be2e33`, `06a4d2e`), verified identical in computed style at six viewport widths.
 3. Hero: the `pond-botanics` overlay is blown up and smeared down the right edge, and covers the text on mobile. The water reads photographic, not painterly like the goals references. The koi are barely visible. The intro letters look like identical Scrabble tiles in a row.
 4. Shire: a big empty band above the scene; the subtitle is unreadable over the art; a CSS door circle sits on top of the painted door; the content cards cover the house.
 5. Gollum and Hobbit sprites are smooth painted figures, **not pixel art** as the brief and references ask.
@@ -82,9 +88,10 @@ Kiarash wants the code to read like **his own handwriting**: plain, readable HTM
 ## Agreed direction (16 Oct 2026; confirm details with Kiarash as you go)
 
 - **Keep:** the section order, content, overall concepts (door, fold/unfold atlas, persistent parchment) and the strong existing paintings (Minas Tirith, Erdtree, glass triptych, the Wall/terrain/snow planes as a starting point).
-- **Proposed:** rewrite the front-end source into readable modules, one CSS and JS module per chapter, keeping structure, content and assets. Kiarash was leaning yes but hadn't explicitly confirmed when this was written.
+- **Done (confirmed by Kiarash):** the front-end source is rewritten into readable modules, one CSS and JS module per chapter, keeping structure, content and assets.
+- **Open:** Gollum's word stealing wraps the word in a real `<span>` (`chapters/gollum.js`), which mutates the DOM text. The rules say it should be visual only (clone plus mask).
 - **Art pipeline is hybrid:** Claude builds what it can in code (SVG, canvas, WebGL, hand-made pixel art for Gollum and the Hobbit, reworking existing assets). For new painted rasters, Claude writes precise prompts and Kiarash generates the images; Claude has no image generator.
-- **First targets:** fix the stained-glass URL bug, then the hero pond (painterly water, botanics composition, distinct koi, real parchment letters).
+- **Next target:** the hero pond (painterly water, botanics composition, distinct koi, real parchment letters).
 - Verify visually in a real browser after every meaningful change, desktop and mobile. Report what was actually tested.
 
 ## Deep context (only when needed)
