@@ -1,0 +1,231 @@
+/* The workshop: the elastic inkstone and the spring grid. */
+
+.workshop {
+  color: #34473c;
+  padding: 105px 0;
+  --cream: #344b3e;
+  --gold: #7e754e;
+  color-scheme: light;
+  padding-top: 45px;
+  background: #e3ddc5;
+}
+.workshop:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23635d46' opacity='.28' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.workshop-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  padding-top: 45px;
+  border-top: 1px solid #4a5d4544;
+}
+.workshop-heading h2 {
+  font-family: var(--atlas-display);
+  margin-top: 20px;
+}
+.workshop-heading > p {
+  font-size: 12px;
+  margin-bottom: 8px;
+  max-width: 400px;
+}
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+.lab-experiment {
+  border-top: 1px solid #4a5d4566;
+  padding-top: 25px;
+}
+.lab-experiment h3 {
+  font: 30px var(--atlas-display);
+  margin: 12px 0 16px;
+}
+.lab-experiment header > p {
+  font-size: 11px;
+  max-width: 490px;
+  min-height: 86px;
+}
+.lab-rules {
+  position: absolute;
+  inset: 15px;
+  border: 1px solid #5b71582b;
+  background: repeating-linear-gradient(
+      0deg,
+      transparent 0 38px,
+      #4d674820 39px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 38px,
+      #4d674820 39px,
+      transparent 40px
+    );
+}
+.inkstone {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 43% 55% 47% 51%;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    #658674,
+    #214a40 65%,
+    #173b33
+  );
+  color: #d5cc9f;
+  box-shadow:
+    10px 15px 12px #364b3825,
+    inset -6px -9px 10px #163a3255;
+  font: 30px var(--pond-display);
+  left: calc(50% - 42px);
+  top: calc(50% - 55px);
+  touch-action: none;
+  user-select: none;
+  will-change: transform;
+}
+.inkstone span {
+  pointer-events: none;
+}
+.experiment-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #64765d;
+  pointer-events: none;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.spring-grid button {
+  aspect-ratio: 1;
+  border: 1px solid #6b79643d;
+  background: #c4c7ad80;
+  transition:
+    background 0.3s,
+    border-radius 0.3s,
+    transform 0.4s cubic-bezier(0.18, 1.8, 0.5, 1);
+  border-radius: 2px;
+  min-width: 0;
+  padding: 0;
+}
+.spring-grid button[aria-pressed="true"] {
+  background: #32675b;
+  border-color: #29594e;
+  border-radius: 50%;
+  transform: scale(0.88);
+  box-shadow: 0 0 0 3px #567b5933;
+}
+.spring-grid button:hover {
+  background: #99ac88;
+}
+@media (max-width: 600px) {
+  .workshop {
+    padding: 70px 0;
+    padding-top: 15px;
+  }
+  .workshop-heading {
+    display: block;
+  }
+  .workshop-heading h2 {
+    font-size: 54px;
+  }
+  .workshop-heading > p {
+    margin-top: 24px;
+  }
+  .lab-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    margin-top: 35px;
+  }
+  .lab-experiment h3 {
+    font-size: 29px;
+  }
+  .lab-experiment header > p {
+    font-size: 12px;
+  }
+  .ink-stage {
+    height: 280px;
+  }
+  .spring-grid {
+    height: 290px;
+    max-width: 320px;
+    gap: 6px;
+  }
+}
+.workshop-heading > p,
+.lab-experiment header > p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.lab-experiment h3 {
+  font-size: 36px;
+}
+.ink-stage {
+  position: relative;
+  margin-top: 28px;
+  border: 1px solid #67755644;
+  overflow: hidden;
+  background: #dcd6bd;
+  border-color: #67755666;
+  height: 345px;
+}
+.spring-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  margin: 28px auto 0;
+  align-content: center;
+  height: 345px;
+  max-width: 390px;
+  gap: 8px;
+}
+@media (max-width: 820px) {
+  .lab-grid {
+    gap: 30px;
+  }
+}
+@media (max-width: 700px) {
+  .workshop {
+    padding-top: 0;
+  }
+  .workshop-heading {
+    display: block;
+  }
+  .workshop-heading > p {
+    margin-top: 25px;
+    font-size: 16px;
+  }
+  .lab-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+  .lab-experiment h3 {
+    font-size: 33px;
+  }
+  .lab-experiment header > p {
+    font-size: 16px;
+    min-height: 0;
+  }
+  .ink-stage {
+    height: 320px;
+  }
+  .spring-grid {
+    height: 320px;
+    max-width: 370px;
+    gap: 7px;
+  }
+  .experiment-hint {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+}

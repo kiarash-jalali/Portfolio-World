@@ -1,0 +1,126 @@
+/* Project details dialog and the toast message. */
+
+.project-dialog {
+  width: min(800px, 92vw);
+  max-height: 86svh;
+  padding: 0;
+  border: 1px solid #9b9163;
+  background: #e9e1ca;
+  color: #2b4237;
+  box-shadow: 0 30px 150px #0008;
+}
+.project-dialog::backdrop {
+  background: #082520c9;
+  backdrop-filter: blur(5px);
+}
+.dialog-close {
+  position: sticky;
+  top: 15px;
+  float: right;
+  margin: 15px 15px -65px 0;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 28px;
+  background: #244739;
+  color: #f1e4c5;
+}
+.dialog-body {
+  padding: 45px;
+}
+.dialog-body h2 {
+  font-size: 60px;
+  margin: 18px 0 24px;
+  font-family: var(--pond-display);
+}
+.dialog-body h3 {
+  font-size: 25px;
+  margin: 26px 0 15px;
+}
+.dialog-body .tags {
+  margin: 20px 0;
+}
+.dialog-body ul {
+  padding-left: 20px;
+}
+.dialog-body .actions {
+  margin-top: 30px;
+}
+.dialog-body .button {
+  background: #264c3e;
+  color: #f1e5c9;
+}
+.dialog-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: top;
+}
+.dialog-rootine {
+  padding: 60px 45px 35px;
+  background: #173e34;
+  color: #e6ddbd;
+  font: 68px var(--pond-display);
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  z-index: 110;
+  background: #e9e1ca;
+  color: #234b3c;
+  border: 1px solid #6d8062;
+  padding: 11px 24px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  max-width: 90vw;
+}
+.toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@media (max-width: 600px) {
+  .dialog-body {
+    padding: 30px 25px;
+  }
+  .dialog-body h2 {
+    font-size: 47px;
+  }
+  .dialog-body p,
+  .dialog-body li {
+    font-size: 12px;
+  }
+  .dialog-rootine {
+    font-size: 50px;
+    padding: 45px 25px;
+  }
+}
+.dialog-body p,
+.dialog-body li {
+  line-height: 1.85;
+  font-size: 16px;
+}
+.dialog-body .tags {
+  font-size: 12px;
+}
+.toast {
+  font-size: 14px;
+}
+@media (max-width: 700px) {
+  .dialog-body {
+    padding: 34px 25px;
+  }
+  .dialog-body p,
+  .dialog-body li {
+    font-size: 16px;
+  }
+  .dialog-body h2 {
+    font-size: 47px;
+  }
+}

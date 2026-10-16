@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {Window} from 'happy-dom';
-import {POND_FISH,fishPosition} from '../src/world/pond.js';
+import {POND_FISH,fishPosition} from '../src/world/chapters/pond/koi.js';
 import {data} from '../src/world/content.js';
 const html=readFileSync('dist/index.html','utf8');
 const js=readFileSync('dist/assets/'+readdirSync('dist/assets').find(p=>p.endsWith('.js')),'utf8');

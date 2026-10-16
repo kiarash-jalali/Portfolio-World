@@ -1,0 +1,372 @@
+/* The stained-glass triptych: three tall windows for the collected projects. */
+
+.glass-world .chapter-heading {
+  margin-bottom: 70px;
+}
+.glass-world h2 {
+  font-family: var(--epic-display);
+  line-height: 1.2;
+}
+@media (min-width: 701px) {
+  .glass-world h2 {
+    font-size: clamp(36px, 4.3vw, 61px);
+  }
+}
+.glass-world h2 em {
+  font-family: var(--pond-display);
+  font-size: 1.25em;
+}
+.triptych {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1160px;
+}
+.glass-panel {
+  position: relative;
+  isolation: isolate;
+  padding-top: 470px;
+  border: 1px solid #a18c5655;
+  border-radius: 180px 180px 3px 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px #0005;
+  background: #121a16;
+}
+.glass-picture:after {
+  content: "";
+  position: absolute;
+  inset: 60% 0 0;
+  background: linear-gradient(transparent, #121a16);
+  display: none;
+}
+.glass-shine {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.3;
+  animation: glasslight 12s ease-in-out infinite alternate;
+  animation-delay: calc(var(--panel) * -4s);
+  top: 0;
+  bottom: auto;
+  height: 65%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    #f8d48419 50%,
+    transparent 70%
+  );
+}
+.window-title > span {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #dcc995;
+}
+.window-title h3 {
+  font: 30px/1.15 var(--epic-display);
+  letter-spacing: -0.04em;
+  margin-top: 12px;
+  min-height: 70px;
+}
+.glass-footnote {
+  width: min(1160px, 86%);
+  margin: 36px auto 0;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #a8aa8e;
+}
+.glass-footnote > span:first-child {
+  letter-spacing: 0.17em;
+}
+@keyframes glasslight {
+  to {
+    opacity: 0.8;
+    transform: translateX(12px);
+  }
+}
+[data-scene]:not(.scene-active) .glass-shine {
+  animation-play-state: paused;
+}
+@media (max-width: 1100px) {
+  .glass-panel {
+    padding-top: 390px;
+  }
+  .glass-picture {
+    height: 490px;
+  }
+  .window-title,
+  .glass-copy {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .glass-copy > p {
+    min-height: 130px;
+  }
+  .glass-copy .actions {
+    gap: 14px;
+  }
+}
+@media (max-width: 820px) {
+  .glass-panel {
+    padding-top: 290px;
+  }
+  .glass-picture {
+    height: 410px;
+  }
+  .window-title h3 {
+    font-size: 22px;
+    min-height: 55px;
+  }
+  .window-title,
+  .glass-copy {
+    padding-inline: 17px;
+  }
+  .glass-copy > p {
+    font-size: 10px;
+    min-height: 150px;
+  }
+  .glass-copy .tags {
+    min-height: 68px;
+  }
+  .glass-copy .actions {
+    display: block;
+  }
+  .glass-copy .text-link {
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .glass-world {
+    padding-top: 65px;
+  }
+  .triptych {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 420px;
+  }
+  .glass-panel {
+    padding-top: 465px;
+    border-radius: 160px 160px 3px 3px;
+  }
+  .glass-picture {
+    height: 590px;
+  }
+  .window-title,
+  .glass-copy {
+    padding-inline: 26px;
+  }
+  .window-title h3 {
+    font-size: 29px;
+    min-height: 0;
+  }
+  .glass-copy > p {
+    min-height: 0;
+    font-size: 12px;
+  }
+  .glass-copy .tags {
+    min-height: 0;
+    font-size: 8px;
+  }
+  .glass-copy .actions {
+    display: flex;
+    margin-top: 20px;
+  }
+  .glass-copy .text-link {
+    font-size: 11px;
+  }
+  .glass-footnote {
+    display: block;
+    text-align: center;
+    font-size: 9px;
+    max-width: 280px;
+  }
+  .glass-footnote > span {
+    display: block;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 370px) {
+  .glass-panel {
+    padding-top: 400px;
+  }
+  .glass-picture {
+    height: 530px;
+  }
+}
+.glass-copy > p {
+  line-height: 1.85;
+  font-size: 15px;
+  min-height: 0;
+  color: #e2dec9;
+}
+.glass-world {
+  color: #e9d8ad;
+  padding: 120px 0 150px;
+  background: radial-gradient(ellipse at 50% 25%, #30271c, #111612 64%);
+}
+.triptych {
+  max-width: 1320px;
+  gap: 42px;
+  align-items: start;
+}
+.glass-panel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+}
+.glass-panel:nth-child(2) {
+  margin-top: 75px;
+}
+.glass-picture {
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: var(--glass-image);
+  background-position: calc(var(--panel) * 50%) top;
+  transition: filter 0.8s;
+  position: relative;
+  inset: auto;
+  aspect-ratio: 1/2;
+  width: 100%;
+  height: auto;
+  background-size: 300% 100%;
+  filter: drop-shadow(0 0 26px #d6ae4933);
+  z-index: 0;
+}
+.glass-panel:hover .glass-picture {
+  filter: drop-shadow(0 0 30px #d6ae4955) brightness(1.07);
+}
+.window-title {
+  position: relative;
+  padding: 26px 0 18px;
+}
+.window-title h3 {
+  font-size: 29px;
+  min-height: 0;
+  margin-top: 12px;
+  line-height: 1.3;
+}
+.glass-copy {
+  padding: 0;
+}
+.glass-copy .tags {
+  gap: 8px;
+  font-size: 11px;
+  min-height: 0;
+  margin: 23px 0;
+}
+.glass-copy .text-link {
+  font-size: 14px;
+}
+.glass-copy .actions {
+  gap: 14px;
+  display: flex;
+  justify-content: flex-start;
+}
+.glass-footnote {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #c7c6af;
+  max-width: 1320px;
+  margin-top: 65px;
+}
+@media (max-width: 1100px) {
+  .triptych {
+    gap: 26px;
+  }
+  .window-title h3 {
+    font-size: 25px;
+  }
+  .glass-copy .actions {
+    display: block;
+  }
+  .glass-copy .text-link {
+    margin-right: 18px;
+  }
+}
+@media (max-width: 820px) {
+  .triptych {
+    gap: 23px;
+    width: 92%;
+  }
+  .glass-panel:nth-child(2) {
+    margin-top: 35px;
+  }
+  .glass-copy > p {
+    font-size: 14px;
+  }
+  .window-title h3 {
+    font-size: 23px;
+  }
+  .glass-footnote {
+    font-size: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .glass-world {
+    padding: 100px 0;
+  }
+  .glass-world h2 {
+    font-size: clamp(31px, 6.2vw, 43px);
+  }
+  .triptych {
+    display: flex;
+    flex-direction: column;
+    width: 84%;
+    max-width: 440px;
+    gap: 64px;
+  }
+  .glass-panel {
+    width: 100%;
+    padding: 0;
+  }
+  .glass-panel:nth-child(2) {
+    margin-top: 0;
+  }
+  .glass-picture {
+    height: auto;
+    aspect-ratio: 1/2;
+  }
+  .window-title,
+  .glass-copy {
+    padding-inline: 0;
+  }
+  .window-title h3 {
+    font-size: 29px;
+  }
+  .glass-copy > p {
+    font-size: 16px;
+  }
+  .glass-copy .tags {
+    font-size: 12px;
+  }
+  .glass-copy .actions {
+    display: flex;
+  }
+  .glass-footnote {
+    display: block;
+    font-size: 13px;
+    text-align: left;
+    width: 84%;
+    max-width: 440px;
+  }
+  .glass-footnote > span {
+    display: block;
+    margin-top: 17px;
+  }
+}
+@media (max-width: 390px) {
+  .triptych {
+    width: 87%;
+  }
+  .window-title h3 {
+    font-size: 26px;
+  }
+}
