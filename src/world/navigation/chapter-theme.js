@@ -13,7 +13,10 @@ export const NAV_THEMES = {
   city: { bg: 'rgba(222,225,207,0.95)', fg: '#2d453e', line: 'rgba(46,69,54,0.24)' },
   tree: { bg: 'rgba(17,32,43,0.94)', fg: '#e8d5ab', line: 'rgba(223,195,142,0.25)' },
   glass: { bg: 'rgba(18,27,24,0.95)', fg: '#e8d5ab', line: 'rgba(223,195,142,0.25)' },
-  atlas: { bg: 'rgba(228,221,195,0.96)', fg: '#35483b', line: 'rgba(46,69,54,0.24)' },
+  atlas: { bg: 'rgba(24,30,37,0.94)', fg: '#dfe7ec', line: 'rgba(205,220,230,0.22)' }, // frost and iron
+  archive: { bg: 'rgba(32,25,18,0.94)', fg: '#ecdcb6', line: 'rgba(225,200,150,0.24)' },
+  workshop: { bg: 'rgba(38,27,19,0.94)', fg: '#eadbb8', line: 'rgba(225,200,150,0.24)' },
+  dusk: { bg: 'rgba(13,30,40,0.94)', fg: '#e8e3cf', line: 'rgba(223,216,182,0.22)' },
 };
 
 /** How long the colors take to blend into the next chapter's. */

@@ -25,9 +25,15 @@ const footer = (year) => html`
     <a href="#home">Back to the pond ↑</a>
   </footer>`;
 
-/** The closing chapter: contact channels, the letter form and the footer. */
+/**
+ * The closing chapter, back at the pond where the journey began, now at dusk:
+ * contact channels, the letter form and the footer.
+ */
 export const contact = ({ copy, contactLinks }) => html`
-  <section id="contact" class="chapter correspondence" data-theme="atlas" aria-labelledby="contactTitle">
+  <section id="contact" class="chapter correspondence" data-scene="dusk" data-theme="dusk" aria-labelledby="contactTitle">
+    <div class="scene-art dusk-pond" aria-hidden="true">
+      <img src="/art/phase2/pond-bottom.webp" alt="" width="1536" height="1024" loading="lazy">
+    </div>
     <div class="content-width contact-layout">
       <div>
         <span class="eyebrow">LEAVE A LITTLE NOTE</span>

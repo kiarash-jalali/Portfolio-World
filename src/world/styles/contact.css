@@ -5,13 +5,44 @@
   stroke-width: 1;
   width: 26px;
 }
+/*
+ * The journey ends where it began: the howz, now at dusk, with lanterns lit
+ * at its edge. The letter lies in the middle as one sheet (others.png).
+ */
 .correspondence {
   color: #34473c;
   --cream: #344b3e;
   --gold: #7e754e;
   color-scheme: light;
-  padding: 95px 0 0;
-  background: #d1d2b9;
+  padding: 140px 0 0;
+  background: #0d1d27;
+}
+.dusk-pond img {
+  object-position: 60% 50%;
+  filter: brightness(0.42) saturate(0.75) hue-rotate(8deg);
+}
+/* The bench above fades into evening; lantern light pools at the water's edge. */
+.dusk-pond::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(#24180f, transparent 20%),
+    radial-gradient(circle at 92% 30%, #ffb35a40, transparent 22%),
+    radial-gradient(circle at 6% 78%, #ffb35a33, transparent 20%),
+    linear-gradient(transparent 70%, #0b1820 96%),
+    #0b223566;
+}
+.contact-layout {
+  max-width: 1200px;
+  padding: clamp(36px, 5vw, 70px) clamp(24px, 5vw, 70px);
+  background-color: #efe6cc;
+  background-image: radial-gradient(ellipse at 15% 0%, #fff8e2, transparent 55%);
+  box-shadow:
+    0 40px 90px #000c,
+    inset 0 0 0 1px #b8a578,
+    inset 0 0 0 9px #efe6cc,
+    inset 0 0 0 10px #8f7a4f66;
 }
 .correspondence:before {
   content: "";
@@ -65,7 +96,7 @@
   font-style: normal;
 }
 .letter-form {
-  background: #e8e0c6;
+  background: #f6efdb;
   position: relative;
   padding: 38px 38px 32px;
   border: 1px solid #8c8b6855;
@@ -105,8 +136,9 @@
   max-width: 320px;
 }
 .correspondence footer {
-  border-top: 1px solid #425d4540;
+  border-top: 1px solid #e6dfc433;
   margin-top: 95px;
+  color: #ddd8c3;
   padding: 30px 0;
   display: flex;
   align-items: center;
@@ -174,10 +206,7 @@
     font-size: 9px;
   }
 }
-.correspondence {
-  background: #d1d2b9;
-  padding-top: 130px;
-}
+
 .contact-links a {
   display: grid;
   gap: 10px;
@@ -226,7 +255,10 @@
 }
 @media (max-width: 700px) {
   .correspondence {
-    padding-top: 90px;
+    padding-top: 100px;
+  }
+  .contact-layout {
+    width: 92%;
   }
   .correspondence h2 {
     font-size: clamp(42px, 8.5vw, 62px);

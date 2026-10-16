@@ -13,7 +13,7 @@ const CREEP_SPEED = 46;
 const NAV_HEIGHT = 95;
 const VISIBLE_UNTIL = 0.94;
 /** Seconds of ordinary life between special events, and before the first one. */
-const FIRST_EVENT = [5, 8];
+const FIRST_EVENT = [3, 5];
 const BETWEEN_EVENTS = [16, 26];
 
 const random = (min, max) => min + Math.random() * (max - min);

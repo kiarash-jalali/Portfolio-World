@@ -1,4 +1,4 @@
-# Pond art requests (for Kiarash to generate)
+# Art requests (for Kiarash to generate)
 
 The hero pond now works with the existing art: the shader paints the floor
 (Kuwahara brush filter, cel-shaded light web on a 12 fps cadence), the tancho koi
@@ -42,3 +42,39 @@ own the caustics:
 
 Portrait version: same elements recomposed to 1024×1536, stone steps and lilies
 down the right edge, open teal water in the upper two thirds for text.
+
+---
+
+# Atlas art requests
+
+## 3. A frontal Wall pop-up card (transparent, 2400×620)
+
+The atlas Wall and Castle Black are currently painted in canvas
+(`src/world/chapters/atlas/paper-wall.js`) because the old `wall.webp` is a
+perspective view with a diagonal base, so it can never stand on a straight
+fold. A painted card would match the mountain and snowfield cards better. Keep
+the base perfectly horizontal and the view perfectly frontal:
+
+> Use case: production asset, transparent background. A die-cut paper pop-up
+> card for a fantasy atlas: THE WALL from the far North, a colossal sheer cliff
+> of ancient blue-white ice seen exactly straight on, filling a 2400×620 sheet
+> edge to edge. Flat-topped crest with a thin line of snow and icicles, vertical
+> ice striations, faint horizontal strata, cold blue shadow toward the foot,
+> snow drifts piled along a perfectly straight horizontal base. A tiny
+> switchback wooden stair climbing the face. Same hand-painted watercolour and
+> etched-ink style as a vintage engraved map, matching the existing pop-up
+> mountains. A narrow cream paper margin around the whole silhouette, like a
+> die-cut card. No castle, no people, no text, no perspective, no ground plane.
+
+## 4. Castle Black card (transparent, 1400×520)
+
+> Same style and constraints: a die-cut paper pop-up card of a grim timber and
+> black-stone castle of the Night's Watch, seen exactly straight on: keeps,
+> towers and long halls with snow on every roof, a few warm firelit windows,
+> thin chimney smoke, a wooden palisade, standing on a perfectly straight strip
+> of snowy ground. Cream die-cut paper margin. No wall of ice behind it, no
+> text.
+
+When these arrive, drop them in `public/art/phase2/`, swap the two
+`paperCanvas(...)` calls in `scripts/page/atlas.mjs` for `painting(...)`, and set
+each card's `--foot` in `atlas.css` so its paper foot sits on the fold.

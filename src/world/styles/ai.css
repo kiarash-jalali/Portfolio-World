@@ -1,14 +1,38 @@
 /* Field notes on AI: how it is used openly, the workflow tabs and the prompt example. */
 
+/*
+ * The archive: the same candlelit desk the atlas lay on, now with a single
+ * sheet of field notes spread out on it (others.png: one central content box).
+ */
 .archive {
   color: #34473c;
   padding: 105px 0;
   --cream: #344b3e;
   --gold: #7e754e;
   color-scheme: light;
-  background: #e3ddc5;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, #4a3824, transparent 75%),
+    #1b1611;
 }
-.archive:before {
+.archive-sheet {
+  position: relative;
+  isolation: isolate;
+  max-width: 1240px;
+  padding: clamp(40px, 5vw, 72px) clamp(26px, 5vw, 76px) clamp(40px, 5vw, 64px);
+  background-color: #ebe2c6;
+  /* Rhumb lines radiating from a compass point, as on an old sea chart. */
+  background-image:
+    repeating-conic-gradient(from 4deg at 88% 14%, #7d6c4626 0deg 0.35deg, transparent 0.35deg 22.5deg),
+    radial-gradient(ellipse at 15% 0%, #fff8e0, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, #cdb98a66, transparent 60%);
+  box-shadow:
+    0 40px 80px #000b,
+    inset 0 0 0 1px #b39d6c,
+    inset 0 0 0 10px #ebe2c6,
+    inset 0 0 0 11px #8f7a4f77,
+    inset 0 0 60px #b7a06d33;
+}
+.archive-sheet::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -177,7 +201,8 @@
   line-height: 1.85;
 }
 .archive {
-  padding-top: 140px;
+  padding-top: 130px;
+  padding-bottom: 120px;
 }
 .archive-heading h2 {
   font-size: 78px;

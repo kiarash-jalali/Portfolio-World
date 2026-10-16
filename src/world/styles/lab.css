@@ -1,13 +1,48 @@
 /* The workshop: the elastic inkstone and the spring grid. */
 
+/*
+ * The workshop: a walnut workbench under a lamp, with the experiments drawn on
+ * a sheet of graph paper pinned to it at the corners (others.png: one central
+ * content box). The bench picks up from the archive desk above.
+ */
 .workshop {
   color: #34473c;
-  padding: 105px 0;
+  padding: 40px 0 120px;
   --cream: #344b3e;
   --gold: #7e754e;
   color-scheme: light;
-  padding-top: 45px;
-  background: #e3ddc5;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 45%, #6b4a2a66, transparent 75%),
+    repeating-linear-gradient(176deg, #ffffff05 0 2px, transparent 2px 9px, #00000012 9px 11px, transparent 11px 23px),
+    linear-gradient(#1b1611, #2a1d13 18%, #24180f);
+}
+.workshop-board {
+  position: relative;
+  max-width: 1240px;
+  padding: clamp(36px, 4.5vw, 64px) clamp(24px, 4.5vw, 64px) clamp(40px, 4.5vw, 60px);
+  background-color: #eeead8;
+  /* Engineering graph paper: fine squares with a bolder line every fifth. */
+  background-image:
+    linear-gradient(#5e7f8a2e 1px, transparent 1px),
+    linear-gradient(90deg, #5e7f8a2e 1px, transparent 1px),
+    linear-gradient(#5e7f8a14 1px, transparent 1px),
+    linear-gradient(90deg, #5e7f8a14 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  box-shadow: 0 34px 70px #000b, 0 0 0 1px #c9c2a4;
+  rotate: -0.4deg;
+}
+/* Brass drawing pins at the four corners. */
+.workshop-board::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 7px 7px, #f6dc8f 0 2px, #b38a3c 3px 6px, #0000 7px) 0 0 / 14px 14px no-repeat,
+    radial-gradient(circle at 7px 7px, #f6dc8f 0 2px, #b38a3c 3px 6px, #0000 7px) 100% 0 / 14px 14px no-repeat,
+    radial-gradient(circle at 7px 7px, #f6dc8f 0 2px, #b38a3c 3px 6px, #0000 7px) 0 100% / 14px 14px no-repeat,
+    radial-gradient(circle at 7px 7px, #f6dc8f 0 2px, #b38a3c 3px 6px, #0000 7px) 100% 100% / 14px 14px no-repeat;
+  filter: drop-shadow(1px 2px 1px #0006);
 }
 .workshop:before {
   content: "";
@@ -23,8 +58,6 @@
   justify-content: space-between;
   align-items: end;
   gap: 40px;
-  padding-top: 45px;
-  border-top: 1px solid #4a5d4544;
 }
 .workshop-heading h2 {
   font-family: var(--atlas-display);

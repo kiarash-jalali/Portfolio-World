@@ -23,10 +23,10 @@ const promptWorkshop = (example) => html`
     </div>
   </article>`;
 
-/** Field notes on AI: how it is used, openly. */
+/** Field notes on AI, written on an archive sheet laid out on the desk: how it is used, openly. */
 export const ai = ({ copy, aiSteps, promptExamples }) => html`
-  <section id="ai" class="chapter archive" data-theme="atlas" aria-labelledby="aiTitle">
-    <div class="content-width">
+  <section id="ai" class="chapter archive" data-theme="archive" aria-labelledby="aiTitle">
+    <div class="archive-sheet content-width">
       <header class="archive-heading">
         <span class="eyebrow">FIELD NOTES / IDEAS</span>
         <h2 id="aiTitle">Yes, I use AI.<em>and I’m good at it.</em></h2>

@@ -100,7 +100,8 @@ export function initWater(motion) {
   function drawFish() {
     const width = host.clientWidth;
     const height = host.clientHeight;
-    if (!width || !height) return;
+    // Before the first resize the koi canvas is empty, and WebGL can't upload it.
+    if (!width || !height || !koiCanvas.width || !koiCanvas.height) return;
     drawKoi(koiContext, koi, elapsed, width, height, canvas.width / width, canvas.height / height);
     upload(1, koiCanvas);
   }

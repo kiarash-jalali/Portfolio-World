@@ -78,20 +78,19 @@ Kiarash wants the code to read like **his own handwriting**: plain, readable HTM
 
 1. ~~**Live bug:** the stained-glass windows never load.~~ Fixed 16 Oct 2026 (`4fa9243`): absolute URL in JS, direct `background-image` in the no-JS fallback, regression test.
 2. ~~The code is unmaintainable.~~ Fixed 16 Oct 2026: CSS, JS and the page template are split into readable per-chapter modules (`3be2e33`, `06a4d2e`), verified identical in computed style at six viewport widths.
-3. ~~Hero: botanics smeared, water photographic, koi barely visible, letters identical tiles.~~ Reworked 16 Oct 2026: botanics recomposed (the `<img>` kept its 1024px height attribute), Kuwahara paint pass and cel-shaded caustics in `water-shader.js` (`WATER_STYLE`), three distinct koi with floor shadows (`koi.js`, tancho recolored in code), torn per-letter parchment painted in `pond/paper.js`. Optional painted replacements are specified in `resources/art-requests/pond.md`. Not yet checked on a real phone GPU.
-4. Shire: a big empty band above the scene; the subtitle is unreadable over the art; a CSS door circle sits on top of the painted door; the content cards cover the house.
-5. Gollum and Hobbit sprites are smooth painted figures, **not pixel art** as the brief and references ask.
-6. Rootine: the scene art is cropped and the project content floats in an empty dark area below it.
-7. Atlas: the Wall reads as a cut-out sticker pasted over the map, not a pop-up assembly.
+3. ~~Hero: botanics smeared, water photographic, koi barely visible, letters identical tiles.~~ Reworked 16 Oct 2026: botanics recomposed (the `<img>` kept its 1024px height attribute), Kuwahara paint pass and cel-shaded caustics in `water-shader.js` (`WATER_STYLE`), three distinct koi with floor shadows (`koi.js`, tancho recolored in code), torn per-letter parchment painted in `pond/paper.js`. Optional painted replacements are specified in `resources/art-requests/README.md`. Not yet checked on a real phone GPU.
+4. ~~Shire: empty band, unreadable subtitle, CSS door circle, cards over the house.~~ Rebuilt 16 Oct 2026 after `about.png`: storybook pages in the margins, house centred; the door leaf is a crop of the painting itself (`shire/door.js`).
+5. ~~Gollum and Hobbit are not pixel art.~~ Hand-made pixel art in `src/world/pixel/` (text grids drawn to canvas). Gollum is a state machine (`chapters/gollum.js`) with ring, sleep and visual-only word stealing (`gollum-words.js`, clone plus paper patch, DOM untouched).
+6. ~~Rootine content floats below the art.~~ Recomposed after `work1.png`: Tarnished left, Erdtree right, Rootine panel centred. Skills (`skills.png`) and the glass (`work2.png`, plaques inside the windows) were recomposed too.
+7. ~~Atlas Wall is a sticker.~~ Rebuilt as a pop-up book: the map tilts into a tabletop and cards hinge up from folds (`chapters/atlas/`). The Wall and Castle Black are canvas-painted frontal cards until painted ones arrive (`resources/art-requests/README.md`).
 8. Real-GPU, real-device QA has never been done. The previous "11 tests pass" checks DOM behavior, not visuals.
 
 ## Agreed direction (16 Oct 2026; confirm details with Kiarash as you go)
 
 - **Keep:** the section order, content, overall concepts (door, fold/unfold atlas, persistent parchment) and the strong existing paintings (Minas Tirith, Erdtree, glass triptych, the Wall/terrain/snow planes as a starting point).
 - **Done (confirmed by Kiarash):** the front-end source is rewritten into readable modules, one CSS and JS module per chapter, keeping structure, content and assets.
-- **Open:** Gollum's word stealing wraps the word in a real `<span>` (`chapters/gollum.js`), which mutates the DOM text. The rules say it should be visual only (clone plus mask).
 - **Art pipeline is hybrid:** Claude builds what it can in code (SVG, canvas, WebGL, hand-made pixel art for Gollum and the Hobbit, reworking existing assets). For new painted rasters, Claude writes precise prompts and Kiarash generates the images; Claude has no image generator.
-- **Next target:** the Shire (Known problems 4), then pixel-art Gollum and Hobbit (5). The hero pond rework is done pending Kiarash's review.
+- **Next:** Kiarash's review of the full rework (16 Oct 2026), real-device QA (problem 8), and the optional painted assets in `resources/art-requests/README.md`. AI, Lab and Contact now follow `others.png` (one central sheet each: archive desk, workshop bench, the pond at dusk).
 - Verify visually in a real browser after every meaningful change, desktop and mobile. Report what was actually tested.
 
 ## Deep context (only when needed)

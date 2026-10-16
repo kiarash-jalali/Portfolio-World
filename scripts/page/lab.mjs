@@ -35,10 +35,10 @@ const springGrid = (body) => html`
     <div id="springGrid" class="spring-grid" role="group" aria-label="Choose one of one hundred spring cells">${springCells()}</div>
   </article>`;
 
-/** The workshop: two small hands-on experiments (see chapters/lab.js). */
+/** The workshop: two small hands-on experiments on graph paper pinned to the bench (see chapters/lab.js). */
 export const lab = ({ copy }) => html`
-  <section id="lab" class="chapter workshop" data-theme="atlas" aria-labelledby="labTitle">
-    <div class="content-width">
+  <section id="lab" class="chapter workshop" data-theme="workshop" aria-labelledby="labTitle">
+    <div class="workshop-board content-width">
       <header class="workshop-heading">
         <div>
           <span class="eyebrow">FIELD NOTES / EXPERIMENTS</span>
